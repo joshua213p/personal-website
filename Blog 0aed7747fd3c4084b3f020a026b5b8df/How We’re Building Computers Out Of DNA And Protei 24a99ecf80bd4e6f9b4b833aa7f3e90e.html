@@ -1,0 +1,654 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>How We’re Building Computers Out Of DNA And Proteins</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="24a99ecf-80bd-4e6f-9b4b-833aa7f3e90e" class="page sans"><header><h1 class="page-title">How We’re Building Computers Out Of DNA And Proteins</h1></header><div class="page-body"><p id="9e2835ee-2ebe-4e2e-8bb1-24529a9ddc5f" class=""><span class="user">@Joshua Payne</span> | <time>@Mar 4, 2020</time> | <mark class="highlight-gray">8 minute read</mark></p><hr id="2ecd6705-cc47-4959-a2e7-ea4758040636"/><p id="197fd2a9-f41d-47f1-bd98-4502ed46f237" class="">Table of Contents</p><nav id="54dc8854-485d-485c-8201-52bacb091a31" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#49fb24d0-f298-4d2a-aa43-82136e856085"><strong>Biocomputing refers to computation using DNA or other organic structures.</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1ec55e8c-48d1-4921-9fe1-4f7932d425f2"><strong>Nano-biological motors are being leveraged for parallel computation.</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#fcae18cf-4271-48c5-9383-cb33fe7b4f80"><strong>The key ingredients: proteins and artificial labyrinthine structures.</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#c35bdd4d-e8d6-481c-905a-2fb06039e388">DNA also has the potential to solve computational tasks and problems.</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#10cf7903-1975-4c0b-83ca-b7437995cfcb"><strong>DNA Computing with Algorithms</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#707237f2-d985-4812-a81a-c2e4a762aa43"><strong>Self-Assembly and Programmability</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#86888d1c-6a34-4606-b98b-dad550c1aeb1"><strong>Biochips — DNA Computing through Self-Multiplication</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#fe4c87de-bf86-4d7e-8a50-6c6a0c8126fd">DNA is the future of digital data storage.</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7f2a2bda-2335-4149-aab9-df473da464e4">Digital DNA Data Storage is a 6-step Process</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b7624ed1-8480-4103-ad50-87e797468681"><strong>And that’s Biocomputing!</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#14d70d8f-41c9-4230-bfb6-c655e8ae6f9f"><strong>Biocomputing suggests several advantages over quantum and classical computation.</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#58220b0e-7c5e-4af7-a7e8-1943c82f9edc"><strong>Key Takeaways</strong></a></div></nav><p id="a27c88f0-99c0-4237-ba57-03eccff83251" class="">
+</p><p id="19868a83-84ea-4cb4-9256-b6b2cdc81a04" class="">You read the title correctly. We’ve heard of classical and quantum computing, but promising research and work suggest that future supercomputers will consist of <strong>biological components</strong>.</p><p id="e9eeef2f-b213-4280-8b8c-d785de025e44" class="">Biocomputing, or organic computing, is an emerging field of computation that’s completely different from anything we’ve seen before the 21st century — and the area is still rapidly emerging.</p><p id="c1542091-6de5-445a-88af-3fd5c44a8923" class="">So what specifically is biocomputing, and how does it work?</p><h2 id="49fb24d0-f298-4d2a-aa43-82136e856085" class=""><strong>Biocomputing refers to computation using DNA or other organic structures.</strong></h2><p id="eb247c1b-60f9-42cb-b63a-f6ae82fa1c8a" class="">The word biocomputing is pretty self-explanatory —<strong> computing systems that use biological materials</strong>. While computational biology means modeling biology on computers, with biocomputing, <strong>biology becomes building blocks for computers.</strong> We’re now entering the world of <strong>wetware</strong>.</p><p id="f38d2ff4-a5c6-4c80-b4ce-e2fc7ee1fa4c" class="">
+</p><p id="98a20a0f-2cc3-49ea-bb90-930a8857bec4" class="">This probably sounds pretty abstract and implausible, and while the technology is experimental and theoretical, we know it can work.</p><p id="e80807cd-6615-45b4-b6aa-48d084265ed0" class="">
+</p><p id="64706b4e-c055-4a41-9a1b-362616e72e89" class=""><strong>Three main sectors of biocomputing right now:</strong></p><ul id="ecd3d9b1-9a6f-49dd-ac51-c762363f0d35" class="bulleted-list"><li>Nano-biological motors: natural/synthetic living materials in parallel computational circuits 🔌</li></ul><ul id="8cbe3e14-fe18-40f5-8481-e23d2c4d0c85" class="bulleted-list"><li>DNA computing: design computational wetware from the genome 🧬</li></ul><ul id="7453ddf9-c90a-4441-b8a1-80efe9272aeb" class="bulleted-list"><li>DNA-based data storage 🤯</li></ul><p id="df273b8c-5b9d-4c09-8f2d-795853141757" class="">
+</p><p id="246e6d49-746f-4366-b2a1-a2d217fc7d01" class="">Before we dive into each of these points, it’s important to internalize that <strong>computation has always existed on a cellular level.</strong> DNA stores the core data of who we are in the form of base pairs -&gt; RNA inputs data -&gt; ribosomes perform logic operations -&gt; outputs are in the form of synthesized proteins.</p><p id="cef76e6a-cb56-43d2-90ce-241d37e73eff" class="">In a way, our bodies function as computers — with biocomputing we extrapolate and model these processes physically, outside of nature.</p><h2 id="1ec55e8c-48d1-4921-9fe1-4f7932d425f2" class=""><strong>Nano-biological motors are being leveraged for parallel computation.</strong></h2><p id="50727b0e-a076-4184-a8f8-f2cfe5f1ad5f" class="">Through leveraging molecular machines at the nanoscale, past experiments and research have shown how these ‘nano-biological’ motors are the future of parallel computation.</p><p id="6fedba96-c9c3-4bb4-9864-c8d407d75c0d" class="">With ordinary computers (like the one you’re using now 😉), tasks are done <strong>sequentially</strong>. Multiple tasks done simultaneously are actually lightning-fast switches between tasks within your processor. To exponentially increase the capabilities of our computers, <strong>parallel computing</strong> is necessary — multiple tasks <em>truly</em> being done simultaneously.</p><p id="232b6e12-9e95-4d0b-af16-94f9e80a8311" class="">Parallel computing through nano-biological motors could be our new approach. Not only is there the potential for more complex computation, but cost and energy efficiency are also possible. In fact, <strong>nano-biological motors use 1% of the energy consumed by modern electronic transistors</strong>.</p><p id="1c4521fa-5ff1-4de3-8336-6045863595e5" class="">
+</p><p id="1f8dcc97-f0ff-4c38-bcb8-bf71589a1ef2" class="">So how do they actually work?</p><h3 id="fcae18cf-4271-48c5-9383-cb33fe7b4f80" class=""><strong>The key ingredients: proteins and artificial labyrinthine structures.</strong></h3><p id="40c36a6b-5df3-43f5-b17a-3e79aa74f0ed" class="">Extremely small maze structures are built out of artificial components, with pathways and exits representing answers to computational problems/tasks. <strong>Myosin guides protein filaments alongside artificial pathways</strong> — thus motors moving through a maze, with their solution representing the answer to a computational problem.</p><figure id="5e8af4d2-988f-4bc6-9377-a5dc59ee02da" class="image"><a href="How%20We%E2%80%99re%20Building%20Computers%20Out%20Of%20DNA%20And%20Protei%2024a99ecf80bd4e6f9b4b833aa7f3e90e/giphy_(16).gif"><img style="width:672px" src="How%20We%E2%80%99re%20Building%20Computers%20Out%20Of%20DNA%20And%20Protei%2024a99ecf80bd4e6f9b4b833aa7f3e90e/giphy_(16).gif"/></a></figure><p id="b325896c-87cb-498f-b7f1-9941cf31facc" class="">These biocomputers are the size of a book, with the <strong>same computational power for mathematical problems as a supercomputer</strong>. Additionally, this model was able to solve the ‘Subset Sum Problem’ faster than classical, sequential computers. The advantages are clear — all because of parallel computing!</p><p id="57c5a11c-ac9b-4116-89e2-f3c64151e052" class="">
+</p><p id="817146d8-3fb9-467a-b776-d2716cc29a22" class="">Check it out!</p><figure id="25b300a3-6220-4797-ae44-e7a8e02c7f07" class="image"><a href="How%20We%E2%80%99re%20Building%20Computers%20Out%20Of%20DNA%20And%20Protei%2024a99ecf80bd4e6f9b4b833aa7f3e90e/1_OyyO64KtoLhHvoTWJJLV8A.gif"><img style="width:320px" src="How%20We%E2%80%99re%20Building%20Computers%20Out%20Of%20DNA%20And%20Protei%2024a99ecf80bd4e6f9b4b833aa7f3e90e/1_OyyO64KtoLhHvoTWJJLV8A.gif"/></a><figcaption>           finding multiple solutions in parallel</figcaption></figure><p id="3f30d80d-f2fa-4bb1-b6a1-0fc88987cb0a" class="">
+</p><h2 id="c35bdd4d-e8d6-481c-905a-2fb06039e388" class="">DNA also has the potential to solve computational tasks and problems.</h2><p id="5023c5a9-68e2-4510-b9ce-488489a7a66c" class="">Nano-biological molecular machines that move through computational mazes are cool, but DNA (deoxyribonucleic acid) has also shown high potential for computation. With DNA computing, silicon chips are replaced with strands of DNA.</p><figure id="8d44fffe-7bfa-44e7-9c32-e7c00746b05d" class="image"><a href="How%20We%E2%80%99re%20Building%20Computers%20Out%20Of%20DNA%20And%20Protei%2024a99ecf80bd4e6f9b4b833aa7f3e90e/Untitled.png"><img style="width:245px" src="How%20We%E2%80%99re%20Building%20Computers%20Out%20Of%20DNA%20And%20Protei%2024a99ecf80bd4e6f9b4b833aa7f3e90e/Untitled.png"/></a></figure><p id="d1c116d3-9937-43ef-9df2-c078cc918d4a" class="">
+</p><p id="dc1626e0-8f98-46a1-a656-8bb142c94f28" class=""><em><strong>Quick refresh:</strong></em> in strands of DNA, the building blocks of all organisms, information is represented using A’s, G’s, C’s, and T’s -&gt; Adenine, Guanine, Cytosine, and Thymine. These are called <strong>nucleotides</strong> or <strong>bases</strong>. Pairs of letters in double-helical DNA are referred to as <strong>base pairs</strong>.</p><p id="e8f1cca2-892f-4062-a1b8-873571a6f814" class="">
+</p><figure id="281f45a9-05b0-49d3-bc95-1fec390c961f" class="image"><a href="How%20We%E2%80%99re%20Building%20Computers%20Out%20Of%20DNA%20And%20Protei%2024a99ecf80bd4e6f9b4b833aa7f3e90e/Untitled%201.png"><img style="width:400px" src="How%20We%E2%80%99re%20Building%20Computers%20Out%20Of%20DNA%20And%20Protei%2024a99ecf80bd4e6f9b4b833aa7f3e90e/Untitled%201.png"/></a></figure><p id="b59b7731-ed1e-4718-815d-cb5e520ff0d5" class="">
+</p><h3 id="10cf7903-1975-4c0b-83ca-b7437995cfcb" class=""><strong>DNA Computing with Algorithms</strong></h3><p id="8b0f39e7-f9d2-481e-81f0-a133a0bea780" class="">In DNA Computing, an algorithm’s input is represented as a sequence of DNA. Instructions are then carried out by lab procedures on DNA, like gene editing. The result (answer to the computational problem) is some property of the final DNA molecule.</p><p id="4506852d-e4ab-4b98-9c37-5baa277df58e" class="">The most prevalent example of DNA computing in action is <strong>Adleman’s Experiment</strong> — following the aforementioned process, DNA molecules were used to solve the Travelling Salesman problem.</p><figure id="60aea3cd-5953-4819-b6bd-218e3f1236cf" class="image"><a href="How%20We%E2%80%99re%20Building%20Computers%20Out%20Of%20DNA%20And%20Protei%2024a99ecf80bd4e6f9b4b833aa7f3e90e/Untitled%202.png"><img style="width:700px" src="How%20We%E2%80%99re%20Building%20Computers%20Out%20Of%20DNA%20And%20Protei%2024a99ecf80bd4e6f9b4b833aa7f3e90e/Untitled%202.png"/></a></figure><p id="ef9bef1d-be5e-41b6-9c35-4e550a1ca5c3" class="">Adleman’s experiment opened up the possibility of programmed biochemical reactions. However, this was only on a small scale -&gt; as problem complexity increases, so will DNA volume. But most importantly, the idea of DNA for parallel computation checks out —<strong> biological components can act on DNA strands simultaneously, enabling parallel computing.</strong></p><p id="dc89da94-13c2-4182-b69a-1a9a6f73b127" class="">
+</p><h3 id="707237f2-d985-4812-a81a-c2e4a762aa43" class=""><strong>Self-Assembly and Programmability</strong></h3><p id="196eb3dc-e266-451b-8e67-8ef0979bffad" class="">Strands of DNA also show promise to become programmable in terms of self-assembly, structure, and behavior — like computer-based robotic systems. Programmable biochemical systems that can sense surroundings, act on decisions and more are being developed. That being said, this isn’t necessarily artificial intelligence. Instead, DNA molecules execute these functions based on reactions from stimuli/interaction.</p><p id="06701459-346c-4c5c-9604-9613dbf8597b" class="">A huge area in this field is <strong>DNA Origami</strong> -&gt; the ability for single (1D) strands of DNA to form into 2D shapes and sheets, and then self-assemble into 3D scaffolds.</p><p id="38239d87-3806-410e-8967-bb64c821aa13" class="">
+</p><figure id="d568f789-a992-4cec-88d3-81753ebbde0d" class="image"><a href="How%20We%E2%80%99re%20Building%20Computers%20Out%20Of%20DNA%20And%20Protei%2024a99ecf80bd4e6f9b4b833aa7f3e90e/1_BPTCQZ9h5uf1vd1ltd4BDg.gif"><img style="width:720px" src="How%20We%E2%80%99re%20Building%20Computers%20Out%20Of%20DNA%20And%20Protei%2024a99ecf80bd4e6f9b4b833aa7f3e90e/1_BPTCQZ9h5uf1vd1ltd4BDg.gif"/></a></figure><p id="099eca5c-e35a-4448-b633-59e5c3149e0e" class="">
+</p><h3 id="86888d1c-6a34-4606-b98b-dad550c1aeb1" class=""><strong>Biochips — DNA Computing through Self-Multiplication</strong></h3><p id="320b0c89-2691-4b7a-96a3-a4ad4a8ac97f" class="">In short, silicon transistors and chips are becoming obsolete. They’ve reached their maximum potential for optimal size and computational capabilities. Functionally, our silicon tech has met their atomic limit. Biocomputing to the rescue!</p><p id="6c82e298-a39c-45d8-8a81-ca113bb80c77" class="">DNA sequences are the building blocks of ‘biochips’ — demonstrating their direct potential to replace silicon chips. Millions of DNA strands multiply themselves in number iteratively to perform calculations. With biochips, as opposed to Adleman’s experiment, DNA computes through self-multiplication instead of editing within a lab.</p><p id="c5c76256-2b07-47c3-a0e6-be0b6d90be9b" class="">Think of a hydra — when you cut off one of their heads, two more grow back. By the same token, these genetic sequences expand as more computation is performed. Therefore, <strong>DNA computers expand as they solve computational problems and tasks.</strong></p><p id="644967a3-f6cf-4601-93da-6abbeac330b7" class="">
+</p><figure id="bfc545d7-2e0b-4adb-99ac-0e09b9cdb2be" class="image"><a href="How%20We%E2%80%99re%20Building%20Computers%20Out%20Of%20DNA%20And%20Protei%2024a99ecf80bd4e6f9b4b833aa7f3e90e/1_ESjWFIAvpIV2PckKhU5C4w.gif"><img style="width:480px" src="How%20We%E2%80%99re%20Building%20Computers%20Out%20Of%20DNA%20And%20Protei%2024a99ecf80bd4e6f9b4b833aa7f3e90e/1_ESjWFIAvpIV2PckKhU5C4w.gif"/></a></figure><p id="e4086f73-f745-4ed3-b938-f2c98567a6c3" class="">
+</p><p id="03155808-3e6e-4ca6-8a44-b11391c8153b" class="">In summary — <strong>DNA has the potential to pioneer small-scale and effective computation.</strong></p><p id="1e920943-6038-45e2-8217-004819f06ecf" class="">
+</p><h2 id="fe4c87de-bf86-4d7e-8a50-6c6a0c8126fd" class="">DNA is the future of digital data storage.</h2><p id="a326b32f-11c6-48db-b9b9-f5a440aeb0a8" class="">In my opinion, this is the cream of the crop when it comes to biocomputing. Not just because of coolness, but because of its potentially <strong>massive</strong> implications.</p><p id="1192163f-b55b-494b-8c91-ed93855f3e48" class="">Technology is at the forefront of society — whether for education, finances, entertainment, or dating. While obviously providing several benefits, an issue is exponentially growing on a daily basis — <strong>data generation</strong>. With over 80% of America owning a smartphone (not to even mention the rest of the world), our tech usage rapidly generates and creates data. Despite controversy around topics of data collection, a key problem lies with this phenomenon — we don’t have enough storage.</p><p id="31ffc895-0309-462f-87d8-8ceb8bffa758" class="">In fact, conservative estimates predict that by 2025, data storage systems will only be able to store half of our generated data.</p><p id="44e9fc7d-7e1f-49e5-826c-2336d9c76012" class="">
+</p><figure id="9d765381-d949-44e6-99dd-72ff9da65a31" class="image"><a href="How%20We%E2%80%99re%20Building%20Computers%20Out%20Of%20DNA%20And%20Protei%2024a99ecf80bd4e6f9b4b833aa7f3e90e/Untitled%203.png"><img style="width:561px" src="How%20We%E2%80%99re%20Building%20Computers%20Out%20Of%20DNA%20And%20Protei%2024a99ecf80bd4e6f9b4b833aa7f3e90e/Untitled%203.png"/></a></figure><p id="fa990fe2-3c9c-4a25-a90e-0439d065aadf" class="">
+</p><p id="2f100a3b-4139-4ef9-a8c2-4cb3605a9fa8" class="">Building more hard drives and expanding AWS aren’t the best solutions to the problem, economically and feasibly. Ideally, data needs to be densely stored at an extremely small scale.</p><p id="ea38c100-84f0-440e-95d0-4078cedd9caa" class="">If DNA already stores data in the form of nucleotides in organisms… and is <em>very</em> small… what better way to tackle this issue? Introducing <strong>DNA Data Storage</strong>.</p><p id="41893271-55af-41c5-827e-cb9031a4cbb7" class="">DNA is extremely small, stable, and will never be obsolete — they’ve existed since the beginning of life.</p><p id="23a7d304-495c-4a68-9abf-c036958907a8" class="">
+</p><p id="2f6377f8-f663-45a0-88e0-431743c34495" class=""><strong>A single nucleotide can take up four values, so they’re analogous to two binary bits:</strong></p><ul id="d8a8b16a-dbf1-4b16-900e-55899d9ca00d" class="bulleted-list"><li>A -&gt; 01</li></ul><ul id="6b9fbd1f-5871-4572-a04f-1d264e8857e9" class="bulleted-list"><li>G -&gt; 10</li></ul><ul id="e60713df-e23d-46c4-adeb-a6b507d8c4df" class="bulleted-list"><li>C -&gt; 00</li></ul><ul id="29f799e3-957b-4585-9249-cae10fee8a1e" class="bulleted-list"><li>T -&gt; 11</li></ul><p id="76bd71fa-795f-42de-81f1-2605334420d5" class="">
+</p><p id="0e29a1bc-739e-4439-9946-6116a213bba6" class="">A typical human cell has 6 billion base pairs in the form of a double helix, organized in chromosomes. Scientists estimate that a single cell of DNA can encode 1.6 gigabytes — which scales to 100 zettabytes in the entire human body. For context, 100 zettabytes are more than humans have collectively generated throughout time.</p><p id="b16d02dc-b4f5-4fbf-bce8-1f37bd2e5e24" class="">Meaning, by leveraging DNA — we could store all the data the world has generated throughout history. And it would take up the amount of space as a <strong>human body</strong>.</p><p id="5f76bffa-eced-4824-b0f1-1a60a4c5c3ae" class="">
+</p><h3 id="7f2a2bda-2335-4149-aab9-df473da464e4" class="">Digital DNA Data Storage is a 6-step Process</h3><figure id="1f07a1f6-ecdf-4766-a4fe-539b2d2940af" class="image"><a href="How%20We%E2%80%99re%20Building%20Computers%20Out%20Of%20DNA%20And%20Protei%2024a99ecf80bd4e6f9b4b833aa7f3e90e/Untitled%204.png"><img style="width:459px" src="How%20We%E2%80%99re%20Building%20Computers%20Out%20Of%20DNA%20And%20Protei%2024a99ecf80bd4e6f9b4b833aa7f3e90e/Untitled%204.png"/></a></figure><p id="b18b01c1-c7e1-4986-84e6-407b02b659dd" class="">
+</p><p id="f39a77cf-167e-492e-8f72-ec19b181e22c" class=""><strong>Encoding: </strong>the binary data that needs to be stored on the DNA sequence is converted to nucleotide values.</p><p id="54fe3f9f-dab9-43d3-8e6a-f1d37075dbd2" class=""><strong>Synthesis: </strong>our encoded DNA sequence is actually designed and made through synthetic biology/gene engineering</p><p id="6d8d96d2-94a7-4b3b-97f2-26e5449b13bf" class=""><strong>Storage:</strong> the encoded DNA is stored for later usage</p><p id="319b93a0-8d01-43d5-80f5-72e2624a55b0" class=""><strong>Retrieval:</strong> when it’s needed, DNA is retrieved</p><p id="8ba69a48-96be-4078-9224-8b83c8ff943a" class=""><strong>Sequencing:</strong> the DNA is sequenced or ‘read’, reading and writing the molecule’s nucleotide sequence</p><p id="68f716d4-ceea-42c5-bcc6-93cd19f295a3" class=""><strong>Decoding</strong>: the sequenced DNA (list of A’s, G’s, C’s and T’s) is converted back into binary and is readable by a classical computer.</p><p id="83f10bb4-2a39-42c5-afe1-5ee3db23fd0b" class="">
+</p><p id="4cb8b485-cf93-4968-8ceb-ab1f94cf92d6" class="">The process for data storage may seem complex, but as sequencing and synthesis technologies continue to improve over time, this framework will eventually become very simple. Right now, <strong>Twist Bioscience</strong> uses silicon as a substrate for DNA synthesis. They own a novel platform for manufacturing synthetic DNA on a massive, parallel scale — leaving little boundaries for effective and efficient DNA data storage.</p><p id="882b6c69-1eb4-4e42-b0da-22ae9409942b" class="">
+</p><p id="c7c2a5df-8119-4d1f-88e3-1a3315f7f624" class="">Most importantly, the advantages of DNA are clear and powerful:</p><ul id="9987a39b-a6cd-4c18-b26d-88872c14b581" class="bulleted-list"><li>high storage density</li></ul><ul id="37856f2c-c118-49bb-9846-bd054b641574" class="bulleted-list"><li>can be 3D, as opposed to 2D disks or chips</li></ul><ul id="51517fbc-01ca-42d4-b3c4-13d780849f10" class="bulleted-list"><li>can last centuries/millennia before maintenance is required</li></ul><ul id="230b8a47-cfa8-4e84-8311-3a20308d3306" class="bulleted-list"><li>large demand and economic impact</li></ul><p id="6d439bb6-0abb-4d70-b170-f5dd3e79b0d6" class="">
+</p><p id="8d8bca90-bcc5-4e31-a9aa-a2deacbe4ad9" class="">Material costs of<strong> less than a fraction of a penny per gigabyte</strong> of stored data, is estimated for the encoding and decoding for DNA. Compared to average USB costs of $3/gb, the overwhelming benefits are clear.</p><h2 id="b7624ed1-8480-4103-ad50-87e797468681" class=""><strong>And that’s Biocomputing!</strong></h2><p id="4a3896fa-dc6f-466d-a715-f3711b746fe4" class="">The race has just begun to discover and identify ways DNA + other molecular structure can revolutionize computation. Experimentation and research has been done, so we know ‘it works’ — but to truly build super-bio-computers we need exponentially more awareness and people working in this field.</p><p id="e9fd8070-10a8-4f30-b8b1-083c9e9da603" class="">While the theory in itself is awesome, there’s genuine massive potential economically and computationally through biology.</p><h3 id="14d70d8f-41c9-4230-bfb6-c655e8ae6f9f" class=""><strong>Biocomputing suggests several advantages over quantum and classical computation.</strong></h3><p id="17294345-a907-437e-8afd-356da045b11b" class="">While the idea of futuristic computers made from cellular components is extremely interesting, <strong>there’s a genuine opportunity for biocomputing in the world of computation.</strong> DNA is highly stable and in contrast to quantum computing, doesn’t need to be stored at unnatural temperatures for functionality. In the case of digital DNA storage, we anticipate centuries before error-correction processes are necessary.</p><p id="8833e5b4-6e24-4917-a272-7e80ba7c29ec" class="">The overwhelming advantage is how <strong>better computation can be achieved on a radically smaller scale</strong>. As opposed to bulky classical supercomputers and quantum computers, at the size of a book or human body, we can satisfy the computational and storage needs of the entire world’s population.</p><p id="9ed6a87d-f912-4314-8178-cf0a347810d6" class="">Crazy.</p><p id="2ce8e376-c64f-4ff3-a28e-a0c80ecd666d" class="">
+</p><hr id="83afd2a6-4b70-4a4d-aa94-4b2c6ad5cd0b"/><h3 id="58220b0e-7c5e-4af7-a7e8-1943c82f9edc" class=""><strong>Key Takeaways</strong></h3><ul id="432b74d4-b82f-4dc7-8e2c-0907aaffe343" class="bulleted-list"><li>Biocomputing -&gt; computers partly or wholly made of biological materials</li></ul><ul id="8d29c0fa-91ce-4137-bead-ae621af77eac" class="bulleted-list"><li>Proteins and DNA sequences are being leveraged for effective and small-scale comptuation, specifically with solving problems and storing data</li></ul><ul id="3591fb93-4487-42e1-b854-beeefc432a20" class="bulleted-list"><li>Nano-biological motors -&gt; using myosin to guide protein filaments within mazes for computation</li></ul><ul id="ef391e31-77fe-41a9-bffa-6f3189639a82" class="bulleted-list"><li>The economic potential of biocomputing is massive, and can solve world issues like data storage</li></ul><p id="11598f00-f1db-4193-92b2-679e02261d9d" class="">
+</p></div></article></body></html>
