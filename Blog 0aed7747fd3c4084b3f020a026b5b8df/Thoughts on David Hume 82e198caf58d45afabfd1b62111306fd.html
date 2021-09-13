@@ -1,0 +1,648 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Thoughts on David Hume</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="8c9c1bda-c058-422f-9f00-dec5f54872d1" class="page sans"><header><h1 class="page-title">Thoughts on David Hume</h1></header><div class="page-body"><p id="56e60294-9c83-490c-abb9-c97517554952" class=""><mark class="highlight-gray"><span class="user">@Joshua P.</span></mark><mark class="highlight-gray"> | </mark><mark class="highlight-gray"><time>@December 19, 2020</time></mark><mark class="highlight-gray"> | 11 minute read</mark></p><hr id="e9d171f7-aa65-4bdb-8ce2-583b022ffae1"/><p id="78254950-b4b8-4d05-84fa-1b08a430706c" class="">
+</p><p id="6b79e3e0-a5f1-4740-bb44-5547be435195" class=""><span style="border-bottom:0.05em solid">Table of Contents</span></p><nav id="6c3e217a-402f-444a-a10a-06dbc742d5b0" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#84a0af83-9667-43b7-8a03-adf6cb4bf325">Passions and Reason</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#42e2fe8f-428b-4803-aa1c-9f3859d00c41">Religion and Reason</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1c99c74a-19d2-4269-bc4d-31cedaec2764">Belief</a></div></nav><p id="57a57795-26b0-4895-9642-41065a909a97" class="">
+</p><div id="16bc8204-7508-4d0d-b93d-1d45f9e110c0" class="column-list"><div id="48b4b85f-a6e0-4d15-8ac9-f03d061ef47d" style="width:50%" class="column"><p id="2a6946ce-d581-4d58-a8d9-de68ff2baca4" class=""><mark class="highlight-orange"><strong>David Hume</strong></mark> was a philosopher in 18th century Scotland. He&#x27;s remembered for his skeptical and contrarian beliefs relative to other thought leaders of his time, like John Locke and Rene Descartes [<a href="https://joshua-payne.medium.com/the-philosopher-of-little-knowledge-683694f31521">read my thoughts on him here</a>]. </p><p id="16319245-b5e9-4aee-9b90-92454769886d" class="">
+</p><p id="a2f14f93-ac7f-491c-a5aa-67cdb6afe7c6" class="">Some of his most influential and thought-provoking philosophies revolve around concepts of morality, reasons vs passions, self, religion (as always), free-will, and cause-effect relationships. Below, I detail a couple of these and share my thoughts.</p></div><div id="eaaf09c0-81b2-495e-a4c0-93ab6427529a" style="width:50%" class="column"><figure id="82e198ca-f58d-45af-abfd-1b62111306fd" class="image"><a href="Thoughts%20on%20David%20Hume%2082e198caf58d45afabfd1b62111306fd/Untitled.png"><img style="width:288px" src="Thoughts%20on%20David%20Hume%2082e198caf58d45afabfd1b62111306fd/Untitled.png"/></a><figcaption><a href="https://www.nationalgalleries.org/art-and-artists/2775/david-hume-1711-1776-historian-and-philosopher">Source</a></figcaption></figure></div></div><p id="da4f97f9-9d95-4f84-b411-ebd7512b890a" class="">
+</p><h3 id="84a0af83-9667-43b7-8a03-adf6cb4bf325" class="">Passions and Reason</h3><blockquote id="ad18ee47-f866-4e91-9512-b5638ef5bb80" class="">“Reason is, and ought only to be the slave of the passions, and can never pretend to any other office than to serve and obey them.”</blockquote><p id="846ccfcd-2543-4f48-bce4-6020f36d2922" class="">
+</p><p id="ea7102ab-2e0f-493d-869f-6aa8abc945a3" class=""><strong>Weight of Passions and Reason on Decision-Making</strong></p><p id="63b4b274-297e-4a71-abc4-84359fd55f84" class="">Hume thought that humans were more influenced by passions (emotions) than reason. Instead of reason driving our actions, his view was that all of our convictions are determined and acted upon because of our passions. Reason could lead to motivation (an emotion) to act on a will, but ultimately, Hume thought that the will itself and our ability to act on it was determined by how our emotions. </p><p id="5e86d211-4c4d-490f-9889-cf4dd2af2112" class="">For example, think of someone who&#x27;s chronically obese. They likely know they should be eating healthier and exercising because they&#x27;d be in better shape, and therefore in better well-being (leading to increased happiness). According to Hume, this chain of <em>reason </em>for losing weight alone wouldn&#x27;t be enough to make this person change their exercise and eating habits. If they had a strong <em>desire </em>to look like a bodybuilder, or this chain of reason <em>motivated </em>them, the chances of them taking action about their obesity is much higher. Hume considered motivation-from-reason and desire emotions - and that they were integral for humans to do anything, or want to do anything.</p><p id="1915877b-fb63-48e3-91ba-61a4a1e6fbbf" class="">This was where David went against philosophical rationalists. While he saw how reason was useful, he assigned less value to it than them and thought the impact of emotions on humans was greater, and that it should be acknowledged.</p><p id="18f168ed-7102-4638-8c81-c1080fb38d5d" class="">Rationalists often thought that emotions should conform to reason — if an emotion is illogical and has little utility when acted upon (utility = assessment of positive and negative consequences of actions to the receiver), the beholder shouldn&#x27;t have them. However, the idea of controlling your emotions in the name of reason might not be possible if you believe reason is, in reality, the slave of the passions.</p><p id="151018d2-753b-4e79-8dad-c4019f48a5b3" class="">I think that we can resist or avoid emotions, deemed as unuseful or illogical through reason, through motivation created by that reason component. In my view, reason and emotions can align without emotions having to be boxed by reason. Even if emotions are ultimately necessary for acting on will, I think they can often be incited or created through reason.</p><p id="e60de6bd-fd0c-4bb9-a0d5-8e5bbe77bb32" class="">To explain this more clearly with an example: imagine you&#x27;re constantly jealous of someone you know and what they&#x27;ve accomplished. Now, imagine you thought and found reasons why it makes sense to not be jealous; increased happiness, less insecurity, less toxic competition, etc. Recognizing and understanding the benefits of avoiding this emotion you constantly have could <em>motivate</em> you (incite an emotional response of motivation), which could then cause you to take action and find ways to tackle the reasons behind you&#x27;re jealousy.</p><p id="dd195b15-5008-4841-9256-5ef1f18e40bc" class="">While motivation had to be instilled in you to take action, it only existed because of you sought and acknowledged reasoning. Ultimately, while reason is a slave to passions, reason caused you to shift your emotions with motivation as the vehicle.</p><p id="1f41a554-0b36-4b8f-b30f-61bfde0768c5" class="">So while I&#x27;d agree with Hume&#x27;s thoughts around the importance of emotions for determining and acting on wills, I think reason is often used to <em>create </em>those emotions and thus still has high importance and influence.</p><p id="e3e51b54-ea88-423c-8158-6fc565e2beff" class="">I think that reason and passions work against each other - instead they can influence each other to achieve a goal. Thus, I disagree with the Platonic outlook on emotions vs. reason, which considers them stallions running in opposite directions.</p><p id="01b1293a-3c6a-4b1a-8821-3b3fbe81491a" class="">
+</p><p id="5159c993-b43c-4a9a-825f-89a41150bcbb" class=""><strong>Rationalism; The Search For Reason</strong></p><p id="3c9312f3-6f25-49db-924d-d46099fa3b2e" class="">Descartes sought to rebuild knowledge from first principles purely through reason. Hume disagreed with this and other rationalist-centered philosophies of Descartes often.</p><p id="c9100fe2-f905-4650-ad74-953dd7d1f79f" class="">David thought that the most important measure of a piece of common knowledge&#x27;s validity is its utility, not its objective truth. Unlike Descartes, he wasn&#x27;t concerned about verifying what we know to be true through absolute rationalism. In fact, Hume thought that trying to be rational about everything was a special kind of madness, and there are common truths/things not based in absolute rationalism that it makes sense to just subscribe to.</p><p id="94c968c1-1fcd-4122-bbb7-ca2fdbdbde23" class="">As mentioned in my <a href="https://joshua-payne.medium.com/the-philosopher-of-little-knowledge-683694f31521">Descartes blogpost</a>, I also don&#x27;t think absolute rationalism makes sense. It&#x27;s impossible and impractical, to my knowledge, to find truths through pure reason that can withstand unfalsifiable claims. However, I value rationalism that&#x27;s based off of common wisdom and empirical evidence to come to other conclusions with reason.</p><p id="433cde10-88b2-4f25-9eff-9d81da03c22d" class="">I think the search for knowledge from pure reason is interesting and admirable in the sense that it seeks objective truths. If a claim built from pure reason was considered true, to me, this would be more reliable than a piece of ordinary, unprovable, high-utility piece of wisdom considered true. That being said, I partially agree with Hume - I think bulletproof, absolute rationalism is impossible to attain and therefore impractical.</p><p id="cb5fe339-aa4f-4d37-9ff6-061102dd38e9" class="">I also think that the utility of ideas is an important and necessary way to assess ideas instead of provable truth. For example, some people think that religion is important regardless of its absence of provable truth because it provides a source of meaning for civilizations. </p><p id="5da45671-ea6b-4738-806a-09c8d6a48f32" class="">
+</p><h3 id="42e2fe8f-428b-4803-aa1c-9f3859d00c41" class="">Religion and Reason</h3><p id="b8844f86-0a23-4c17-b31f-e6a86d6765d1" class="">This ties into my next area of thoughts about Hume&#x27;s philosophies. I really agree with his opinions on rationalism and religion.</p><p id="baadfc4d-4b80-4b5c-9ecb-4d272a22becf" class="">When diving into Descartes before, I often didn&#x27;t see the logic in his trying to prove the existence of God from a rationalistic perspective. I don&#x27;t think it&#x27;s possible because a god-like figure would likely be beyond human conception. </p><p id="06df9573-7203-47bb-82b7-03623f92a73d" class="">David said it first - he acknowledged that religion isn&#x27;t based on reason. Thus, he didn&#x27;t think arguments through rationalism made sense. Instead, he thought the fact that religion works and is useful is a justification for believing in or supporting it. Despite its flaws, David saw the utility of religion to society.</p><p id="d4794298-dfe0-4421-8c09-640492725c6d" class="">Maybe some people aren&#x27;t comfortable with subscribing to things not based in reason and logic, regardless if the idea has utility, and that&#x27;s why rationalism is sought. I wonder if any innate or environmental factors determine how comfortable people are with the concept of belief without heavy logical backing.</p><p id="6cc631c2-685f-438a-97f0-f3da6049046b" class="">If you&#x27;re uncomfortable with believing in religion because of a lack of bulletproof rational arguments, it&#x27;s possible you&#x27;d be uncomfortable believing in anything since nothing can be based on absolute rationalism. However, for something like believing our senses, rationalists can at least rely on empirical evidence. Such experiential proof of a cause for belief doesn&#x27;t usually exist in the same magnitude for religions.</p><p id="fd0ec6c6-b525-48ab-b704-be28242d7e4a" class="">
+</p><h3 id="1c99c74a-19d2-4269-bc4d-31cedaec2764" class="">Belief</h3><p id="f2cba6ae-48e0-4da1-8c55-3e86b8d6c060" class="">In fact, David Hume thought that belief comes from the association of expectation and experience - if aspirin cleared your headache last week, you&#x27;d expect or <em>believe</em> it to clear your headache again → a conclusion through belief based on that past empirical evidence. According to Hume, empirical explanations give us the propensity to make causal inferences, and the way those inferences lead to belief.</p><p id="b8fb41be-0d1a-40eb-b4fa-ad3d2b2bfb1b" class="">Would this distinguish belief from the natural and the supernatural, where a lot of people believe in the supernatural without direct experiences to justify so? I think that you can believe in something as a result of experiences, <em>even </em>if those experiences aren&#x27;t your own. </p><p id="5392f02d-a248-482e-9a3b-a1a0fed2eac9" class="">In the case of aspirin, you believe aspirin can clear a headache because of a past successful experience. In the case of religion, you could believe that a God exists because, in holy scriptures, people from ancient civilizations detail <em>their </em>experiences with a God → which you could use as your cause for believing in one. You&#x27;re still using an experience to infer that a God exists, which you could choose to believe in.</p><p id="b20889fc-c024-429f-821e-27d22c740d4e" class="">It&#x27;s also possible that this idea of experiences as a cause for belief doesn&#x27;t hold up in all use cases, particularly when people believe in things they can&#x27;t directly experience. </p><p id="d68f6fc0-fbfb-427b-bfcb-7cb9b7cb76f8" class="">
+</p><hr id="38e46526-c82f-439f-b499-aed366bdacee"/><p id="6bb92487-73fd-4c42-a125-e3a0d0d8ea81" class="">
+</p><p id="2d184add-9acc-4e91-9648-5c9762f769bc" class="">I find Hume so interesting because he willingly went against respected philosophers and confidently denounced rationalism - something so common and respected. According to accounts of him, he was also just a nice, charismatic person to be around. Compared to Socrates and Descartes, this is unordinary for philosophers. I really admire his courage and ability to disagree with philosophical status quo&#x27;s.</p><p id="b53e44f6-9064-477b-bd47-5638af2dbe38" class="">
+</p><p id="5c63ca0b-bc0d-4287-ac3d-8bad0dfcfe2a" class="block-color-gray">Thanks for reading!</p><p id="989fffc7-9661-4248-82fa-9b041ec17fcf" class="">
+</p></div></article></body></html>

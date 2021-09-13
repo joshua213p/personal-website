@@ -1,0 +1,644 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Nietzsche was wrong about some stuff</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="6ad271b1-4355-4dc4-be12-4cf7bc2ea575" class="page sans"><header><h1 class="page-title">Nietzsche was wrong about some stuff</h1></header><div class="page-body"><p id="ba692faa-0887-4f84-b2b2-5276e334347a" class=""><mark class="highlight-gray"><span class="user">@Joshua P.</span></mark><mark class="highlight-gray"> | </mark><mark class="highlight-gray"><time>@September 27, 2020</time></mark><mark class="highlight-gray"> | 9 minute read</mark></p><hr id="d0a18f2e-1c49-4573-a4f2-1572d8153ff7"/><p id="93ff8188-1e83-46eb-9fc9-a9675026dc6d" class="">
+</p><p id="ad3e0104-eb66-435f-8c2e-e734883fe98b" class=""><span style="border-bottom:0.05em solid">Table of Contents</span></p><nav id="bde2c3d6-a973-491e-8afa-960c968e668c" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#bc3a816f-2a81-422b-95dd-c1acf69a74f6"><strong>Pain is Essential for Progress</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#d435c34d-dfa0-4ac2-a4b5-2c5ba256c927"><strong>Love Resembles Greed</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#36aa0465-624b-4ab1-8837-11b861469bc6"><strong>Embracing Envy as a Motivator</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1549267e-cc45-4d83-b810-3e57e42b05a7"><strong>Other Interesting Stuff from Nietzsche</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ae1907d4-3e30-458b-8def-7250e739eb00"><strong>Key Takeaways</strong></a></div></nav><p id="8e9cc0c3-9ba5-434e-94f3-ab60ac0a68f5" class="">
+</p><p id="61300378-e1f2-4900-914d-e48eae050c43" class="">I’m a total newbie to philosophy. Friedrich Nietzsche is the first philosopher I’ve deeply researched.</p><p id="71328bdf-edbe-4d3d-b1eb-551a8af25700" class="">One word: wise.</p><p id="dc442ad6-e71d-480b-a6c6-5eb1669a2084" class="">Two words: super wise.</p><p id="176ff42d-23c2-4f42-9b0e-75206e503bf5" class="">Three words: really super wise.</p><p id="63e44eec-9713-4039-9f65-122b7a375b8f" class="">I’m still so impressed by how smart people like him are. I found a lot of Nietzsche’s philosophies groundbreaking and fascinating.</p><p id="29f62491-31b6-48cc-8cd1-5f46be3133a1" class="">Here are some key ones that I strongly agree with and disagree with.</p><h3 id="bc3a816f-2a81-422b-95dd-c1acf69a74f6" class=""><strong>Pain is Essential for Progress</strong></h3><p id="72342b8a-37cf-445d-bf5c-fdba5d83fb1f" class="">Nietzsche sometimes talked about people who had dedicated their lives to avoiding pain. These people were <em>sages</em> → someone who’s attained the wisdom a philosopher seeks. They thought pain is certain, but suffering is optional. Sages trained their minds to be able to detach from emotional situations. In doing so, they were less likely to feel strong emotions like sadness and anger.</p><figure id="44301e84-cfb2-4a31-a139-551096420c9b" class="image"><a href="Nietzsche%20was%20wrong%20about%20some%20stuff%2044301e84cfb24a31a139551096420c9b/Untitled.png"><img style="width:600px" src="Nietzsche%20was%20wrong%20about%20some%20stuff%2044301e84cfb24a31a139551096420c9b/Untitled.png"/></a><figcaption>Sage | <a href="https://philosophy.cornell.edu/about-us">Source</a></figcaption></figure><p id="9d7e5851-29b6-4c8d-b49a-9b2772165484" class="">This sounds interesting to me — it’s almost like a variant of stoicism. Instead of controlling emotions by controlling how you interpret situations, sages could emotionally detach from situations entirely.</p><p id="97106696-aedf-49f9-86e7-8f472c6950cf" class="">Nietzsche didn’t entirely agree with this idea. He wondered if such wise people also missed out on <em>happy</em> moments because they’d mastered emotional detachment. That doesn’t sound so badass.</p><p id="cba6d995-1c2c-4327-81e3-d88f39175d14" class="">Nietzsche thought: why don’t we try to have more control over painful events not happening? Should the goal not be the ability to control our circumstances, instead of our outlook on them? In the event painful situations do arise, doesn’t it make more sense to learn from them, instead of avoiding its suffering?</p><p id="765292fe-8045-4ac6-a056-72738501f0af" class="">Instead of learning how to minimize the suffering from pain, why not learn about the value it gives us? According to Nietzsche, the only way you’ll live a fulfilled life is by going through the intense hardships of pain.</p><p id="b04eea29-fb46-4a5b-b833-058f48151651" class="">Because of the value pain can bring, he thought that our approach to pain didn’t make sense. An awesome analogy from <a href="https://open.spotify.com/episode/3kHQf5djTOl4jTY6l3ijfB?si=4gyTFwcrQ0qwet54raimhw">Philosophize This</a> illustrates this. Climbing a mountain is the epitome of painful; steep, rough, draining. Probably worse. But the feeling of looking down from the top afterward makes it <em>so</em> worth it. I haven’t climbed a mountain before, but I can imagine the amount of happiness it’d bring. I’d feel confident and empowered to face other big challenges.</p><figure id="538babae-15a5-4531-a5ba-965741028cdb" class="image"><a href="Nietzsche%20was%20wrong%20about%20some%20stuff%2044301e84cfb24a31a139551096420c9b/1_UAA2GOY9t4tiLqXm1pVdig.gif"><img style="width:600px" src="Nietzsche%20was%20wrong%20about%20some%20stuff%2044301e84cfb24a31a139551096420c9b/1_UAA2GOY9t4tiLqXm1pVdig.gif"/></a><figcaption><a href="https://www.youtube.com/watch?v=B9XGUpQZY38&amp;ab_channel=PrinciplesbyRayDalio">Source</a></figcaption></figure><p id="fc4a856d-e9e0-4442-8fa5-7945fd7d72f6" class="">
+</p><p id="80ffdca6-cc2d-46a9-8fa9-0735d2d9961b" class="">While climbing a mountain is painful, the result at the end is worth it. The light at the end of the tunnel makes the suffering worthwhile. Instead of avoiding pain, we should master how to embrace and grow from such experiences as they occur.</p><p id="9d79e447-dd3b-4660-8cad-5c0fe9642bb4" class="">
+</p><figure id="187cb184-6677-4257-939b-5e7affe24b3c" class="image"><a href="Nietzsche%20was%20wrong%20about%20some%20stuff%2044301e84cfb24a31a139551096420c9b/Untitled%201.png"><img style="width:700px" src="Nietzsche%20was%20wrong%20about%20some%20stuff%2044301e84cfb24a31a139551096420c9b/Untitled%201.png"/></a><figcaption>Reaching The Top of The Mountain | <a href="https://godtv.com/wp-content/uploads/2019/04/b2-800x600.jpg">Source</a></figcaption></figure><p id="a5af65ac-d2d8-4d6a-8f6d-e855949f8a8e" class="">
+</p><p id="34570561-befe-4211-a848-c59596801e52" class="">I heavily agree with Nietzsche’s thoughts here, but it’s possible that I’m being naive about this. I haven’t gone through anything <em>super</em> (parent-dying-type-super) painful, so it’s easy for me to preach the benefits of such experiences. However, logically, I think this is an important and profound idea. Here’s why.</p><p id="c0ef970b-87af-4c6d-b5c4-76b407a865c2" class="">As Ray Dalio says, I think pain + reflection = progress. The hardships throughout painful experiences can feel unbearable, but reflecting on them and acknowledging mistakes is foundational for growth.</p><p id="13aca305-1f32-4e78-892d-0bc794d6be71" class="">
+</p><figure id="f65181cb-6f47-4649-bc4a-1bec374d7bd4" class="image"><a href="Nietzsche%20was%20wrong%20about%20some%20stuff%2044301e84cfb24a31a139551096420c9b/1_4YEMgH9_fzyXOwVGgVFaNg.gif"><img style="width:600px" src="Nietzsche%20was%20wrong%20about%20some%20stuff%2044301e84cfb24a31a139551096420c9b/1_4YEMgH9_fzyXOwVGgVFaNg.gif"/></a><figcaption><a href="https://www.youtube.com/watch?v=B9XGUpQZY38&amp;ab_channel=PrinciplesbyRayDalio">Source</a></figcaption></figure><p id="30b5df13-24ce-4e65-a69b-3d0632b917ae" class="">The emotional reaction of a very painful experience can be so heavy and intense that you’re forced to grow from it. Due to the draining, crushing feelings of suffering, your problems are difficult to ignore. You’re forced to face them and acknowledge places of improvement/learning.</p><p id="2c199b93-ced8-47b3-9ed9-e4602f12e6f3" class="">I think <em>antifragility</em> and a <em>growth mindset</em> are important for internalizing + consistently implementing this. <em>Antifragility</em> = “property of systems that increase in capability to thrive as a result of stressors, shocks, volatility, noise, mistakes, faults, attacks, or failures”. Basically, embracing and thriving from failure. A <em>growth mindset</em> = thriving on challenge, and seeing failure as a springboard instead of a setback.</p><p id="f2bebbc7-198d-49b7-959c-02bfa3d64a93" class="">Pain from experiences where you didn’t necessarily make a mistake can still be valuable learning experiences that are important for growth. For example, they prepare you for future painful experiences by helping you build antifragility. They could also change your ways of thinking and challenge misconceptions. Ex. experiencing the death of a loved one, while possibly out of your control, can teach you to be more grateful (for being alive) and to treasure your relationships with loved ones who are alive.</p><p id="5202c33a-b1f0-4d36-ab9f-3c5ecb2a4a0c" class="">Additionally, I think the returns of embracing pain and suffering are higher than that of avoiding it. Here are two examples to demonstrate:</p><p id="69afa3f1-9cee-4c7a-96ee-a8589b5097c8" class=""><em>Failing an exam.</em></p><ul id="9f019a0f-e801-4b01-96db-10dc32052da0" class="bulleted-list"><li>returns from embracing + going through pain: learning about the importance of preparation, understanding best practices for studying + learning that work for you, implementing learnings</li></ul><ul id="af6ade99-2e0f-422c-aa36-4519ae7fb6b1" class="bulleted-list"><li>returns from avoiding pain: passively hoping to do better next time, underestimating the importance of learning from the experience + not improving as much</li></ul><p id="8d952883-8fa5-4774-8a3d-873e86e69190" class=""><em>Your best friend dying.</em></p><ul id="8dd4cc46-74f7-4afc-af32-7cb269eb1a46" class="bulleted-list"><li>returns from embracing + going through pain: learning to live in the moment more, value relationships higher, be more prepared for failure next time through building antifragility</li></ul><ul id="4533ee81-f637-4ea1-b875-65b59672e7f7" class="bulleted-list"><li>returns from avoiding pain: missing out on learnings + the fulfillment from going through the suffering of the experience</li></ul><p id="52f17955-9029-4ac8-a087-7ad0170d948d" class="">By avoiding pain, you miss out on valuable learnings, different ways of thinking, and antifragility development. Embracing and thriving from the suffering of pain, while challenging, leads to growth and wisdom.</p><h3 id="d435c34d-dfa0-4ac2-a4b5-2c5ba256c927" class=""><strong>Love Resembles Greed</strong></h3><p id="134a06b1-d530-4dc8-92cc-e8b75a2720d6" class="">Nietzsche was really big on embracing our natural emotions and being honest with ourselves. For example, he asked, “how selfless are we being when we ‘love’ someone?”. Nietzsche thought that things we do “out of love” often seem like greed, instead of true love.</p><p id="54f26e97-8fac-43ed-99c8-f9f879178c63" class="">If you love someone/something, oftentimes ‘love’ is used as a driver to become closer to it/attain it.</p><p id="5504b4f3-13bc-42c8-9c6f-0a7fb84a01b5" class="">For example, imagine you loved someone and you wanted to be with them forever. Imagine you date them, propose to them, etc. — the whole lifelong partner ordeal. Out of love, you basically sought out this person you’re infatuated with and made them <em>your</em> partner. Out of love, you pursued someone to make them yours. Because you want this person to be only yours forever, doesn’t this slightly resemble greed? To Nietzsche it did.</p><p id="35014b7f-ded4-42df-b3a1-7a7c461ff517" class="">Another example — let’s say you’re in “love” with a car. It’s your favorite model, you love all of its features, etc. Because you love this car so much, you work hard to earn it, and eventually, buy it. While I’d congratulate you on buying your dream car, it’s a metaphor for how love seems similar to greed. Sure, you loved that car, but by working so hard to make it <em>yours</em> and in your possession, you greedily wanted it for yourself.</p><figure id="1b0e8823-8b72-40f8-a738-2c0412120dfc" class="image"><a href="Nietzsche%20was%20wrong%20about%20some%20stuff%2044301e84cfb24a31a139551096420c9b/Untitled%202.png"><img style="width:700px" src="Nietzsche%20was%20wrong%20about%20some%20stuff%2044301e84cfb24a31a139551096420c9b/Untitled%202.png"/></a><figcaption>Buying Your Dream Car | <a href="https://www.youtube.com/watch?v=b8M8IRtgiRg">Source</a></figcaption></figure><p id="db332509-0f40-4b9e-b3d9-0fa004250321" class="">
+</p><p id="3c20d472-21ab-42b1-9038-69a6f7effadc" class="">Even if love is truly greed, don’t worry. Nietzsche still thought that love and friendship are some of the most amazing things life has to offer.</p><p id="a994d38f-8a90-4160-b3e0-ae5dd479f13f" class="">My take: I agree in some scenarios, love can resemble greed. I don’t think it always does.</p><p id="01a94f70-73fd-4893-a56d-a94e1670e428" class="">I don’t think ‘love resembles greed’ holds up for all use cases of love, just some. Love has multiple meanings, so it’s hard for Nietzsche’s idea to be universally profound.</p><p id="e241cd3a-5a43-42f8-9b91-410cbc36db71" class="">What about when you love something you already have, and likely will have long-term? Like Earth or your mom? Love isn’t a driver to become closer to such things, because you already have and will typically have them — love, or not. However, greed might manifest in a different way here. Instead of being greedy for a romantic partner or a dream car, you might have ulterior, self-serving reasons for acting out of love. Especially in instances where love isn’t a driver (like the Earth + mom example).</p><p id="e608da2e-6d87-4df2-bab6-7a766ba2adee" class="">Specifically, I think it’s important to question whether we truly act out of love or purely look for ways to make us feel better about ourselves (self-confidence boosts). Maybe some people have these different motives, but cover up their reason for actions with “love”.</p><p id="ede9e7b1-eb40-493b-92da-7a6ea000f974" class="">For example, if you bought your mom a present for Mother’s Day. Was your love for your mom the reason, or were you trying to avoid the guilt of not buying her one?</p><p id="db49572b-4c20-484f-80a3-20a339f3d030" class="">I believe some/most people can genuinely love some- one/thing without having ulterior, self-fulfilling motives.</p><p id="de7118f3-b922-49da-ba3d-0d6bbfd54c01" class="">My core idea is mostly based on my experiences and introspection. I don’t think everything I’ve done for the people I love is <em>entirely</em> out of love. there’s definitely an aspect of guilt; i.e., if I <em>don’t</em> do something helpful/kind for someone I love, I’d feel guilty afterward.</p><p id="7dcff52b-73fe-42d5-8cda-cb345568fee8" class="">So, when ‘acting out of love’ for the people I care about, there’s partially the desire to avoid the guilt I’d experience by not doing such a thing. I don’t think this guilt avoidance means searching for ‘self-confidence boosts’ (described above), I think it’s purely avoiding guilt. But it’s still a self-serving motive. I think that my actions out of love are somewhat true because I <em>feel</em> love and the desire to help some people. I think this guilt avoidance idea is separate and often less impactful when making decisions to do things for those I love.</p><p id="d8cb93b9-38c9-4da2-9c5b-868868f77609" class="">If people <em>didn’t</em> have this guilt avoidance motive, would we see fewer acts of love?</p><p id="9d8878eb-377d-432c-ad67-7b531a4a65a1" class="">Based on my feelings to those I love, I think feelings of authentic love are real. Especially when ‘love’ is used as a noun. In other cases, like pursuing someone you love, or doing something for someone you love, I think greed + self-serving desires can be present.</p><h3 id="36aa0465-624b-4ab1-8837-11b861469bc6" class=""><strong>Embracing Envy as a Motivator</strong></h3><blockquote id="2b0b7a4d-2bac-4ac8-81bf-1c432554a23b" class="">“For Nietzsche, the psychological health of a person or society depends on being able to resist denigrating what one wants but can’t have. It involves resisting the urge to deny the gaps in one’s life for the sake of inner convenience. It is, for Nietzsche, always better to say what one wishes to be and have rather than to twist one’s entire personality to avoid discomfort. We must, for the philosopher, be strong enough to face, and stay honest about, our own misfortunes.” (Source)</blockquote><p id="fd3d4bce-79c4-444c-b562-fe0ae1d2ffb2" class="">Nietzsche thought that it’s important to embrace our desires to improve and attain more. He also thought that envy was an effective motivator that we all innately have. Instead of being content with who we are and what we have, we should chase where our envy leads us.</p><p id="2a0e6424-4224-4a0a-92d0-fba202e908cf" class="">I agree with the underlying idea here; humans should acknowledge their true emotions/drivers, instead of being inauthentic with themselves.</p><p id="c31e00b3-ef82-49f4-8bbc-f6eaed2788cc" class="">I also think envy can be effective for short term motivation. However, I think that if you’re consistently envious and utilize it, you’ll never find contentment in what you have. You’ll always look for the next best thing. The short-term rewards are there if it gets you motivated to chase something, but I don’t think you’ll ever be peaceful.</p><figure id="bdf1bf7c-e6bb-44f5-a094-c39b8a3ca2f4" class="image"><a href="Nietzsche%20was%20wrong%20about%20some%20stuff%2044301e84cfb24a31a139551096420c9b/Untitled%203.png"><img style="width:600px" src="Nietzsche%20was%20wrong%20about%20some%20stuff%2044301e84cfb24a31a139551096420c9b/Untitled%203.png"/></a><figcaption>Envy | <a href="https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fwww.nytimes.com%2F2009%2F02%2F17%2Fscience%2F17angi.html&amp;psig=AOvVaw0gyp1BqdiHxp2Wms2ooNdJ&amp;ust=1601294355333000&amp;source=images&amp;cd=vfe&amp;ved=0CA0QjhxqFwoTCPCKmb6kiewCFQAAAAAdAAAAABAK">Source</a></figcaption></figure><p id="96ec24b4-e48d-43a5-998a-9d31fe04e00e" class="">That being said, in my opinion, you never want to be fully content with your life as you live it. This can lead to complacency. When you don’t recognize areas of growth or denigrate desires, you become stagnant.</p><p id="5c1a54a0-1f63-4a77-a772-af101b92d8fe" class="">I agree that it’s important to recognize and embrace desires/areas for growth, but chasing them through envy seems unfulfilling long-term. What’s the point of reaching what you chase, if your envy leads you to immediately focus on getting something else? Do you even get to fully appreciate and utilize what’s previously attained (through envy)? It seems like a cycle of chasing but never enjoying. This doesn’t sound like the life I’d want to live.</p><p id="600cebab-3e50-4bc6-8f0e-544a3b843f53" class="">Therefore, I think it’s important to find the balance between recognizing things to attain and being content with what you already have. Being envious and hyper-fixated on what more you could do/get might be an effective motivator to reach what you want. However, I think it shouldn’t be fully embraced considering its massive downsides on fulfillment and gratitude.</p><p id="b05d1048-9bec-4a85-9db1-0cfaeae9ae00" class="">Nietzsche has spoken about the downsides of envy — I need to read into them more.</p><h3 id="1549267e-cc45-4d83-b810-3e57e42b05a7" class=""><strong>Other Interesting Stuff from Nietzsche</strong></h3><ul id="63ec2201-2089-44d8-ab81-9a87d8f4ad03" class="bulleted-list"><li>fear of failure is a stupid constraint on your life, you get the most out of life by living dangerously</li></ul><ul id="47b75945-c9ec-464c-a662-0df726900db6" class="bulleted-list"><li>when you realize you can’t control the external world, you should focus on strengthening your internal world</li></ul><ul id="a87dd98f-10b4-48de-ad33-9e0cd4dde076" class="bulleted-list"><li>drinking (especially social drinking) is stupid</li></ul><ul id="8203d8b6-2736-4174-a3e0-421cb820d4c1" class="bulleted-list"><li>what’s a question everyone’s searching for the answer to?</li></ul><ul id="afbc88fb-d559-423f-b82a-5dc09b45e20c" class="bulleted-list"><li>why do you do what do you do?</li></ul><ul id="a1be7523-6074-45d3-9c27-d67b027a53c3" class="bulleted-list"><li>there’s no such thing as objective truth, the unwillingness to accept that matter can be considered in many different ways comes from an inflexible mind</li></ul><p id="28fe2d13-9d4e-4b00-b753-06f5e34aace0" class="">
+</p><hr id="7bec1904-7323-4fe0-8713-332466244bd3"/><h3 id="ae1907d4-3e30-458b-8def-7250e739eb00" class=""><strong>Key Takeaways</strong></h3><ul id="086db0c7-a119-4fc8-b3d4-8ed0a1e4cb10" class="bulleted-list"><li>I think embracing the suffering of pain is important for growth.</li></ul><ul id="4be4523c-c526-456e-8c12-d412cae93a1f" class="bulleted-list"><li>I don’t think love always resembles greed, but underlying motives can sometimes be self-serving. If love did universally resemble greed, I don’t think that’s problematic.</li></ul><ul id="44cf4dc5-66ab-4676-aaaf-077d1986d663" class="bulleted-list"><li>I don’t think envy is an effective motivator due to its downsides — lack of fulfillment and gratitude.</li></ul></div></article></body></html>
