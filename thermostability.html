@@ -1,0 +1,725 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Optimizing 3’ UTR Sequences and Secondary Structures To Improve mRNA Vaccine Thermostability</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+	
+</style></head><body><article id="631dc62d-1b0b-4f6e-84e0-7eefb600d768" class="page sans"><header><h1 class="page-title"><strong>Optimizing 3’ UTR Sequences and Secondary Structures To Improve mRNA Vaccine Thermostability</strong></h1><p class="page-description"></p></header><div class="page-body"><h3 id="012a727a-b997-44a5-aeea-bf0e4cb2af3d" class=""><mark class="highlight-gray">September 2023</mark></h3><p id="1d16aa4f-2d70-40e7-903c-ba31d362f17e" class="">
+</p><div class="page-body"><h3 id="d3cd3192-d779-4dd3-90bc-bed11ac7aa4b" class="">Abstract</h3><p id="27c2797f-fa46-4035-9eef-b1630ca63e57" class="">This paper works toward the development of a highly thermostable mRNA vaccine by fulfilling an unmet need for the stability optimization of non-coding regions. In particular, 3&#x27; Untranslated Regions (UTRs), which have been documented within the literature to have significance over mRNA stability and temperature sensitivity. Leveraging a UTR database and a model to predict stability via Mean Free Energy Change, this research identifies 3&#x27; UTR sequences with optimally stable secondary structures that outperform industry benchmarks. Through the use of unsupervised learning techniques, it was found that sequence length and “G” and “C” nucleotide frequencies significantly impact Minimum Free Energy (MFE), uncovering their undiscussed relevance in choosing and designing effective 3’ UTRs. While this paper examines a specific mechanism of mRNA stability, it underscores the broader need for 3&#x27; UTR optimization for its contributions to translation efficiency and molecular stability. This paper aims to spark more interest in mRNA vaccine stability outside of conventional focus areas like coding regions to work towards a larger goal of increasing pandemic preparedness.</p><p id="60a72081-c05c-4afc-8275-436bc9866925" class="">
+</p><h3 id="cab48ac2-3def-4a38-8ee8-52d2525d6388" class="">Introduction</h3><p id="7d358f86-d027-47e7-83c3-7e65510d690e" class="">The primary agent of pandemic response over the course of COVID-19 was the mRNA vaccine. With the backing of government and NGO schemes like COVAX and Operation Warp Speed, these countermeasures were able to be developed and distributed within a year — a timeframe unforeseen in past pandemics. Pharmaceutical companies like Pfizer and Moderna were able to reach over 90% vaccine efficacy (Katella, 2023), and countries like the UAE, Brunei, Malta, and Chile were able to immunize almost their entire populations (Yarlagadda et al., 2022). On virtually all fronts, the rapid production of mRNA vaccine platforms and their logistics was an achievement in the larger effort of widespread pandemic preparedness.</p><p id="c63b10e7-3bb0-4316-bce0-ba2bb1b5f4e4" class="">However, this strategy was not without its flaws. Countries like Burundi and Congo failed to acquire an equitable amount of doses to vaccinate their population, with penetration rates as low as 0.1% and 0.2% respectively (Yarlagadda et al., 2022). A key reason for this was the cold-chain equipment and refrigeration needed to store FDA-approved mRNA vaccines to maintain their efficacy. For example, the Pfizer-BioNTech vaccination required refrigeration temperatures of -60 to -80 °C. For nations lacking the adequate infrastructure or budget to meet these logistic demands, the acquisition and management of these biologics proved difficult. The inability to meet these requirements often leads to vaccine wastage, a public health concern beyond COVID-19 that has been well documented in the literature (Fahrni et al., 2022).</p><p id="12887bf4-35c9-4f74-a5e1-e9b882752ae0" class="">Therefore, there has been an advocated need for the development of a clinically effective thermostable mRNA vaccine that does not prescribe ultracold storage requirements (Uddin &amp; Roni, 2021) (Foged, 2022). This would reduce the cost of transport and storage mechanisms in the removed need for equipment like cold-chain boxes, and in doing so alleviate the financial burden of vaccines on countries (particularly low- and middle- income ones) and allow for increased vaccine penetration worldwide. This would be highly beneficial for global pandemic preparedness as the development of pipelines and vaccine platforms that allows for increased vaccine procurement would help populations reach herd immunity faster. The difficulty lies in maintaining clinical efficacy while also optimizing for less temperature sensitivity, so that they are able to be both effective and accessible in inducing durable immunity.</p><p id="8d53ad0d-52d5-479f-b5a9-c32a140c1f9a" class="">Several approaches have attempted to tackle this temperature barrier, from improving the methods with which vaccines are dried, optimizing the structures of carrier molecules (ex. lipid nanoparticles) used for mRNA molecules, to experimenting with double-stranded RNA (Uddin &amp; Roni, 2021). One attempt by Zhang, H., Zhang, L., Lin, A. et al. borrowed techniques from natural language processing to optimize the coding regions of mRNA sequences that translated to the SaRS-Cov-2 spike protein. With their algorithm called “LinearDesign”, the researchers were able to rationally design mRNA sequences that were optimized for both codon optimality and stability. When tested in vivo, they found that their formulations outperformed industry standards in half-life (to measure resistance to degradation/temperature sensitivity) and induced immunity (Zhang et al., 2023).</p><p id="6c4076ba-b062-422b-bf8a-426b35ad1e8d" class="">While this paper produced interesting and significant results and discusses its implications for the rational design of more thermostable vaccines, the authors noted that non-coding mRNA regions were designated as out of scope for the project. When reviewing the literature, it was found that there has not yet been a comprehensive approach to optimizing the stability (as opposed to optimizing the support of translation/gene expression) of the non-coding regions of mRNA strands, despite the fact that they contribute to the overall temperature sensitivity of these vaccines. In particular, 3’ Untranslated Regions (UTRs), are known to form secondary structures that vary in stability and therefore impact the stability and intracellular kinetics of the mRNA molecule as a whole (Fang et al., 2022) (Von Niessen et al., 2019). In fact, the article discussed above describes the importance of UTRs and the potential for them to be optimized as well in future research: “… the robustness of LinearDesign in optimizing coding region independent of UTR pairs. In fact, these two directions (coding region design and UTR engineering (Fahrni et al., 2022)) are complementary and can be combined in future work”.</p><p id="6691822e-1d07-4828-b2da-433252a94a70" class="">The research conducted within this paper aims to fulfill this unmet need in the effort towards principled and effective mRNA vaccine design. With the use of a publicly available UTR database and the methods utilized by the LinearDesign algorithm to predict RNA stability (”mean free energy change”), the identification and analysis of optimally stable 3’ UTR sequences and their secondary structures will be discussed. Then, the results of principal component analysis (PCA) to identify sequence and structural motifs that correlated with optimal stability will be discussed, followed by a comparison of the stability of the 3’ UTR sequences found here and the benchmark sequences used by pharmaceutical companies. In doing so, this paper hopes to spark more interest in considering non-coding regions and the ways in which their sequence design can be conducive to the formulation of effective and thermostable mRNA vaccines to be used in future pandemics.</p><p id="e3ebb5e7-35a4-496f-89df-9169bc731bb1" class="">
+</p><h3 id="73ca1b18-fd71-43ae-97df-8d33b3e1fee5" class="">Background</h3><p id="66898a46-dc05-426a-9434-a8ad7c01303f" class="">In an mRNA vaccine, the mRNA itself is composed of several structural elements: an open reading frame (ORF), 5’-UTR, 3’-UTR, 5’ cap, and poly(A) tail. The 5’ cap and poly(A) tail are added to improve intracellular stability. The ORF contains the RNA sequence that actually undergoes translation. Flanking the ORF are the UTRs (note: “untranslated” regions), which are RNA sequences that are used to increase the molecule’s half-life and levels of protein expression (Kim et al., 2021). Both 5’- and 3’ UTRs are important for the modulation of nucleo-cytoplasmic mRNA transport, subcellular localization, and message stability (Lo Giudice et al., 2022).</p><figure id="21107133-b5ed-4bf9-aeb9-dd6816f311e9" class="image"><a href="Optimizing%203%E2%80%99%20UTR%20Sequences%20and%20Secondary%20Structur%20631dc62d1b0b4f6e84e07eefb600d768/image2.png"><img style="width:700px" src="Optimizing%203%E2%80%99%20UTR%20Sequences%20and%20Secondary%20Structur%20631dc62d1b0b4f6e84e07eefb600d768/image2.png"/></a></figure><p id="38923620-ac74-4d0c-853b-1095dcbc9562" class=""><span style="border-bottom:0.05em solid">Figure 1. The structure of an mRNA</span></p><p id="c0d42ebd-2c07-4d1e-a079-0c8adbc31ba2" class="">
+</p><p id="ddbd287b-0e75-4a0d-8f57-ea69696272af" class="">5’- and 3’- UTRs contain regulatory sequence elements with significant implications for mRNA stability, ribosome recognition, mRNA secondary structures, and the interaction of the molecule with translation machinery components (Kim et al., 2021). Additionally, UTRs can influence the rate of mRNA degradation (and translation efficiency) by interacting with RNA-binding proteins. 3’-UTRs are known to be particularly important to mRNA stability (Fang et al., 2022).</p><p id="84a18cd8-9653-4bfa-ba3b-895554e3af7f" class="">UTRs also contribute to overall stability in that their sequences form secondary structures.</p><p id="bf3ba9c2-fc9f-4cc5-8dd0-5889f65aec63" class="">A secondary structure is the three-dimensional spatial arrangement of the UTR strand that arises from hydrogen bonding between complementary nucleotide bases within the sequence. The thermodynamic stability of an RNA secondary structure (in this case the structure of the UTR) can be quantified with the concept of minimum free energy (MFE). This term refers to the lowest amount of energy needed for the RNA molecule to maintain its secondary structure; it represents the amount of energy needed to break and form hydrogen bonds between base pairs and other interactions within the structure. The MFE value is associated with the most stable conformation that the RNA molecule can adopt under a set of conditions – the lower the MFE, the more stable the RNA molecule (Zuker, 1989).</p><p id="8e9bc52b-3daf-4a17-a540-dc2f9ac7f22c" class="">Zhang, H., Zhang, L., Lin, A. et al. demonstrated the validity of this metric when predicting the stability of mRNA coding regions. Degradation rates in solution were found to positively correlate well with MFE values; mRNAs with high MFE degraded faster, supporting the idea that RNA structures with lower MFE are more resistant to in-solution degradation and thus more stable (Zhang et al., 2023).</p><p id="c8d4eb48-4065-4b54-abe2-305a83bfb6ea" class="">In this way, another mechanism by which UTRs contribute to mRNA stability is through “cumulative stability”. The secondary structure of the entire mRNA molecule is comprised of the UTRs’s structures and the ORF’s structure. The MFE of each UTR’s secondary structure is factored into the mRNA’s overall MFE, so UTRs optimized for stability (low MFE) could improve the mRNA’s overall stability (overall lower MFE).</p><p id="793bf854-28f8-4c6a-be2c-c9ab79bd1d64" class="">Several approaches to UTR design with the goal of supporting mRNA protein expression have come out in recent years (Zeng et al., 2020) (Von Niessen et al., 2019) . However, research dedicated to optimizing UTRs for stability could not be found within the currently available literature. While the UTRs used by vaccine manufacturers are publicly known (Fang et al., 2022), little has been described or published regarding efforts toward optimizing their sequence and structure to more thermostable mRNA vaccines.</p><p id="cc9e0adc-6e0c-4e82-92a9-e52331325256" class="">
+</p><h3 id="73e23573-02cf-4216-9326-4eadd4ef7481" class="">Methods</h3><p id="d5addce0-d191-4044-9ccf-fd452390afb3" class="">The first step in this paper’s methodology was to create a subset of UTR sequences from a publicly available dataset of eukaryotic 5’- and 3’- UTRs. Only 3’-UTRs and those from Homo sapiens genes were used because the size of the entire dataset was computationally unfeasible at over 26 million logged UTR sequences (Lo Giudice et al., 2022). This subset was chosen in accordance with (Katella, 2023) 3’-UTRs having the most basis in the literature about being linked to mRNA stability as discussed in “Background”, (Yarlagadda et al., 2022) the industry standard that all vaccine manufacturers use UTRs that are present in the Homo sapien genome. However, avenues for exploring UTRs outside of this paper’s scope could produce interesting results and are discussed in <em>Conclusions</em>.</p><p id="6549d265-3e07-47d9-9b04-b865656e7241" class="">After applying this filter, 2 million sequences remained. 218 of these sequences were randomly selected to be used because of the limited computing power available at the time of writing, however, I have plans to run the code at a significantly larger batch size on the supercomputer available at my institution.</p><p id="621798af-2b18-4d7b-be0d-d42d6787b826" class="">With these UTRs, the optimal secondary structures were predicted in dot-bracket notation and their associated MFE values were calculated with ViennaRNA’s RNAFold Python package. The UTRs from the database are originally written in the format of DNA bases that correspond to the sequence pre-transcription: RNAFold converts the sequence into RNA bases and then predicts the strand’s optimal structure. The UTRs then underwent global minimization to identify the five entries with the lowest MFE values: the candidates with the highest modelled thermostability. Their MFE values were compared to those of the 3’-UTRs used by vaccine manufacturers to gauge whether my UTR candidates were predicted to be more stable than the industry standards.</p><p id="8cf5f19d-e84b-497c-92df-8314e35f5038" class="">The secondary structures of the most stable UTRs were then visualized with the use of forgi’s python library in two ways: (a) as a complete structure, with all structural elements and nucleotides visible, and (b) as a graph of nodes and edges, simplifying the visualization to just the locations of primary structural elements. An example of this is shown in <em>Figure 2</em>.</p><figure id="c4f63c70-3dc8-4b64-8cf9-78c0cfd0f420" class="image"><a href="Optimizing%203%E2%80%99%20UTR%20Sequences%20and%20Secondary%20Structur%20631dc62d1b0b4f6e84e07eefb600d768/image3.png"><img style="width:700px" src="Optimizing%203%E2%80%99%20UTR%20Sequences%20and%20Secondary%20Structur%20631dc62d1b0b4f6e84e07eefb600d768/image3.png"/></a></figure><p id="041fbbc0-9e20-484c-8277-1aa80d83673b" class=""><span style="border-bottom:0.05em solid">Figure 2. Sample Visualization for a Random Sequence</span></p><ol type="1" id="1549f58e-9bf2-478e-911d-8557d377e0f7" class="numbered-list" start="1"><li><em>A complete secondary structure visualization, showing nucleotides and annotated structural elements.</em></li></ol><ol type="1" id="80aab7ef-c4b4-41ad-a994-345e1a2ac8a9" class="numbered-list" start="2"><li><em>A simplified secondary structure visualization in graph format, with nodes representing structural elements and edges representing where they are connected.</em></li></ol><p id="26180965-b46f-4e69-97c7-6056aef1ad75" class=""><em>The letters representing each kind of structural element are: f (fiveprime, the unpaired nucleotides at the 5’ end of a molecule), t (threeprime, the unpaired nucleotides at the 3’ of a molecule), s (regions of contiguous canonical base-paired nucleotides), i (bulged out nucleotides and interior loops), m (single-stranded regions between two stems), and h (hairpin loop) (&quot;RNA Secondary Structure as a Graph,&quot; n.d.).</em></p><p id="ebe0a148-0814-40ae-b3dc-60d4b2d6e8e0" class="">
+</p><p id="135b8b34-591f-4629-93fa-47d383476655" class="">After predicting the secondary structures of all UTRs in the dataset, the structures were analyzed for variables like sequence length and numerical features were extracted as these were used for clustering analysis. The total set of features found for each UTR included: the frequency of each kind of structural element (f/s/m/i/h/t), the frequency of each combination of graph edge between two structural elements (ex. f-m), the number of nucleotides contained within each kind of structural element, the sequence length, and the frequency of each kind of nucleotide within the sequence.</p><p id="374fbffd-a87e-4f85-837d-0c4236a3c0b0" class="">This allowed the structures to be described numerically within a tabular format, to then undergo principal component analysis (PCA) and t-distributed Stochastic Neighbor Embedding (t-SNE). PCA was used to initially cluster the dataset based on similar MFE values, and then t-SNE was used to tighten and optimize the clusters. PCA was also performed in isolation for the purpose of component loading, which is used to understand which features are the most significant in determining how the data points are clustered. In doing so, I was able to understand which components of a UTR’s sequence and structure have the most impact on its MFE.</p><p id="1053c12a-bb85-44bb-b928-81e4ce927544" class=""><strong>UTRdb 2.0: Library of 5’- and 3’- UTR Sequences</strong></p><p id="941fd184-6972-496d-8790-f9f3cdf991dc" class="">UTRdb 2.0 is the second iteration of a comprehensive and publicly available library of eukaryotic 5’- and 3’- UTR sequences. It contains over 26 million entries from 573 species, and the UTRs come with functional annotations of information like evolutionally conserved blocks and m6A modifications. Each UTR is tagged with its type (5’ or 3’), its biological origin, and its sequence is reported in the format of DNA bases (Lo Giudice et al., 2022).</p><p id="1300a33a-aa1c-40bb-8357-9a13a33719cd" class=""><strong>ViennaRNA and RNAFold: Predicting Optimal Secondary Structures and MFE</strong></p><p id="6f34d7e7-7945-4efa-90e5-4df0810747b6" class="">ViennaRNA is a commonly used software package for predicting and analyzing RNA secondary structures. Its Python package, featuring the “RNAFold” tool, takes input sequences and finds their optimal secondary structures alongside the MFE value (ViennaRNA, 2023).</p><p id="94951587-1582-4e2a-8fb7-f93cdeab4d1b" class=""><strong>Forgi: Visualizing and Describing Secondary Structures</strong></p><p id="6df619bb-8b7b-4df0-a71e-cf67f0eea5a2" class="">RNAFold outputs secondary structures in the form of dot-bracket notation: a series of periods and parentheses that are unintelligible to those unfamiliar with the format. Forgi is a Python package that was used to overcome this, with the capability to read RNA secondary structures in dot-bracket notation and output them graphically (&quot;RNA Secondary Structure as a Graph,&quot; n.d.).</p><p id="c35b5e80-39fa-4c65-9b8d-2f61d392bfb3" class=""><strong>Principal Component Analysis (PCA) And t-distributed Stochastic Neighbor Embedding (t-SNE): Identifying Structural Elements Correlated With MFE</strong></p><p id="9acb958d-540c-4576-90a0-2fe27370d696" class="">PCA and t-SNE are two methods are dimensionality reduction and data visualization that allow you to graphically separate a dataset into clusters. The former is a linear technique and seeks to identify underlying principal components within a dataset by projecting the data onto lower dimensions, minimizing variance, and preserving large pairwise distances. t-SNE was used following PCA, and it operates differently in that it is a non-linear technique. This means it is able to separate data points with more complex partitioning than a straight line. PCA is known to preserve the variance in a dataset, whereas t-SNE is known to preserve the relationships present between data points in a lower-dimensional space. Both were used in Python with scikit, numpy, and plotly express (Awan, 2023).</p><p id="9760ac42-b738-4eaa-80ee-ffb6cca60af2" class="">
+</p><h3 id="32a0778a-bb98-40fc-80ff-026e1e2c5991" class="">Results and Data Analysis</h3><p id="f150147e-c741-4d76-a6c4-2ef71650e153" class=""><strong>Identification and Performance of Most Stable UTR Sequences</strong></p><p id="f294470c-7401-4f18-9a91-4ce0bf7329c5" class="">After running RNAFold on my batch of 3’ UTR sequences and identifying the five with the lowest MFE values, the same MFE prediction algorithm was run on sequences used by Pfizer/BioNTech, LIVERNA, Moderna, Stemirna, and Ribobio. After comparing my candidate UTRs and those used in industry, I found that all of mine outperformed in terms of lowest predicted MFE:</p><p id="e70085b0-0631-4ba0-b4ad-58cafcbf1945" class="">
+</p><table id="e8ff1e5a-acf5-47f5-8228-284ffecc4fa3" class="simple-table"><tbody><tr id="ed26a37c-77fe-4667-8941-4611c322aa67"><td id="A^Bw" class="">Rank when sorted by MFE</td><td id="{Jox" class="">UTR Label</td><td id="RPH^" class="">Optimal Predicted MFE (kcal/mol)</td></tr><tr id="99681fa4-febf-4739-8c5d-b0b8e33f4dc4"><td id="A^Bw" class="">1</td><td id="{Jox" class="">|three_prime_utr|ENST00000648994|GAN|81377597_81390809_+_16</td><td id="RPH^" class="">-4219.279785</td></tr><tr id="c384fffc-ac7c-4729-a0f4-02a74c3df096"><td id="A^Bw" class="">2</td><td id="{Jox" class="">|three_prime_utr|ENST00000255784|CCDC134|41825824_41832164_+_22</td><td id="RPH^" class="">-2315.899902</td></tr><tr id="8d233190-3642-473d-8bdf-f95fefc6b9dc"><td id="A^Bw" class="">3</td><td id="{Jox" class="">|three_prime_utr|ENST00000407071|KIF26B|245702607_245709432_+_1</td><td id="RPH^" class="">-2100.399902</td></tr><tr id="2900823f-8b5b-4720-9ffb-d4a3f1d9555c"><td id="A^Bw" class="">4</td><td id="{Jox" class="">|three_prime_utr|ENST00000366518|KIF26B|245702607_245709431_+_1</td><td id="RPH^" class="">-2100.399902</td></tr><tr id="65efdecc-416f-4d51-a8a0-51f4f436bdbf"><td id="A^Bw" class="">5</td><td id="{Jox" class="">|three_prime_utr|ENST00000526861|SLFN13|35440594_35437543_-_17</td><td id="RPH^" class="">-896.900024</td></tr><tr id="ae98c0a5-df6f-47cf-8668-b18671830ee4"><td id="A^Bw" class="">6</td><td id="{Jox" class="">BNT162b2/BioNTech</td><td id="RPH^" class="">-84.699997</td></tr><tr id="7e742cc6-a8aa-4c74-a3e0-a9edca291ac1"><td id="A^Bw" class="">7</td><td id="{Jox" class="">LIVERNA</td><td id="RPH^" class="">-36.500000</td></tr><tr id="0390cbdf-0f6a-4b32-b70d-540dbc330983"><td id="A^Bw" class="">8</td><td id="{Jox" class="">mRNA1273/Moderna</td><td id="RPH^" class="">-33.799999</td></tr><tr id="15566c2b-c38e-4b87-8c69-2d4ac4d8a646"><td id="A^Bw" class="">9</td><td id="{Jox" class="">Stemirna</td><td id="RPH^" class="">-10.100000</td></tr><tr id="8352e2a1-b50f-4577-9082-1c85ba6d7011"><td id="A^Bw" class="">10</td><td id="{Jox" class="">RiboBio</td><td id="RPH^" class="">-4.900000</td></tr></tbody></table><p id="7e2522a9-dab7-48b9-a7b2-e4f8aa813614" class="">This indicates that according to the MFE prediction model, the 3’ UTR candidates I propose offer significantly more stability and therefore temperature resistance than those currently used in commercially available mRNA vaccines.</p><p id="1334c616-39c4-45bc-869b-8db624b5fef5" class="">
+</p><p id="43995bce-5e1e-4347-b7fa-9bfd45ac09c6" class=""><strong>Graph Visualizations of Candidate 3’ UTR Sequences</strong></p><p id="1cda3bc1-b943-4409-9775-5566a076590b" class="">When visualized, these candidates produced massive and complex graphs showing hundreds of structural elements and pairings between them. The graphs of the two UTRs with the lowest MFE are shown in <em>Figure 3</em>.</p><div id="422014d4-0b3e-47b4-97ba-df11d039ed78" class="column-list"><div id="6420c32d-b32c-4a8f-8aec-af57becbd492" style="width:50%" class="column"><figure id="87e3e3dd-cd47-4451-8f18-32e607d73fb2" class="image"><a href="Optimizing%203%E2%80%99%20UTR%20Sequences%20and%20Secondary%20Structur%20631dc62d1b0b4f6e84e07eefb600d768/image7.png"><img style="width:432px" src="Optimizing%203%E2%80%99%20UTR%20Sequences%20and%20Secondary%20Structur%20631dc62d1b0b4f6e84e07eefb600d768/image7.png"/></a></figure></div><div id="3a1a48a5-0aa9-45bf-a394-597da7d862eb" style="width:50%" class="column"><figure id="5f57f436-e402-4acc-b613-de2c16a4551a" class="image"><a href="Optimizing%203%E2%80%99%20UTR%20Sequences%20and%20Secondary%20Structur%20631dc62d1b0b4f6e84e07eefb600d768/image5.png"><img style="width:700px" src="Optimizing%203%E2%80%99%20UTR%20Sequences%20and%20Secondary%20Structur%20631dc62d1b0b4f6e84e07eefb600d768/image5.png"/></a></figure></div></div><p id="f52836ef-861e-4169-9c00-83b9b2e4bbcd" class=""><span style="border-bottom:0.05em solid">Figure 3. Secondary Structure Graphs of the 2 Most Stable Candidates</span></p><p id="49959d97-df3e-4047-a5a0-52c53420019c" class="">
+</p><p id="2f1620cc-8beb-49db-8340-2ab488457480" class="">In comparison to test graphs made of UTRs with very small MFE values that contained 10-20 nodes, these graphs were significantly bigger in their number of nodes and edges. The top five UTRs had sequence lengths (measured in nt, number of nucleotides) of 13213 nt, 6341 nt, 6826 nt, 6825 nt, and 3052 nt. Comparatively, the UTRs from the database with MFE values of zero ranged from 0-20 nt. These two observations indicated to me that sequence and thereby structural complexity likely played a role in how stable (how low of MFE) a UTR’s optimal secondary structure was.</p><p id="bee6e24d-762c-4a71-af28-394038d11d3c" class="">To test this hypothesis, a variety of features were extracted from the graphs of each UTR (a summary of them can be seen in <em>Methods</em>). These were then used as input for two forms of unsupervised learning: PCA, and then PCA -&gt; tSNE.</p><p id="18541922-39a9-40e4-846c-a9c86163f893" class="">
+</p><p id="268eb379-02f7-4292-9081-b5eb509a866b" class=""><strong>PCA and Component Loading to Identify Important Features</strong></p><p id="c9b7f34f-14ee-4adf-93e7-52ee6f31ac46" class="">PCA was run via sklearn’s package on the dataset with 3 principal components. After generating graphs for each combination of principal components, it was visually evident that the graph comparing the first and second principal components (as seen in <em>Figure 4</em>) was the most successful in clustering the dataset.</p><figure id="6aad1916-0d4d-4f51-9a41-61616ef67bde" class="image"><a href="Optimizing%203%E2%80%99%20UTR%20Sequences%20and%20Secondary%20Structur%20631dc62d1b0b4f6e84e07eefb600d768/image6.png"><img style="width:700px" src="Optimizing%203%E2%80%99%20UTR%20Sequences%20and%20Secondary%20Structur%20631dc62d1b0b4f6e84e07eefb600d768/image6.png"/></a></figure><p id="5ab6f624-880f-4f5a-991f-374ad8f62a7f" class=""><span style="border-bottom:0.05em solid">Figure 4. Results of Principal Component Analysis on UTR Features and MFE Values for Principal Components 1 and 2</span></p><p id="68739815-a509-4cd4-aeaf-46beb2837ed3" class="">The successful and clear clustering of the UTRs (the datapoints) based on their MFE values when graphed by PC 1 and 2 indicates the existence of features (that were used to generate the principal components) that made it simple to group the UTRs of different MFE brackets. In theory, this should mean that there are features that have a statistically-supported significant impact on the MFE of a UTR – this hypothesis was verified via component loading.</p><p id="6a64b046-a89c-4abe-8e80-49e4d38b259f" class="">This technique (which can only be applied on pure PCA) was used on the graph shown in <em>Figure 4</em> because it was the most successful combination of principal components in its clustering. The component loadings for this PCA can be seen in <em>Figure 5</em>.</p><figure id="db574a9b-d045-4ea4-b27e-d30014b0aa5d" class="image"><a href="Optimizing%203%E2%80%99%20UTR%20Sequences%20and%20Secondary%20Structur%20631dc62d1b0b4f6e84e07eefb600d768/image1.png"><img style="width:635px" src="Optimizing%203%E2%80%99%20UTR%20Sequences%20and%20Secondary%20Structur%20631dc62d1b0b4f6e84e07eefb600d768/image1.png"/></a></figure><p id="05b83484-6afd-4cde-812a-b2f7afdb6389" class=""><span style="border-bottom:0.05em solid">Figure 5. The graphed results of component loading for PCA using principal components 1 &amp; 2</span></p><p id="bd35fb1b-5938-4d1d-9c30-698a92082623" class=""><em>Based on their position in the upper right quadrant, the features with the highest positive contribution to both principal components are 49, 51, 52.</em></p><p id="0751d626-ccc5-4f86-8a0a-d0062c3186cc" class="">A feature’s position on the graph indicates how much contribution it had to the principal components. If a feature has a positive x-value, that means it positively contributed to PC1 and therefore a positive correlation exists between the two metrics. If a feature has a negative x-value, the feature negatively contributes to PC1 and a negative correlation exists. The same applies to the y-axis with contributions to PC2. Features located at the origin have minimal/zero impact on the principal components, which would mean that their values have little significance in the clusters produced when PCA in <em>Figure 4</em>.</p><p id="67abcf88-91a6-4e3d-bdee-dc9e36936331" class="">As visible in <em>Figure 5</em>, features 49, 51, and 52 contribute positively to both principal components, and are the only values to do so. This would imply that the values of these features for a UTR hold importance over the labelled MFE value of the UTR. Feature 49 (the most impactful) corresponds to sequence length, feature 51 corresponds to the frequency within a sequence of a “G” nucleotide, and feature f2 corresponds to the frequency within a sequence of a “C” nucleotide. This supports the early-on hypothesis that sequence length is a key determinant of MFE, where longer sequences noticeably had lower MFE values. However, the importance of “C” and “G” nucleotides was not noticed or considered until these results.</p><p id="b790a59f-4356-4323-96ff-f1d1c86fba49" class=""><strong>PCA and tSNE for Dataset Visualization with Tightened Clusters</strong></p><p id="6a4534f5-745e-4f2a-9d0b-e21166541518" class="">For the sake of improving the clustering visualization carried out by PCA (as seen in <em>Figure 4</em>) and viewing the dataset more clearly, tSNE was applied on top of the results of PCA. Several different combinations of # of principal components and # of tSNE components were iterated through to see which resulted in the lowest KL divergence value, a metric indicating the most successful clustering results. The optimal combination, with a KL divergence of 0.089, was found to be with 1 principal component and 2 tSNE components. This produced the clustering visualization shown in <em>Figure 6</em>.</p><figure id="ac15a1d4-65a9-43aa-a2c6-67ff376a8fc8" class="image"><a href="Optimizing%203%E2%80%99%20UTR%20Sequences%20and%20Secondary%20Structur%20631dc62d1b0b4f6e84e07eefb600d768/image4.png"><img style="width:700px" src="Optimizing%203%E2%80%99%20UTR%20Sequences%20and%20Secondary%20Structur%20631dc62d1b0b4f6e84e07eefb600d768/image4.png"/></a></figure><p id="79845647-387b-47da-8a1b-7d5c122225cc" class=""><span style="border-bottom:0.05em solid">Figure 6. The graphical results of applying t-SNE (2 components) directly after PCA (1 component) for the sake of tightening clusters.</span></p><p id="16539f59-974d-4527-af9f-8637767cd786" class="">
+</p><h3 id="e9d25eed-0e08-4a9c-ba6c-ce695e4bd5b2" class="">Conclusions</h3><p id="0e7abb95-1c8e-4304-be7e-4120bea74fdd" class="">After identifying the gap in current vaccine research for optimizing the contribution of 3’ UTRs to mRNA stability, I parsed through a database of UTRs identified in nature and found several with optimal secondary structures that were more stable than UTRs used in industry. Unsupervised learning techniques were then leveraged to identify motifs or patterns in UTR sequences and structures that correlate with MFE. Sequence length, as well as “G” and “C” nucleotide frequencies, were found to be significant determinants of a UTR’s MFE value. This might indicate that in the identification or creation of stable UTRs, these variables should be optimized for to confer higher stability of both the UTR secondary structure and the overall mRNA’s secondary structure (by way of cumulative stability).</p><p id="ff92592a-052a-452b-9e9b-b6b87a166cbf" class="">The results of this paper could be expanded on in several ways. Firstly, the algorithms should be rerun on a higher batch size - ideally, the entire database of UTRs (which I have plans to do soon). This will allow for global minimization across the entire UTR space – leading to the identification of the truly most stable 3’ UTRs available in nature, as measured via MFE. Additionally, the mechanisms by which 3’ UTRs impact mRNA stability beyond just cumulative stability of secondary structures should be assessed and optimized for. This includes their interactions with RNA-binding proteins, along with several others discussed in <em>Background</em>. Beyond just stability, 3’ UTRs have important implications for mRNA translation efficiency and protein expression - these factors should be jointly optimized for when finding the most suitable 3’ UTR to be used in vaccines.</p><p id="f738350d-72f0-44eb-9e56-9bb6bf6c4518" class="">Nevertheless, stability is a significant and underlooked area of optimization that this paper aims to spark more interest in. To improve the utility of the mRNA vaccine in fighting future pandemics, we need them to be accessible worldwide. This means designing them to be useful and usable by those in low and middle income countries without the same resources for cold-chain logistics, particularly as their populations comprise the majority of the globe. This paper optimizes one mechanism by which 3’ UTRs impact mRNA stability (cumulative stability _ MFE), but for the development of a highly thermostable vaccine as a tool for pandemic preparedness, more efforts should be concentrated towards optimizing 3’ UTRs for all of the ways in which they contribute to mRNA vaccine stability and function.</p>
+
+<h3 id="e7a22c9f-75ca-4d25-9fc1-d599171f1ff6" class="">References</h3><p id="f738350d-72f0-44eb-9e56-9bb6bf6c4518" class="">
+	Awan, A. A. (2023). Introduction to T-SNE. https://www.datacamp.com/tutorial/introduction-t-sne
+	
+	Fahrni, M. L., Ismail, I. A., Refi, D. M., Almeman, A., Yaakob, N. C., Saman, K. M., Mansor, N. F., Noordin, N., & Babar, Z. (2022). Management of COVID-19 vaccines cold chain logistics: a scoping review. Journal of Pharmaceutical Policy and Practice, 15(1). https://doi.org/10.1186/s40545-022-00411-5
+	
+	Fang, E., Liu, X., Li, M., Zhang, Z., Song, L., Bin, Z., Wu, X., Liu, J., Zhao, D., & Li, Y. (2022). Advances in COVID-19 mRNA vaccine development. Signal Transduction and Targeted Therapy, 7(1). https://doi.org/10.1038/s41392-022-00950-y
+	
+	Foged, C. (2022). Grand Challenges in Vaccine Delivery: Lessons Learned From the COVID-19 Vaccine Rollout. Frontiers in Drug Delivery, 2. https://doi.org/10.3389/fddev.2022.964298
+	
+	Katella, K. (2023). Comparing the COVID-19 vaccines: How are they different? Yale Medicine. https://www.yalemedicine.org/news/covid-19-vaccine-comparison
+	
+	Kim, S. C., Sekhon, S. S., Shin, W., Ahn, G., Cho, B., Ahn, J., & Kim, Y. (2021). Modifications of mRNA vaccine structural elements for improving mRNA stability and translation efficiency. Molecular & Cellular Toxicology, 18(1), 1–8. https://doi.org/10.1007/s13273-021-00171-4
+	
+	Lo Giudice, C., Zambelli, F., Chiara, M., Pavesi, G., Tangaro, M. A., Picardi, E., & Pesole, G. (2022). UTRdb 2.0: a comprehensive, expert curated catalog of eukaryotic mRNAs untranslated regions. Nucleic Acids Research, 51(D1), D337–D344. https://doi.org/10.1093/nar/gkac1016
+	
+	RNA Secondary Structure as a Graph Using the forgi Library — forgi 2.0.0 documentation. (n.d.). https://viennarna.github.io/forgi/graph_tutorial.html
+	
+	Uddin, M. N., & Roni, M. A. (2021). Challenges of storage and stability of mRNA-Based COVID-19 vaccines. Vaccines, 9(9), 1033. https://doi.org/10.3390/vaccines9091033
+	
+	ViennaRNA. (2023, July 20). PyPI. https://pypi.org/project/ViennaRNA/
+	
+	Von Niessen, A. G. O., Poleganov, M. A., Rechner, C., Plaschke, A., Kranz, L. M., Fesser, S., Diken, M., Löwer, M., Vallazza, B., Beissert, T., Bukur, V., Kuhn, A. N., Türeci, Ö., & Sahin, U. (2019). Improving mRNA-Based therapeutic gene delivery by Expression-Augmenting 3′ UTRs identified by cellular library screening. Molecular Therapy, 27(4), 824–836. https://doi.org/10.1016/j.ymthe.2018.12.011
+	
+	Yarlagadda, H., Patel, M. A., Gupta, V., Bansal, T., Upadhyay, S., Shaheen, N., & Jain, R. (2022). COVID-19 vaccine challenges in developing and developed countries. Cureus. https://doi.org/10.7759/cureus.23951
+	
+	Zeng, C., Hou, X., Yan, J., Zhang, C., Li, W., Zhao, W., Du, S., & Dong, Y. (2020). Leveraging mRNAs sequences to express SARS-CoV-2 antigens in vivo. bioRxiv (Cold Spring Harbor Laboratory). https://doi.org/10.1101/2020.04.01.019877
+	
+	Zhang, H., Zhang, L., Lin, A., Cheng, X., Li, Z., Liu, K., Liu, B., Ma, X., Zhao, F., Jiang, H., Chen, C., Shen, H., Li, H., 
+	
+	Mathews, D. H., Zhang, Y., & Huang, L. (2023). Algorithm for optimized mRNA design improves stability and immunogenicity. Nature. https://doi.org/10.1038/s41586-023-06127-z
+	
+	Zuker, M. (1989). On finding all suboptimal foldings of an RNA molecule. Science, 244(4900), 48–52. https://doi.org/10.1126/science.2468181
+</p>
+
+

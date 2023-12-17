@@ -1,0 +1,682 @@
+<html><head><link rel="shortcut icon" href="https://i.imgur.com/Vf3lnnZ.png" type="image/x-icon" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>The Dummy’s Guide To Growing Fake Bugs</title><style>
+
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+/* A link that is hovered on */
+a:hover {
+    color: rgb(20, 142, 167);
+	text-decoration: underline;
+}
+/* A link that is selected */
+a:active {
+    color: #1BB0CE;
+	text-decoration: underline;
+}
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="5ba81b55-5559-455f-b11a-9686c995b386" class="page sans"><header><h1 class="page-title">The Dummy’s Guide To Growing Fake Bugs</h1></header><div class="page-body"><h3 id="d4571f0e-52f3-4248-8fde-60a4dd157e3f" class=""><mark class="highlight-gray">May 2020</mark></h3>
+</p><p id="1fc6896d-c7c6-4d21-93c0-496b064ec229" class="">Right now, <strong>820 million people</strong> aren’t getting enough calories on a daily basis to lead a healthy lifestyle. As a global issue, several countries worldwide are still facing stagnation today with their levels of hunger. Unfortunately, some countries have been getting even <em>worse</em>.<div class="indented"><figure id="7b0c38f2-3a0c-4b2f-94ac-6b2785490691" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled.png"><img style="width:700px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled.png"/></a><figcaption><center><a href="https://ourworldindata.org/hunger-and-undernourishment">Source</a></center></figcaption></figure></div></p><p id="9fe81e32-7aa5-46cd-9aae-cb568dc82553" class="">
+</p><p id="bf67a2da-5abb-456a-a027-47f903ea1ad6" class="">As you can see, one of the countries suffering the most is the <strong>Central African Republic</strong>.  Here, undernourishment rates reached 59.6% in 2018… with very little progress since. In other words, almost two-thirds of their population (3m) aren’t getting enough food.</p><div id="e6f647c2-6973-4656-bc86-dd73f6127b6b" class="column-list"><div id="ec29aeb0-1625-4a60-b200-0b2eaeeae94e" style="width:50%" class="column"><figure id="f0d453aa-ae03-4dd1-96c1-829dbbd57e01" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%201.png"><img style="width:336px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%201.png"/></a><figcaption><center><a href="https://www.caritas.org/category/conflicts-and-disasters/emergencies-in-central-african-republic/">Source</a></center></figcaption></figure><p id="4198f674-70aa-4598-a510-4bafe0c5741d" class="">
+</p></div><div id="350c4f7f-ba00-4254-865c-1c1664f9d9b1" style="width:50%" class="column"><figure id="f35ef137-c05c-4bd3-b78f-4fb1c7f78c9f" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%202.png"><img style="width:541px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%202.png"/></a><figcaption><center>Undernourished = not enough calories | <a href="https://knoema.com/atlas/Central-African-Republic/Prevalence-of-undernourishment">Source</a></center></figcaption></figure></div></div><p id="e0e9f01c-9de8-44e9-8bae-d8a32aa95689" class="">
+</p><p id="0ab4f733-392f-4786-8d3a-0b8e5253b5b0" class="">The issue underlying hunger for the Republic is conflict and food resource depletion. Unfortunately, the solutions we’ve tried aren’t adequately tackling this issue. For example, in 2018, Action Against Hunger worked heavily in the area. Only <strong>23,001</strong> people were assisted in CAR by nutrition and health programs (<strong>0.47% of country population</strong>).</p><p id="f64a2ef0-8830-4e37-805d-529ccaf404af" class="">We’ve clearly been very unsuccessful at cracking this issue because our approaches haven’t worked. Instead of using conventional food sources that have scalability and cost issues, we’re neglecting an amazing alternative. <strong>Bugs.</strong></p><p id="825de351-6c4b-4fc5-8154-f297348999d8" class="">
+</p><figure id="4abe6b66-78a4-4d54-b948-18fa3af03025" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%203.png"><img style="width:700px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%203.png"/></a><figcaption><center>Praying Mantis | <a href="https://www.healthline.com/health/praying-mantis-bite">Source</a></center></figcaption></figure><p id="c8cbc212-791f-4da4-ac4b-e88ba062e6b7" class="">
+</p><h3 id="53aaa32a-ce30-4826-8a5e-df2eb1a388f4" class="">Insects and Nutritional Value</h3><p id="270397c5-3b1d-4c76-81ec-bb6541f95601" class="">Why are bugs even being considered as a food source? Well, insects contain an insane amount of nutritional value, more than what you’d likely think.</p><p id="7d0a6e5a-a1fc-4e8d-9d25-353a3e9b6995" class="">
+</p><figure id="8a6c9528-571d-4b8b-9638-5f906d967dde" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%204.png"><img style="width:700px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%204.png"/></a><figcaption><center>Insects are always comparable or better</center></figcaption></figure><p id="c49d71b6-2616-4f3f-ac15-8b79c2bc9dae" class="">
+</p><p id="1ddba896-48d0-412f-b56e-10b00a65b8af" class="">Protein, fat, fibre, calcium, iron, and zinc are super important for the diets of humans — and insects clearly make the mark for all areas. Sure, bugs may look gross… but the nutritional punch is definitely there. Next time you want a kick of fiber and protein after a workout, try cricket flour!</p><p id="e10a3cc6-e115-4a7a-a6e7-5ba6dc9cdf6f" class="">These are only some insect species out of tons more options. Here are some more examples if you’re still skeptical:</p><ul id="c5fd4ae0-b08d-4112-ac22-1444be873ca1" class="bulleted-list"><li>For every (dried) 100g of mealworms, <strong>24g of protein</strong> is provided. Additionally, they provide huge boosts in <strong>metabolism</strong>.</li></ul><ul id="69282c67-9114-410a-99a0-3b447129284f" class="bulleted-list"><li>In a (dried) 100g serving of soldier fly larvae, there’s <strong>934mg of calcium </strong>is up for consumption — with a daily recommended intake of 1000mg. 93.4%! You’ll also find tons of <strong>zinc</strong> and <strong>iron</strong> value.</li></ul><ul id="5b099cd0-a55f-42fb-b952-05b0df773e9f" class="bulleted-list"><li>Here’s what might be most surprising… 100g of dried weaver ant provides <strong>1272 kcal</strong>… when the daily recommended intake for men and women averages around 2500. Imagine how many people we could feed with this calorie-packed source! (Stick around for more on this later)!</li></ul><ul id="8657903c-1edc-4121-85bb-847d468474f6" class="bulleted-list"><li>Some edible insects provide high <strong>fiber</strong> levels, especially in their larval (egg) stages. This comes from chitin, a substance contained in their exoskeletons. Some examples of these bugs are giant mealworms, yellow mealworms, and African migratory locusts. Chitin also has other benefits!</li></ul><p id="7df361db-770e-4f48-b13e-b6abf254f842" class="">
+</p><figure id="536cac26-7409-45f9-8435-8c65e94779a0" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%205.png"><img style="width:700px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%205.png"/></a><figcaption><center>Chitin is found in the exoskeletons for some bug species | <a href="https://www.eatcrickster.com/blog/edible-insect-nutrition">Source</a></center></figcaption></figure><p id="d82352aa-58f3-4777-893d-1adf7649a7f8" class="">
+</p><ul id="d7f03150-0d76-49b4-888d-b681e078c72d" class="bulleted-list"><li>Other bugs have super-high <strong>fat</strong> content in larval stages: the wax moth, giant mealworm, and yellow mealworm</li></ul><ul id="9e285215-a877-4ec8-a6e3-c28720352d50" class="bulleted-list"><li>Interestingly, insect meat provides much more nutritional value when dried instead of fried — oil when cooking can add unnecessary and possibly unhealthy fats.</li></ul><p id="4930934c-ae05-49af-b8ff-8c6f8587375d" class="">
+</p><p id="eedc84b8-ce13-461a-89c7-fcce0cb1da8e" class="">TLDR: we know bugs are superfoods — packed with tons of nutritional and caloric value that humans need to survive. If you’re still hesitant about eating a worm, I get it… but know the benefits are here and clear.</p><p id="af568f31-83df-42ec-bca5-48a10f801bd1" class="">
+</p><h3 id="8b00ab23-8a49-4d5f-8678-24c5129151ad" class="">Cellular Agriculture and the Future of Food</h3><p id="81580328-aab0-4fde-8fce-c9b4015c8246" class="">Notice that term there? Cellular agriculture?</p><p id="630ea345-ae12-437f-b925-8127a2e530d4" class="">If you’re not already familiar with it… it may seem strange. But this field of breakthrough science is what I see as the <em>real</em> future of food … once mixed with bugs!</p><p id="cc866b9b-4e7e-4070-9fae-e810424ed5f6" class="">Cellular agriculture (cellag) is essentially how we can <strong>grow and make meat purely from starter cells</strong>. The meat produced is often referred to as ‘lab meat’, ‘clean meat’, or ‘cultured meat’, but it all refers to the same thing. Making meat in the lab purely from starter cell cultures, over time proliferating and developing into fat or muscle tissue.</p><p id="494ca63f-90b5-428a-85b8-5a68c7fc32a2" class="">Currently, cellag is mostly used for producing meat of conventional sources (ex. beef). While this isn’t the focus of this article, this is still a super interesting and sustainable field when it comes to food.</p><figure id="59bd5ab4-0c4c-4d40-a812-659f1223fa9f" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%206.png"><img style="width:381px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%206.png"/></a><figcaption><center>Cellular Agriculture for Beef | <a href="https://www.frontiersin.org/research-topics/7794/cellular-agriculture-biotechnology-for-sustainable-food">Source</a></center></figcaption></figure><p id="f9b8eef0-0038-42a0-bbaa-592ee3ec8f25" class=""><strong>Our normal methods of meat production, livestock farming, is the cause of several environmental issues</strong> — land and water degradation, biodiversity loss, acid rain, coral reef degeneration, deforestation, and climate change. </p><p id="51e84329-74ea-487a-9500-f76fdf4c6fbc" class="">Through leveraging cellag to make meat, we’re already tackling this huge issue within the food industry. However, I don’t think what we’re currently doing is good enough. <strong>We’re not capitalizing on the nutritional and systematic benefits of insects!</strong></p><p id="6dfe52ed-1495-48d3-a667-be81d80743b1" class="">With <strong>lab-grown insect meat </strong>(sometimes called ‘labriculture’), think of insect cells that could be genetically modified for rapid growth, high nutrition, and delicious flavour. Over time, they’d be able to proliferate and develop into 3D tissue resembling animal meat — like a steak or burger. Except without our typical meat ingredients!</p><figure id="0112de88-3848-4f4a-9a0e-8889e1959549" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%207.png"><img style="width:462px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%207.png"/></a></figure><p id="8ef15f75-b96d-422f-8476-7bc1b45647d6" class="">There are tons of benefits to this process, despite how unappetizing it may seem to Western diets. Insect cell cultures are naturally <strong>much easier to use</strong> for cellag because they’re much more adaptive and resilient to varying conditions (compared to mammals).</p><p id="b845f769-612a-436c-bc4b-fbb580301f15" class="">Additionally, they’re much<strong> less resource-intensive</strong>. Usually, we need costly serums to provide nutrients and to support the development of cell cultures when making ‘clean meat’. For example, an ounce of fish serum can cost <strong>$850</strong>. This makes scaling normal cellag cheaply super difficult. <strong>However, insect cells don’t need these serums at all, with no nutritional tradeoff.</strong></p><p id="91367532-356f-4379-a67a-a2e6c54f69bf" class="">There are even more benefits resource-wise! Insect cellag requires less media (supports cell growth), growth conditions for cell cultures are less strict, and adapting to suspension is much easier. Insect cell cultures can also develop and maintain function in much less strict environments — in fact, they can be grown <em>at scale</em> at room temperature! Some of that might’ve been confusing, but it’ll make more sense when we dive deeper into the science behind cellular agriculture later!</p><figure id="3aab71e2-1ceb-4bc5-800c-f2509e5c2bdf" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%208.png"><img style="width:700px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%208.png"/></a></figure><p id="4cc3cd8b-5492-427f-8334-807fe6597926" class="">So far, scientists think the reason why insect cells are so much more resilient than their animal counterparts is due to evolutionary biology. While mammals (like us!) require specific habitats and conditions to survive, insects can thrive in much more varied temperatures, oxygen levels, and more.</p><figure id="2cde432f-c84f-4de1-8cdd-97dcbb9b0379" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%209.png"><img style="width:334px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%209.png"/></a></figure><p id="c8a480e2-85ac-4752-8c16-afddd3f41478" class="">
+</p><p id="626466dd-8902-4a87-a994-d96040399263" class="">All in all, this means insect tissue can be grown from cultured cells in large quantities <em>cheaply</em> and <em>easily</em>… compared to that of cows or fish.</p><p id="d8c82610-e07b-4e9a-9429-4927b115bb48" class="">However, so far, so little people are working on this! Insect labriculture is being used mainly for fields like soft robotics — where cultured insect tissue can be stimulated to flex and twitch (bio-bots), providing movement. <strong>We could be rapidly producing nutritious food, but we’re focused instead on zombie robots.</strong></p><p id="1b0854b5-22ed-40dc-bfbc-f1c9c5ad0ca8" class="">Genetic modification is also much easier with bugs, so if we wanted to optimize cultured insect meat for certain properties, scientists would likely be very successful.</p><p id="ebfd272e-70bb-41c3-b950-226d1c5df188" class=""><strong>TLDR: cellular agriculture is the future of meat production, insect meat is the future of cellular agriculture.</strong></p><p id="36420117-a357-4a3d-99ff-22507cd2e5c9" class="">However, there still are some obstacles and gaps in knowledge to making lab-grown insect meat a reality. We’ll go deeper into them later, but for now, some key issues are anticipating precise taste and nutrition and controlling the cellag scientific process.</p><p id="8ed3737a-9fa8-439e-8555-2631a5a6e06b" class="">
+</p><h2 id="17b63924-c5aa-4bfe-8ab1-c9ae832e06a4" class="">Myogenesis with Fruit Flies and Moths</h2><p id="b8a1463f-a5fd-41ea-a1a2-6c2b72dc71f4" class="">Alright! Let’s go into the science of how it’s possible to generate meat from a few starter cells of insects.</p><p id="bc3bceb1-e257-48cf-bfd6-578d7907b9dc" class="">The first important piece to discuss is <strong>Myogenesis — the process of developing muscle tissue within cell cultures</strong>. With cellular agriculture, we’re almost always<strong> forming muscle or fat tissue to create clean meat products</strong>. It’s essential to first understand how organisms, in this case, insects, naturally form muscle tissue.</p><p id="ea2adaf9-d527-45b6-90b6-f6fc45f5c0cf" class="">
+</p><figure id="a36d68c3-261d-491a-9359-82907cff412d" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2010.png"><img style="width:700px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2010.png"/></a><figcaption><center>Muscle tissue development for fruit flies | <a href="https://www.frontiersin.org/articles/10.3389/fsufs.2019.00024/full">Source</a></center></figcaption></figure><p id="d7e12ef3-de0e-4427-bbcc-c4db57fb8a0b" class="">
+</p><p id="d303dfad-d226-4c55-ab6f-082241fd8080" class="">Here you go!</p><p id="6c594f5f-989b-4bdf-b419-cd55f07b14e4" class="">Just kidding… since this is a dummy’s guide, let’s break down what this schematic actually means.</p><p id="720881c7-bc0f-4ecd-bde6-c47703060793" class="">There are two key processes that are being represented here — adult myogenesis, and embryonic myogenesis. AKA, how muscle tissue is developed at the embryonic (start of organism development) and adult stages of insects. In this case, <em>Drosophila melanogaster</em> —<strong> </strong><em>fruit flies</em>!</p><p id="0c9c3a9b-c419-4e6a-9c6e-c88d3af078fc" class="">
+</p><figure id="d79e9067-f3ac-4588-9a04-4b2b62acb7e3" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2011.png"><img style="width:700px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2011.png"/></a></figure><p id="f6be9524-b376-4cba-9dc9-116522f2498d" class="">
+</p><p id="e00d2979-a616-49fb-b3d2-5a903b079951" class=""><strong>Some quick terminology to review:</strong></p><ul id="259b14bb-cec1-4228-84b1-d1d2171aee98" class="bulleted-list"><li><em>myogenesis</em> → how we get from starter cells to muscle tissue (here, words with the prefix myo- means anything related to this process)</li></ul><ul id="9549c167-5ab4-41d6-a2fd-e2b6d93a9bbb" class="bulleted-list"><li><em>embryogenesis</em> → how a single egg develops into a larva or juvenile</li></ul><ul id="148adef6-7101-4996-828a-8addd7cdfe44" class="bulleted-list"><li><em>proliferation</em> → rapid increase in numbers</li></ul><p id="ad70c2c1-ce36-4061-b3f0-3ea17c5607cd" class="">Firstly, let’s cover how muscle tissue can be developed from <strong>embryonic</strong> cells!</p><p id="ed0f806b-994d-4719-b2a4-b0e03401a169" class="">
+</p><h3 id="be651dcf-ab9b-40fd-b221-053406cec06c" class=""><strong>Embryonic Myogenesis (Fruit Flies)</strong></h3><p id="fb07b32b-35ea-4236-a3f7-a92e0b57f670" class="">The mesodermal layer is one of three germ layers for Drosophila (fruit fly) embryos. When their cells specify, it means they begin differentiation without external signalling. ‘Twist’ and ‘Snail’ are activated by Dorsal, a transciption factor. Transcription factors are a fancy name for proteins that control the transcription (copying) of DNA sequences to messenger RNA strands, by binding to certain genes. Messenger RNA refers to the RNA that’s read by ribosomes to produce proteins.</p><p id="d9889172-803e-44c8-9e7e-7646af6e0abf" class="">Twist and Snail (proteins) determine the development of the mesoderm for fruit flies by regulating gene expression. Snail prevents expression in the mesoderm for genes destined to be active in more lateral/dorsal regions. Twist is required for the activation of downstream mesodermal genes and for itself and snail to be able to function.</p><figure id="bfffe1a1-0b5b-4da7-ab2b-12e195a739a8" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2012.png"><img style="width:109px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2012.png"/></a></figure><p id="ca7d6eff-bfad-4cd7-bb2a-fa0116f10d74" class="">After mesodermal cells have specified, migration and ectoderm association occurs. The ectoderm layer is the outermost germ layer (cells that interact with each other during embryonic development) of Drosophila embryos. The mesodermal cells from the previous stage form a monolayer (thin layer) upon contact with the ectoderm tissue.</p><figure id="85215950-150e-4e5c-8f32-adce97c532da" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2013.png"><img style="width:245px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2013.png"/></a></figure><p id="c95031b6-da27-48c6-af68-90649b96dd6d" class="">Now for local equivalence group specification. For context, an equivalent group is a set of unspecified cells with the same developmental potential. At this point, cells from before either specify into cardiac/visceral cells or somatic muscle progenitors → progenitors being multipotent stem cells. This means that there’s an equivalence group present here for cells that will eventually develop into cardiac/visceral tissue and those for somatic muscle progenitors. Uniquely, with progenitors (in contrast to regular stem cells), we have a good idea of what they’ll specialize into, because their options for specialization are limited.</p><figure id="15e35b5a-7499-466e-8eb6-a173332edb2d" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2014.png"><img style="width:356px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2014.png"/></a></figure><p id="3e7ccc50-89cc-47b5-9d0e-42e2b82859ed" class="">Then, our somatic muscle progenitors (a mouthful) undergo muscle cell fate specification. Cell fate specification is the process of specification of cell identity → once a cell is specified, it’s committed to differentiating down that path in normal circumstances. Notch signaling (promotes proliferation) activated upon our progenitors results in a myogenic progenitor cell and many fusion-competent myoblasts (myoblasts → on the way to becoming myofibers, the building blocks of muscles).</p><figure id="7d524a49-0cc0-47a8-8656-0c370763cff5" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2015.png"><img style="width:479px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2015.png"/></a></figure><p id="48b002b6-42f1-4e83-9954-b18ddac8e291" class="">Myogenic progenitors then divide to produce one of two options: two founder cells, or one founder cell and a precursor cell. Founder cells develop into tissue through clonal expansion, and precursor cells are unipotent, partially differentiated cells.</p><figure id="ec02e8c6-6b6f-4ea6-b08d-035c7d7835d5" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2016.png"><img style="width:575px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2016.png"/></a></figure><p id="1d7a8a33-39a9-4fc6-acbd-8798e5b59d1f" class="">Finally, membrane adhesion proteins come into play. Named very interestingly, ‘Dumbfounded’ and ‘Sticks-n-Stones’ essentially monitor the fusion between founder and fusion-competent cells → coming together to form muscle tissue.</p><figure id="8a8908fd-c34d-41cb-9dec-9aeabd2a5ea6" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2017.png"><img style="width:700px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2017.png"/></a></figure><p id="08e61f7a-6e7b-41f2-8817-3e6fadd65565" class="">And that’s how cells from the mesodermal layer in fruit fly embryos become muscle tissue → aka myogenesis!</p><p id="2a043fb6-30ae-48d6-a288-5df44bfa0be8" class="">
+</p><h3 id="99b8a036-ec15-4565-84e7-6817f7d9b9ff" class="">Adult Myogenesis (Fruit Flies)</h3><p id="b3601f98-2887-443d-9c27-aa32c36ea4f0" class="">Let’s now dive into what this process looks like at a fruit fly’s adult stage.</p><p id="6c6312b5-46e8-4e31-a305-31dd0c959ab8" class="">Think back to our precursor cells from the embryonic myogenesis process… we’re still using them here. Specifically, <em>adult muscle precursor cells (A)</em>. These cells proliferate because of serate activated notch signalling. This means that our precursor cells reproduce through symmetric divison to exponentially increase their population.</p><figure id="26e83b8e-74f9-4cc7-b3f9-3a8956bf52e0" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2018.png"><img style="width:124px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2018.png"/></a></figure><p id="87dd0d96-65a1-4dad-b190-7434ad37f334" class="">Wingless activated Wnt signalling is now used — which is a loaded phrase. Scientists still don’t know everything about this process, but for now we know that this mechanism directs cell fate decisions. What directly comes from this in fruit flies is asymmetrical division — where our adult muscle precursor cells (A) make a copy of themself and a post-mitotic myoblast (M). Remember, myoblasts are key in the myogenesis process.</p><figure id="c4cb7eb1-c6de-4cd1-959c-4f271c059695" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2019.png"><img style="width:182px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2019.png"/></a></figure><p id="74284f36-38c6-43cf-a129-a28b6ddead1c" class="">Our myoblasts now migrate from wing imaginal discs (fancy term for sac-like structures in larvae) to the site of muscle formation, further developing eventually into muscle tissue.</p><figure id="f367764f-88ee-4e4f-b4e8-02844be87c4c" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2020.png"><img style="width:348px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2020.png"/></a></figure><p id="3f6ea5d9-9080-4e86-bd8d-f8f94c519262" class="">Back with our interestingly named proteins! Sticks-n-Stones and WASP interacting protein are super important now because they fuse our myoblasts to the larval template, which differentiate further. WASP interacting protein is a nucleation promoting factor… which is still pretty unclear. In this case, it’s super important for implementing cell fate decisions during development. Because our myoblasts differentiate upon fusion, WASP’s utility is clear.</p><figure id="4aa2168b-561e-4285-be28-b32c8572abe9" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2021.png"><img style="width:487px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2021.png"/></a></figure><p id="acfb49eb-e1ab-4c5f-a02f-d9bd49406b21" class="">Now, our differentiated muscle fibers attach to tendon cells before becoming contractile — a word I think of as ‘contractable’. This is because we can flex our muscles — meaning the tissue contracts!</p><figure id="316912f4-6d7d-485f-bffc-0860453edbc4" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2022.png"><img style="width:578px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2022.png"/></a></figure><p id="c7baaa28-964d-4b60-9fb3-e039fb17ed8b" class="">Satellite cells (S), or myosatellite cells, are small multipotent cells with very little cytoplasm found in mature muscle. They’re located on the surface of muscle fibers and are super important in the event of muscle injury. When these injuries occur, satellite cells activate and proliferate, repairing damaged tissue.</p><figure id="54d70308-0087-4e35-8f58-b1f24967784a" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2023.png"><img style="width:700px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2023.png"/></a></figure><p id="ba944ef0-53a4-4872-b3ca-644fecec6339" class="">There we go! Tons of science, but that’s how insect cells in embryonic and adult stages can develop into muscle tissue.</p><p id="a4b1b2cd-4ef0-4ce5-b82d-1a47682df67d" class="">
+</p><h3 id="c7ca3517-ad1d-4720-98d5-a00421ac383d" class="">Process for Cultured Insect Meat</h3><p id="e5fdd404-0ea7-427c-9794-6ffb93b8b6f6" class="">The way we go about insect cellag differs from myogenesis, because cellular agriculture is <em>in vitro</em>, while the myogenesis processes above are <em>in vivo</em>. If you aren’t familiar with these terms, they essentially mean that <strong>myogenesis occurs naturally within organisms (eg. fruit flies), while cellular agriculture is when we make meat outside of organisms</strong>.</p><p id="bdae6121-9181-412e-b525-55e49c87a977" class="">With insect cellag, to produce meat products, our main focus is developing <strong>fat </strong>and <strong>muscle</strong> <strong>tissue</strong> in 3D forms to resemble the meat items we usually eat (burgers, wings, steak, etc). This basically means muscle tissue development for labriculture is replicating and adjusting the myogenesis process to an in-vitro environment.</p><p id="1fe1dbf6-7c51-4585-a0de-2f044a343559" class=""><strong>Fat tissue</strong> is also important for cultured insect meat, both with taste and nutrition. Many bug species contain high amounts of essential fats within their tissue, like omega-3 and omega-3. Fat body cells also synthesize (make) important proteins, can promote embryonic development, and increase muscle cell survival. They’re important in the process of culturing insect meat because their <strong>nutrient storage and release can benefit muscle cells within the in-vitro cell culture</strong>.</p><p id="5b9d2453-5891-423b-abf6-ecd4cc3862d3" class="">To produce fat and muscle tissue, we culture muscle and fat body cells.</p><p id="1694a20f-25c8-483d-a3ce-4eeed13d23d0" class="">
+</p><p id="1b6374a2-cefb-4616-85f3-94f95862d822" class=""><strong>Here’s how we get our fat body cells:</strong></p><ol id="7c2f43fb-ac6c-4f84-97a6-74df30fc46c4" class="numbered-list" start="1"><li>Get late-stage larval insects with sterilized surfaces</li></ol><ol id="e9c91a92-9841-4948-8d7c-27743f16b169" class="numbered-list" start="2"><li>Remove fat body tissue from abdomen</li></ol><ol id="0dd4e9e5-f5ff-4a10-94a3-611bdd05d544" class="numbered-list" start="3"><li>Mince in buffer solution or culture media*</li></ol><p id="085750e1-a3d8-439f-9568-1e5df8b4f5e8" class="">*Buffer solutions maintain pH to regulate conditions for cell cultures. Culture media are gels that support cell culture growth.</p><p id="999dae20-fbd9-4707-90ca-513d282ac715" class="">
+</p><p id="f342fb1b-139e-4477-92fc-b0979a32f022" class=""><strong>The overall process of making cultured meat:</strong></p><ol id="7f352fe5-5311-4e2a-a387-274fdcdd8e7b" class="numbered-list" start="1"><li>Procuring Cells (muscle and fat)</li></ol><ol id="689be300-c743-4224-8a60-1dda172dfc6f" class="numbered-list" start="2"><li>Proliferating Cells</li></ol><ol id="bff6659d-5dc5-4bac-a89b-0ba0fe52a13b" class="numbered-list" start="3"><li>Adhering Cells to Scaffolds</li></ol><ol id="6da9a8bb-6f94-4c06-8c82-8cbfab18a616" class="numbered-list" start="4"><li>Promoting Differentiation into Muscle and Fat Tissue</li></ol><p id="8cff4167-1212-4907-8b0b-f9adfc7b40bd" class="">
+</p><p id="f21560e2-0ce8-4348-a593-9df7b504f287" class=""><em>Or, on a lower level…</em></p><p id="07b89fb5-9cb0-4ab0-900d-4e5d850b9036" class="">
+</p><figure id="04fe38c6-e1fb-45bb-af73-75888c538737" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2024.png"><img style="width:700px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2024.png"/></a><figcaption><center>Insect Cellag Process | <a href="https://www.frontiersin.org/articles/10.3389/fsufs.2019.00024/full">Source</a></center></figcaption></figure><p id="14f95ff0-2409-4e8e-8417-93dd905e716f" class="">
+</p><p id="60ebce83-f117-4644-b06c-b6247192f8a0" class=""><strong>Let’s try and </strong><em><strong>dummify</strong></em><strong> this!</strong></p><ul id="30efc10b-7d6a-4f8c-a85a-4b5b7fcbd058" class="bulleted-list"><li><em>Stage One (cell isolation)</em> → separating muscle and fat cells from embryo, and them themselves, and then incubating them (incubating → growing and maintaining cell cultures)</li></ul><ul id="27f95c6e-6c5a-4cfd-9481-91ec65e85287" class="bulleted-list"><li><em>Stage Two (SFM adaptation) </em>→ because insect cells don’t require expensive serums, they can adapt to media without them easily. here the cell culture is grown progressively.</li></ul><ul id="b1d2a59b-8846-4321-8e5d-e6d957ba068f" class="bulleted-list"><li><em>Stage Three (suspension adaptation)</em> → cells are moved to shake flasks and are free-floating in the culture medium (suspension)</li></ul><ul id="e51b67c4-dd4d-459d-8f81-69829fec7cd2" class="bulleted-list"><li><em>Stage Four (scale-up) </em>→ maximizing cell growth and productivity through optimizing the process’ parameters, like cell type.</li></ul><ul id="e6a767b3-30d6-4d8f-b0cb-480221b530dc" class="bulleted-list"><li><em>Stage Five (cell harvest)</em> → cells are harvested and transferred to a new environment so that they can differentiate into other cells, or form a new cell culture (co-culture).</li></ul><ul id="5d488cdd-eda2-4a76-8ed4-c5e34149c238" class="bulleted-list"><li><em>Stage Six (scaffold seeding)</em> → scaffold structures, made out of animal-free products (eg. chitosan), are used to form 3D meat structures from the insect cells through adhesion.</li></ul><ul id="d0f992b8-bb14-43c4-aec2-ded861bb2ad6" class="bulleted-list"><li><em>Stage Seven (differentiation)</em> → insect cells can now differentiate upon the scaffold with external factors like neuron cells, alongside promoting contraction (flexing of muscles).</li></ul><p id="7eba4a27-4e05-42e6-8c33-07298576ccd0" class="">
+</p><p id="a8ed6dd4-8227-449f-9c38-36bbb4cdf5b2" class="">Remember when I said, “insect cellag requires less media, growth conditions for cell cultures are less strict, and adapting to suspension is much easier” earlier? The process shown here demonstrates these advantages, especially in comparison to normal cellag.</p><p id="19c95bd3-f403-4e86-8126-cccddd1a0801" class="">
+</p><figure id="337043bd-001d-4914-905a-e8246ff76c30" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2025.png"><img style="width:700px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2025.png"/></a><figcaption><center>This is old news! Cultured insect meat is the future | <a href="https://medium.com/cellagri/cellular-agriculture-the-future-of-food-ab4710eced9b">Source</a></center></figcaption></figure><p id="93a36386-b85b-4b90-99c0-677756683a93" class="">
+</p><p id="3a679a32-dfb3-408a-86d4-828bd36a6967" class=""><strong>Insect cells can adapt easily to serum-free medium (SFM), unlike mammalian cells:</strong></p><ul id="8137c56f-c4bc-41af-83e3-674fb9321158" class="bulleted-list"><li>serum-free media → growing cells in the absence of serum</li></ul><ul id="51292136-0399-41a4-8119-b6a4c9b40912" class="bulleted-list"><li>solves ethical and financial issues that would otherwise come into play</li></ul><ul id="c303072d-711d-49e7-9510-8944c1c80236" class="bulleted-list"><li>serums derived from animals are often necessary for mammalian cellag</li></ul><ul id="c6086a79-4e33-4fb6-bb6d-19d44d0ba45c" class="bulleted-list"><li>still room for innovation with improving</li></ul><p id="b6c5936e-291f-43cd-9eb6-b148225272ac" class="">
+</p><p id="bead0722-0e25-4fa3-9754-461fa0cbceb7" class=""><strong>TLDR: we have a good idea of what cellular agriculture could look like for insects and the potential benefits.</strong></p><p id="fd544620-53cd-480a-89e8-40405feabd60" class="">
+</p><p id="2a5e7547-8d87-43f6-a380-aaab9d098145" class="">Unfortunately, we haven’t studied many bugs at all so far … mainly just one species each of moths and fruit flies. <strong>We need more people working on this!</strong></p><h3 id="439fb920-9450-44db-a6f7-d9b53041eadb" class=""><strong>GMO and Scaling Organisms</strong></h3><p id="3b883ba1-a600-4f3e-bb66-86ec39b619dc" class="">There’s potential to level up this process even further; genetic modification.</p><p id="3a926fe3-55c1-4307-93c5-a098bbb2b3ee" class="">
+</p><figure id="d4263ef0-b976-42ef-b08a-fe543ef212af" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2026.png"><img style="width:625px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2026.png"/></a><figcaption><center>Genetically Modified Pigs | <a href="https://gizmodo.com/these-pigs-glow-in-the-dark-to-save-lives-1491589459">Source</a></center></figcaption></figure><p id="e585b13b-acab-4230-bdf0-170a42b341c7" class="">
+</p><p id="ba9de2fd-5bd0-4e61-aec5-cf887bc74b09" class="">The benefits alone from lab-grown insect meat are clear… cheap, large-scale production of a nutritious food source. But what if we could<strong> further optimize these products for taste, nutrition, or faster growth properties?</strong></p><p id="97a2a1cc-c1fe-4bb0-96c1-4be63dffbf50" class="">So far though, like with cellular agriculture, the potential here isn’t yet fully recognized. So far, the main interest between GMO insects is for pest control and research!</p><p id="5a8a7886-0e92-4326-9511-fc90100e72b9" class="">However, scientists have done some interesting stuff with <em>transfection — </em>which is kind of like the umbrella term for what’s being looked at with genetically modified insects. On a deeper level, it’s when we introduce naked or purified nucleic acids (DNA, RNA) into eukaryotic cells (plant and animal cells).</p><p id="58d75912-0de0-4e65-9edb-a694e1e48708" class="">
+</p><figure id="d5039d99-17e5-42ba-a8bb-565d60465112" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2027.png"><img style="width:700px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2027.png"/></a><figcaption><center>Sample Transfection Process with Purefection | <a href="https://systembio.com/shop/purefection-transfection-reagent/">Source</a></center></figcaption></figure><p id="08ef089d-5c7b-4f2e-8d25-1d1b26c4a0c2" class="">
+</p><p id="75c06fa8-798f-4068-9396-f83ccc5b4973" class="">Efficient transfection systems exist to introduce recombinant DNA* into insect cells. It’s possible to leverage this to transfect specific genes into insect muscle cells to increase nutrition, taste or texture! <a href="https://www.frontiersin.org/articles/10.3389/fsufs.2019.00024/full">What if we could also expand the proliferative capacity of primary cultures? Or if we could incorporate important proteins to develop therapeutic foods for humanity?</a></p><p id="fdcb6096-a8f1-498b-9450-51efdf812c03" class=""><div class="indented"><p id="1f22947d-cd69-4743-8abc-16cc41fd020d" class="">*Recombinant DNA -&gt; DNA that’s been exchanged between different chromosomes or different chromosome regions, resulting in combinations of traits.</p></div></p><p id="9401f409-7813-4265-80da-2af534aa3963" class="">
+</p><p id="b92abc12-fe48-4277-ad65-7c2e22c20556" class="">So many questions… because not enough people are working on this!</p><p id="380e65fe-f443-4cec-af45-59ceb37dc9b6" class=""><strong>Side note: </strong>The potential to modify bug biology to boost certain properties leads to tons of more questions … could we just rapidly increase the size of them? Probably not — if you scale up the size of an organism, you’d need to drastically account for other organs and body functions (especially for insects), and the body plan overall would need to be restructured.</p><p id="99f62f5d-839c-4d34-98b2-77563d0b6f1f" class="">
+</p><figure id="2cd16b7f-8baf-4c3c-b049-0be2b2a39e2a" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/0_cyBMqE0Z-cSLGXpe.gif"><img style="width:480px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/0_cyBMqE0Z-cSLGXpe.gif"/></a></figure><br><h2 id="1f2c703a-a50f-4112-986a-895a1b293792" class=""><strong>Barriers to Reality</strong></h2><p id="f5d26141-31cb-4fc0-ba4a-1eee973bd8d5" class="">Unfortunately, there are still obstacles that need to be addressed before we can fully master insect labriculture.</p><p id="f217ad99-cd9e-4e77-ac9f-a01582433541" class="">So far, <strong>most work with insect cellular agriculture has been done with fruit flies and moths species.</strong> Because of limited work in the area, not enough research has been done for different insects species. We don’t yet know how the cultured meat process could differ for, ex., crickets.</p><p id="10b8dce2-0959-400b-9440-1977cb6e7e4c" class="">We <strong>don’t know the exact nutritional value of </strong><em><strong>cultured</strong></em><strong> insect products</strong>. Some nutrients that bugs have come from what they eat, not their natural biology. Because of gaps in research, we don’t yet have precise nutritional profiles for several cultured insects. More work with more insects is necessary.</p><figure id="e385f724-a3cd-4d8c-9f2b-2a24570e4c84" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2028.png"><img style="width:209px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2028.png"/></a></figure><p id="ec3f992a-cf6a-42d8-8f8b-7ba1a84b12b0" class="">
+</p><p id="9e02de0f-0ed0-4169-9552-386ba6c86bac" class="">The lack of people working with insect cellular agriculture is why we don’t have enough <strong>access to information</strong> <strong>and research. </strong>Compared to regular cellag, not enough results and knowledge currently exist for adequate public resources.</p><p id="ac8b0210-d008-4d9c-81d3-e8823076c25c" class="">We <strong>haven’t explored what insect cellag could look like at a massive scale</strong>. Overall, we think it’s feasible, but nobody’s really put it into place. Especially for a variety of bug species.</p><p id="84122d36-8aea-4256-a7d5-bc3e0c0be2a8" class="">Mostly within Western regions, <strong>lots of people don’t have an appetite for cultured bugs</strong>. We need sufficient demand for large production to be a reality, but widespread consumer acceptance isn’t here yet.</p><p id="ae780081-2b34-46f6-a7ef-563cbc3fe772" class="">
+</p><figure id="02c64aa5-88bb-44d1-aa64-d9cce45d8743" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2029.png"><img style="width:700px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2029.png"/></a><figcaption><center>Too many people find this gross! | <a href="http://www.bugsfeed.com/silkworm">Source</a></center></figcaption></figure><p id="6c97f25e-33ca-4560-a078-11f05f3b9bd7" class="">
+</p><p id="958d0c13-4cc0-41e0-ab16-bcac80adc080" class="">We <strong>haven’t explored the possibilities of genetic modification enough.</strong> Most of what we think is possible with transfection sounds interesting but has rarely been put into place. We need to actually research more into how to optimize nutrition, growth, texture and taste on the genetic level.</p><p id="0c880e5b-7338-499c-8156-249f48f114c9" class="">The current barrier insect cellag scientists are working on is <strong>controlling cell development and 3D scaffolding</strong>. Cells have to develop specifically into muscle or fat tissue, and 3D scaffolding is essential for conventional meat textures and forms. Cultured cells adhere to the scaffold to resemble a 3D meat product. So far, chitosan is being heavily considered.</p><p id="b4a46d8a-2345-4810-af59-a104301d00c7" class="">
+</p><figure id="e808800d-adae-4536-be9d-1aeb6c767daf" class="image"><a href="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2030.png"><img style="width:700px" src="The%20Dummy%E2%80%99s%20Guide%20To%20Growing%20Fake%20Bugs%205ba81b555559455fb11a9686c995b386/Untitled%2030.png"/></a><figcaption><center>Scaffolding of Chitosan | <a href="https://www.scielo.br/scielo.php?script=sci_arttext&amp;pid=S0104-14282011000100003">Source</a></center></figcaption></figure><p id="3761524c-3627-477c-9db0-3cb240e0e440" class="">
+</p><p id="ddba93aa-8035-4bd3-9450-17f69a92b185" class="">We <strong>don’t know the precise environmental impacts</strong> of insect labriculture at a large scale, but we’re pretty confident that it’ll beat regular farming.</p><p id="8ee80601-bc1d-4a72-8dc2-54183f520cf0" class="">Despite all these gaps in knowledge, I know one thing — cultured bugs could be the cure to world hunger.</p><p id="d7ac9843-c877-4d1a-8ce2-6836b914e665" class="">
+</p><hr id="94a89f7b-e661-44c2-af09-69c47c729063"/><h3 id="6ac8f2d2-d700-4058-8513-3cbee1e9769c" class=""><strong>Key Takeaways</strong></h3><ul id="b6d99ed6-9e04-4ec8-b2b3-2ac98cc1b122" class="bulleted-list"><li>several countries lack sufficient solutions to undernourishment</li></ul><ul id="6a9a2eb8-f26d-43cc-888f-4a118f247925" class="bulleted-list"><li>some insects contain high nutritional and caloric value</li></ul><ul id="2dd6c303-e957-4fb4-aab9-888f488aeeeb" class="bulleted-list"><li>insect cellular agriculture allows us to rapidly grow bugs cheaply, through growing muscle and fat tissue from starter cells</li></ul><ul id="514e9f4d-4e1e-402c-80c4-02308615498d" class="bulleted-list"><li>genetic modification could allow us to further enhance cultured insect meat products</li></ul><ul id="942472a9-9320-42f1-87fb-2a0bb4b25c03" class="bulleted-list"><li>there’s a ton of barriers to making this a reality because there are tons of gaps in research!</li></ul><ul id="c79559e2-297c-459a-8846-f2140c128267" class="bulleted-list"><li>we need more people working on this so that we can have fewer people hungry!</li></ul></div></article></body></html>

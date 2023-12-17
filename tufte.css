@@ -1,0 +1,139 @@
+@charset "UTF-8";
+
+/* Import ET Book styles
+   adapted from https://github.com/edwardtufte/et-book/blob/gh-pages/et-book.css */
+
+/* Tufte CSS styles */
+
+body {
+    counter-reset: sidenote-counter; 
+}
+
+p {
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+    padding-right: 0;
+    vertical-align: baseline; 
+}
+
+/* the width of a pargraph on large screen */
+section > p {
+    width: 100%; 
+}
+
+/* the width of lists on large screen */
+section > ol,
+section > ul {
+    width: 100%;
+    -webkit-padding-start: 5%; 
+}
+
+li:not(:first-child) {
+    margin-top: 0.25rem; 
+}
+
+/* Sidenotes, margin notes, figures, captions */
+img {
+    max-width: 100%; 
+}
+
+
+.sidenote,
+.marginnote {
+    float: right;
+    clear: right;
+    margin-right: -30%;
+    width: 25%;
+    margin-top: 0;
+    margin-bottom: 10px;
+    vertical-align: baseline;
+    position: relative; 
+    font-size: .875rem;
+}
+
+.sidenote-number {
+    counter-increment: sidenote-counter;
+    color: blue;
+    font-weight: bold;
+}
+
+.sidenote-number:after,
+.sidenote:before {
+    position: relative;
+    vertical-align: baseline;
+    color: blue;
+    font-weight: bold;
+}
+
+.sidenote-number:after {
+    content: counter(sidenote-counter);
+    font-size: .75rem;
+    top: -0.4rem;
+    left: 0.1rem;
+    color: blue;
+    font-weight: bold;
+}
+
+.sidenote:before {
+    content: counter(sidenote-counter) " ";
+    top: -0.4rem;
+    font-size: .75rem;
+}
+
+.fullwidth {
+    max-width: 90%;
+    clear:both; 
+}
+
+input.margin-toggle {
+    display: none; 
+}
+
+label.sidenote-number {
+    display: inline; 
+}
+
+label.margin-toggle:not(.sidenote-number) {
+    display: none; 
+}
+
+/* Break point for large screen */
+@media (max-width: 1393px) {
+    section > p {
+        width: 100%; 
+    }
+
+    section > ol {
+        width: 90%; 
+    }
+
+    section > ul {
+        width: 90%; 
+    }
+    
+    label.margin-toggle:not(.sidenote-number) {
+        display: inline; 
+    }
+
+    .sidenote,
+    .marginnote {
+        display: none; 
+    }
+    
+    .margin-toggle:checked + .sidenote,
+    .margin-toggle:checked + .marginnote {
+        display: block;
+        float: left;
+        left: 3%;
+        clear: both;
+        width: 97%;
+        margin: 1rem 0.5%;
+        vertical-align: baseline;
+        position: relative; 
+    }
+
+    label {
+        cursor: pointer; 
+    }
+
+}
