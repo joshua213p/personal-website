@@ -1,0 +1,676 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Exploring the relationship between geographic location and gut microbiome composition with classifiers</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9f26c01e-b856-4d62-bced-720f6986e160" class="page sans"><header><h1 class="page-title"><strong>Exploring the relationship between geographic location and gut microbiome composition with classifiers</strong></h1><p class="page-description"></p></header><div class="page-body"><h3 id="0343b929-0308-49d8-a645-f2234c478eef" class="">Abstract</h3><p id="dfb022f2-f8b6-4c4a-989a-f3df1dd909c3" class="">The human gut microbiome, an intricate ecosystem of trillions of microorganisms, has been emphasized in its implications for human health and disease. While past research has uncovered its influences in ethnicity and socioeconomic status, the impact geography might hold has yet to be interrogated despite the noticeable bias in gathered data towards North America and Europe. Thus, we sought to identify whether one’s gut microbiome profile could be used to identify their geographical origins to assess whether there were significant composition differences across regions. To do this, we explored the performance of seven models, including deep neural networks, gradient boosting machines, and ensemble methods. As a preliminary investigation, our findings showed high variance and poor performance, underscoring potentially unknown complexities of the gut microbiome&#x27;s association with geography. An inherent bias toward Europe and North America in the dataset highlights the need for better global representation. Future efforts should address class imbalance, experiment with more advanced architectures, and consider feature engineering methods for improved accuracy and determining the nature of the relationship.</p><h3 id="9e66532c-9b5f-4411-865e-dffba7d33edd" class="">Background</h3><p id="4c220160-df17-4ac4-98f4-7d77922fa5a6" class="">The human microbiome, comprising trillions of microorganisms like bacteria, fungi, parasites, and viruses, constitutes a dynamic ecosystem within the intestines. Microbiota, the constituents of the microbiome, play essential roles in stimulating the immune system, facilitating food breakdown, and synthesizing vital nutrients (Harvard School of Public Health, 2022).</p><p id="5d6a8f6e-0c6d-4915-9153-1cea9f2fbfdc" class="">Initiated during birth and influenced by factors such as diet and environment, an individual&#x27;s microbiome undergoes continuous modifications, potentially affecting health outcomes. In a healthy state, the gut microbiota have myriad positive functions, including energy recovery from metabolism of nondigestible components of foods, protection of a host from pathogenic invasion, and modulation of the immune system. A dysbiotic state of the gut microbiota is becoming recognized as an environmental factor that interacts with a host’s metabolism and has a role in pathological conditions, both systemic—obesity, diabetes, and atopy—and gut-related IBS and IBD (Bull &amp; Plummer, 2014). Studying the gut microbiome could provide insights into the diagnosis and functioning of disease and ways to optimize human health.</p><p id="c78d6fe6-a01a-4e7f-9b76-f4dbc0a2b2df" class="">Recent work found that publicly available data on the human microbiome is heavily biased in favor of Europe and Northern America (Abdill et al. 2022). Since much of what we know regarding the links between microbiome composition and disease is based on studying populations in this region, we sought to examine whether the microbiomes of people elsewhere in the world differed consistently enough that a classifier could determine whether a single sample originated from Europe or North America.</p><p id="e2a10de7-aa55-4fc0-ae02-e5be8dae41b2" class="">Gut microbiome classification has had several breakthroughs over recent years. Scientists have have identified ethnicity (Dwiyanto et al., 2021, Brooks et al., 2018) and even socioeconomic status (Ahn et al., 2023) as factors that influence one’s microbiota. However, little research has been done to uncover the impact geographical location may hold as well. Here, we explored this by seeing if one’s continent of origin could be accurately identified with just their gut profile. Several machine learning models were trialed to interrogate the potential existence of this relationship.</p><h3 id="680474f4-f548-4ed2-a9f1-9910dddda02e" class="">Results</h3><p id="87fce2d9-c9af-4be5-8124-c0d525de55c0" class="">With an eye to eventually developing a classifier capable of inferring the geographic origin of a human gut microbiome sample, we performed a pilot study in which we evaluated the efficacy of seven models trained on a set of 7,000 samples of publicly available 16S rRNA amplicon sequencing data. Given the overrepresentation of Europe and North America in the world&#x27;s largest sequencing data repositories (Abdill et al. 2022), we chose a binary classification task in which the outcome was whether the sample originated from outside of Europe and North America. In all cases, we observed high variance and poor performance on validation data. For each of the tests below, we used the same 80/20 split of the 7,000 samples, and the validation dataset was made of up 1,374 samples—205 from Europe and North America, and 1,169 from other regions of the world.</p><p id="74f607a1-f2fc-458d-9fde-6c70a417fb6d" class="">Our first model was a shallow neural network with a single hidden node that achieved about 85 percent accuracy—unfortunately, this is an artifact of the class imbalance in the data, and the classifier assigned all validation samples to the &quot;Not Europe and Northern America&quot; category, a result we also observed when training a naive Bayes classifier. Expanding this neural network to two layers, of 200 and 100 neurons respectively, yielded marginal improvement to overall accuracy, but still resulted in a 90.7 percent error rate for classifying samples from Europe and North America.</p><p id="df60c02a-735c-4be7-8654-10838595f5ee" class="">Next, we trained a gradient boosting machine, which correctly classified more European samples (51) than any other, but even this resulted in 82.3 percent precision and only 24.9 percent recall. We were optimistic about applying the H2O library&#x27;s RuleFit algorithm to this dataset, though this too struggled to classify the samples and returned a 91.7 percent error rate for European samples.</p><p id="009a91cc-5046-4900-9312-f43a2459b848" class="">A stacked regression approach yielded 85.3 percent precision in detecting European samples, but still resulted in only 14.2 percent recall. An XGBoost-based algorithm was similarly unsuccessful, with 83.3 percent precision and 19.5 percent recall.</p><figure id="72a54ad9-3933-4bcf-b914-63a0c248845c" class="image"><a href="Exploring%20the%20relationship%20between%20geographic%20loca%209f26c01eb8564d62bced720f6986e160/Screenshot_2023-12-29_at_3.30.58_AM.png"><img style="width:432px" src="Exploring%20the%20relationship%20between%20geographic%20loca%209f26c01eb8564d62bced720f6986e160/Screenshot_2023-12-29_at_3.30.58_AM.png"/></a></figure><p id="fd4bea11-0b66-4432-9606-c114a797f093" class="">These results suggest that it is challenging to determine the geographic origin of a human gut microbiome sample. The observed high variance and poor performance across various models highlight the complexity of the relationship between gut microbiome composition and geographic location.</p><p id="9aba3173-b356-41ed-b107-f63f16e93d4c" class="">One key observation is the class imbalance in the data, with overrepresentation from Europe and North America. This imbalance likely contributed to skewed results, as seen in the shallow neural network and naive Bayes classifier, which exhibited high accuracy but failed to correctly classify European samples. This inherent geographical bias in our dataset could have contributed to the poor performance of our models, emphasizing the need for more equitable representation in microbiome sampling.</p><p id="f27c63f1-117e-4f4f-9283-aec3b01e0990" class="">Moreover, the marginal improvement with a two-layer neural network and the mixed performance of gradient boosting and RuleFit algorithms indicate that the relationship between gut microbiome and geographic location may not be linear. The stacked regression approach and XGBoost-based algorithm demonstrated some precision but lacked recall, indicating a struggle to identify European samples comprehensively. This suggests that the models may need to be more sensitive to the nuances of microbiome data, especially when dealing with diverse global populations.</p><p id="453678c1-0beb-4826-9d74-71f3b1a72366" class="">Next steps could involve refining the dataset by ensuring better representation from underrepresented regions, thereby mitigating class imbalance. Additionally, experimenting with more advanced models, such as more complex deep learning architectures with varied hyperparameters, ensemble methods, or attention mechanisms, might capture the intricate patterns in the microbiome data that contribute to geographic distinctions. Feature engineering techniques could also be useful for classification or worthwhile for other analyses if specific taxa or combinations of taxa were found to correlate with certain continents of origin. In such future work, unsupervised learning methods like clustering could provide insight.</p><h1 id="026b7d1d-5c3c-4dfc-b774-4feb74050ab7" class="">Methods</h1><p id="c4a46f68-874c-450d-8700-d25f7a998852" class="">The dataset (Abdill et al. 2022) was initially sorted by the continent of origin for each sample, so the first step was to shuffle the dataset with Pandas. This was done to ensure that, upon splitting the data into training and validation subsets, each would receive an even distribution of continents. 80% of the dataset was assigned for training and 20% was assigned for validation.</p><p id="81574729-06a2-4448-9900-7e67c7a6e95b" class="">Two other preprocessing methods were then utilized before we began training our machine learning models. Firstly, taxa below 80% prevalence were removed, to reduce the size of the data by excluding comparatively rare taxa that were unlikely to be useful to the models. The robust center logratio (CLR) transformation was then applied to the dataset (Martino et al. 2019).</p><p id="0f4f630e-f31b-4aea-9116-5762d2145c7a" class="">The machine learning models were implemented using Python&#x27;s H2O library for training and validation. The deep neural network (DNN) employed a single hidden layer with a Tanh activation function. The DNN, implemented with the H2ODeepLearningEstimator function, was trained for 1000 epochs with a multinomial distribution, using parameters such as hidden=[1], activation=&quot;Tanh&quot;, and other settings for reproducibility and balance. The model&#x27;s performance metrics, including accuracy for each class and area under the curve, were assessed on the validation dataset.</p><p id="b403d0f0-f089-499a-90a0-b6461026de9e" class="">The gradient boosting machine (GBM) was implemented with the H2OGradientBoostingEstimator function, using a 5-fold cross-validation approach. Hyperparameters such as nfolds=5 and seed=1111 were specified. The Naive Bayes classifier, implemented with H2ONaiveBayesEstimator, utilized Laplace smoothing and 5-fold cross-validation with laplace=0 and seed=1234.</p><p id="41196962-bd35-4fe4-9f22-a1ec870bf8cc" class="">The RuleFit algorithm, implemented with H2ORuleFitEstimator, was trained with a maximum rule length of 10 and a maximum of 100 rules using parameters like max_rule_length=10 and max_num_rules=100. Performance metrics and predictions were recorded.</p><p id="ee6a0a7c-d0c6-45b8-8032-c8b68cb61868" class="">Additionally, a stacked ensemble algorithm was trained using a grid search over hyperparameters for the GBM. The ensemble, implemented with H2OStackedEnsembleEstimator, combined multiple GBM models with varying learning rates, maximum depths, sample rates, and column sample rates. The grid search was performed using parameters such as hyper_params and search_criteria. The ensemble&#x27;s performance was compared to individual base models on the validation dataset.</p><p id="92277ba1-5286-4377-8c8b-acf0daef5b24" class="">Finally, an extreme gradient boost (XGBoost) algorithm with the dart booster algorithm was implemented using H2OXGBoostEstimator. Hyperparameters like booster=&#x27;dart&#x27; and normalize_type=&quot;tree&quot; were specified. The XGBoost model&#x27;s performance metrics, predictions, and feature interactions were recorded.</p><p id="214a4ab7-9e32-45d8-9ddd-4d4398f9bec5" class="">Guides for how to reproduce each model in H2O can be found within their Python documentation (&quot;H2O,&quot; n.d.).</p><h1 id="b935a859-ff0e-41f0-ad4b-9dfd5d91435a" class="">References</h1><p id="d2f18ba8-eab5-4da0-9c5c-f7cdfecfaca1" class="">Abdill, R. J., Adamowicz, E. M., &amp; Blekhman, R. (2022). Public human microbiome data are dominated by highly developed countries. <em>PLOS Biology</em>, <em>20</em>(2). https://doi.org/10.1371/journal.pbio.3001536</p><p id="ff729425-adf5-419c-bbaf-1414d1c6f430" class="">Ahn, J., Kwak, S., Usyk, M., Beggs, D., Choi, H., Ahdoot, D., Wu, F., Maceda, L., Li, H., Im, E. O., Han, H. R., Lee, E., Wu, A., &amp; Hayes, R. (2023). Sociobiome - Individual and neighborhood socioeconomic status influence the gut microbiome in a multi-ethnic population in the US. <em>Research square</em>, rs.3.rs-2733916. https://doi.org/10.21203/rs.3.rs-2733916/v1</p><p id="b46aae9c-0b8c-4b95-853d-4be6cea3ca4d" class="">Brooks, A. W., Priya, S., Blekhman, R., &amp; Bordenstein, S. R. (2018). Gut microbiota diversity across ethnicities in the United States. <em>PLoS biology</em>, <em>16</em>(12), e2006842. https://doi.org/10.1371/journal.pbio.2006842</p><p id="2b778085-d55a-4d6c-a7d5-3b0c8ddff44b" class="">Bull, M. J., &amp; Plummer, N. T. (2014). Part 1: The Human Gut Microbiome in Health and Disease. <em>Integrative medicine (Encinitas, Calif.)</em>, <em>13</em>(6), 17–22.</p><p id="dafc7b36-db94-472e-8d96-1612fc35ee31" class="">Dwiyanto, J., Hussain, M.H., Reidpath, D. <em>et al.</em> Ethnicity influences the gut microbiota of individuals sharing a geographical location: a cross-sectional study from a middle-income country. <em>Sci Rep</em> 11, 2618 (2021). https://doi.org/10.1038/s41598-021-82311-3</p><p id="2618e824-bb53-4e0b-aa63-d166b448c222" class="">H2O. (n.d.). <em>H2O documentation</em>. H2O Documentation - H2O documentation. https://docs.h2o.ai/h2o/latest-stable/h2o-py/docs/index.html</p><p id="0fce7052-dff2-4e00-aae5-f72173e113e7" class="">Kucera, M., &amp; Malmgren, B. (1998). Logratio transformation of compositional data—a resolution of the constant sum constraint. <em>Marine Micropaleontology, 34</em>(2), 117-120.</p><p id="d66189ed-7459-4ee4-ac33-2fd88dcb5ec4" class="">Martino, C., Morton, J. T., Marotz, C. A., Thompson, L. R., Tripathi, A., Knight, R., &amp; Zengler, K. (2019). A novel sparse compositional technique reveals microbial perturbations. <em>mSystems</em>, <em>4</em>(1). https://doi.org/10.1128/msystems.00016-19</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
