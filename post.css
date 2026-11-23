@@ -1,0 +1,65 @@
+/* Overrides for the Notion-exported article pages so they match the rest of the site
+   and work on phones. Loaded after Notion's own <style>. */
+
+@media only screen {
+  html body {
+    margin: 0;
+    max-width: none;
+    color: #000;
+  }
+}
+
+html body,
+html body .sans,
+html body .serif,
+html body .page {
+  font-family: "Cardo", "Times New Roman", Times, serif;
+}
+
+html body {
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+article.page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 16px 96px;
+}
+
+/* calmer headings, no heavy bold */
+article.page h1,
+article.page h2,
+article.page h3,
+article.page .page-title { font-weight: 400; letter-spacing: 0; }
+article.page .page-title { font-size: 1.75rem; line-height: 1.2; }
+article.page .page-title strong { font-weight: 400; }
+article.page h1 { font-size: 1.45rem; }
+article.page h2 { font-size: 1.25rem; }
+article.page h3 { font-size: 1.1rem; }
+
+/* links: black, red on hover */
+article.page a { color: inherit; }
+article.page a:hover { color: #ff0000; }
+
+/* nothing wider than the screen */
+article.page img,
+article.page video,
+article.page iframe { max-width: 100% !important; height: auto !important; }
+article.page figure { max-width: 100%; margin-left: 0; margin-right: 0; }
+article.page table { display: block; max-width: 100%; overflow-x: auto; }
+article.page pre,
+article.page .katex-display { max-width: 100%; overflow-x: auto; }
+article.page .column-list { flex-wrap: wrap; }
+
+@media (max-width: 700px) {
+  html body { font-size: 16px; }
+  article.page { padding-top: 24px; }
+  article.page .page-title { font-size: 1.45rem; }
+  article.page .column-list { display: block; }
+  article.page .column { width: 100% !important; padding: 0 !important; }
+}
+
+/* site.css removes underlines globally; keep them in article text */
+article.page a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
