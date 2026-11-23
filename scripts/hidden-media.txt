@@ -1,0 +1,9 @@
+# Files in "media for website/" to leave OFF the site (the originals are kept).
+# One name per line, with or without the extension. Lines starting with # are ignored.
+# After editing, run:  python3 scripts/build_media.py
+
+friday pep rally 1
+friday pep rally 2
+friday pep rally 3
+friday pep rally 4
+M2U00493

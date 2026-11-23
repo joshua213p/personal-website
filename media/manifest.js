@@ -789,11 +789,6 @@ window.MEDIA = {
    "caption": "M2U00463"
   },
   {
-   "src": "media/videos/m2u00493.mp4",
-   "poster": "media/videos/m2u00493.jpg",
-   "caption": "M2U00493"
-  },
-  {
    "src": "media/videos/m2u00577.mp4",
    "poster": "media/videos/m2u00577.jpg",
    "caption": "M2U00577"
@@ -807,26 +802,6 @@ window.MEDIA = {
    "src": "media/videos/boss-josh-2.mp4",
    "poster": "media/videos/boss-josh-2.jpg",
    "caption": "boss josh 2"
-  },
-  {
-   "src": "media/videos/friday-pep-rally-1.mp4",
-   "poster": "media/videos/friday-pep-rally-1.jpg",
-   "caption": "friday pep rally 1"
-  },
-  {
-   "src": "media/videos/friday-pep-rally-2.mp4",
-   "poster": "media/videos/friday-pep-rally-2.jpg",
-   "caption": "friday pep rally 2"
-  },
-  {
-   "src": "media/videos/friday-pep-rally-3.mp4",
-   "poster": "media/videos/friday-pep-rally-3.jpg",
-   "caption": "friday pep rally 3"
-  },
-  {
-   "src": "media/videos/friday-pep-rally-4.mp4",
-   "poster": "media/videos/friday-pep-rally-4.jpg",
-   "caption": "friday pep rally 4"
   },
   {
    "src": "media/videos/friday-pep-rally-5.mp4",

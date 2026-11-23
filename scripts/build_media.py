@@ -14,6 +14,9 @@ Needs macOS (uses the built-in `sips` and `avconvert`) and ffmpeg (`brew install
 iPhone HDR videos are converted to normal colour so they don't look washed out.
 Location and other metadata are stripped from videos.
 Files that are already converted are skipped, so re-running is quick.
+
+To keep a file off the site without deleting the original, add its name to
+scripts/hidden-media.txt (one per line) and run the script again.
 """
 
 import json
@@ -29,6 +32,7 @@ SRC = ROOT / "media for website"
 OUT = ROOT / "media"
 PHOTO_OUT = OUT / "photos"
 VIDEO_OUT = OUT / "videos"
+HIDDEN_LIST = ROOT / "scripts" / "hidden-media.txt"
 
 PHOTO_EXT = {".jpg", ".jpeg", ".png", ".heic", ".tif", ".tiff", ".webp"}
 VIDEO_EXT = {".mov", ".mp4", ".m4v", ".mpg", ".mpeg", ".avi", ".mts"}
@@ -123,7 +127,14 @@ def main():
     PHOTO_OUT.mkdir(parents=True, exist_ok=True)
     VIDEO_OUT.mkdir(parents=True, exist_ok=True)
 
-    files = sorted(p for p in SRC.iterdir() if p.is_file() and not p.name.startswith("."))
+    hidden = set()
+    if HIDDEN_LIST.exists():
+        for line in HIDDEN_LIST.read_text(encoding="utf-8").splitlines():
+            line = line.split("#", 1)[0].strip().lower()
+            if line:
+                hidden.add(line)
+    files = sorted(p for p in SRC.iterdir() if p.is_file() and not p.name.startswith(".")
+                   and p.name.lower() not in hidden and p.stem.lower() not in hidden)
     photos, videos, used = [], [], set()
 
     def unique(name, kind):
