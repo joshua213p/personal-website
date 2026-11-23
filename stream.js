@@ -9,7 +9,7 @@
   var data = ((window.MEDIA || {})[kind] || []).slice();
   var stream = document.getElementById("stream");
   var track = document.getElementById("track");
-  var header = document.querySelector(".site-header");
+  var pin = stream.querySelector(".stream__pin");           // the visible window (right column)
   var phone = window.matchMedia("(max-width: 700px)");
   var isVideo = kind === "videos";
 
@@ -119,11 +119,10 @@
   }
 
   // ---------- layout ----------
-  var vertical = false, start = 0, maxX = 0;
+  var vertical = false, start = 0, maxX = 0, viewW = 0;
 
   function measure() {
     vertical = phone.matches;
-    document.documentElement.style.setProperty("--header-h", header.offsetHeight + "px");
 
     if (vertical) {
       stream.style.height = "";
@@ -134,7 +133,8 @@
         it.b = r.bottom + window.scrollY;
       });
     } else {
-      maxX = Math.max(0, track.scrollWidth - window.innerWidth);
+      viewW = pin.clientWidth;
+      maxX = Math.max(0, track.scrollWidth - viewW);
       stream.style.height = (maxX + window.innerHeight) + "px";
       start = stream.getBoundingClientRect().top + window.scrollY;
       items.forEach(function (it) {
@@ -155,7 +155,7 @@
       var x = Math.min(maxX, Math.max(0, window.scrollY - start));
       track.style.transform = "translate3d(" + (-x) + "px,0,0)";
       from = x;
-      to = x + window.innerWidth;
+      to = x + viewW;
     }
     var span = to - from;
     var preFrom = from - span, preTo = to + span * 1.5;   // load a bit ahead

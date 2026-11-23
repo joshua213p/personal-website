@@ -16,16 +16,21 @@ html body .page {
   font-family: "Cardo", "Times New Roman", Times, serif;
 }
 
+/* the pages shrink themselves with body { transform: scale(0.9) }, which leaves an
+   empty strip on the right (worst on phones) and misplaces the nav; undo it */
 html body {
-  font-size: 17px;
-  line-height: 1.5;
+  transform: none;
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
 }
 
+/* sits in the right column, next to the nav list (see site.css) */
 article.page {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 40px 16px 96px;
+  max-width: calc(760px + 64px);
+  margin: 0;
+  padding: 32px 32px 96px;
+  font-size: 17px;
+  line-height: 1.5;
 }
 
 /* calmer headings, no heavy bold */
@@ -43,7 +48,9 @@ article.page h3 { font-size: 1.1rem; }
 article.page a { color: inherit; }
 article.page a:hover { color: #ff0000; }
 
-/* nothing wider than the screen */
+/* nothing wider than the screen (long reference URLs wrap instead of stretching the page) */
+article.page { overflow-wrap: break-word; }
+article.page a { overflow-wrap: anywhere; }
 article.page img,
 article.page video,
 article.page iframe { max-width: 100% !important; height: auto !important; }
@@ -55,7 +62,7 @@ article.page .column-list { flex-wrap: wrap; }
 
 @media (max-width: 700px) {
   html body { font-size: 16px; }
-  article.page { padding-top: 24px; }
+  article.page { padding: 32px 16px 64px; }
   article.page .page-title { font-size: 1.45rem; }
   article.page .column-list { display: block; }
   article.page .column { width: 100% !important; padding: 0 !important; }
