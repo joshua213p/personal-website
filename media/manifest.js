@@ -7,11 +7,6 @@ window.MEDIA = {
    "group": "film"
   },
   {
-   "src": "media/photos/film/001511350004-copy.jpg",
-   "caption": "001511350004",
-   "group": "film"
-  },
-  {
    "src": "media/photos/film/001511350013-copy.jpg",
    "caption": "001511350013",
    "group": "film"
@@ -32,11 +27,6 @@ window.MEDIA = {
    "group": "film"
   },
   {
-   "src": "media/photos/film/001511350033-copy.jpg",
-   "caption": "001511350033",
-   "group": "film"
-  },
-  {
    "src": "media/photos/film/001511350034-copy.jpg",
    "caption": "001511350034",
    "group": "film"
@@ -44,6 +34,106 @@ window.MEDIA = {
   {
    "src": "media/photos/film/001511350035-copy.jpg",
    "caption": "001511350035",
+   "group": "film"
+  },
+  {
+   "src": "media/photos/film/09-07-2025-0003-11-copy.jpg",
+   "caption": "09_07_2025_0003-11",
+   "group": "film"
+  },
+  {
+   "src": "media/photos/film/09-07-2025-0006-11-copy.jpg",
+   "caption": "09_07_2025_0006-11",
+   "group": "film"
+  },
+  {
+   "src": "media/photos/film/09-07-2025-0008-11-copy.jpg",
+   "caption": "09_07_2025_0008-11",
+   "group": "film"
+  },
+  {
+   "src": "media/photos/film/09-07-2025-0025-10-copy.jpg",
+   "caption": "09_07_2025_0025-10",
+   "group": "film"
+  },
+  {
+   "src": "media/photos/film/09-07-2025-0028-10-copy.jpg",
+   "caption": "09_07_2025_0028-10",
+   "group": "film"
+  },
+  {
+   "src": "media/photos/film/09-07-2025-0044-5-copy.jpg",
+   "caption": "09_07_2025_0044-5",
+   "group": "film"
+  },
+  {
+   "src": "media/photos/film/09-07-2025-0046-5-copy.jpg",
+   "caption": "09_07_2025_0046-5",
+   "group": "film"
+  },
+  {
+   "src": "media/photos/film/09-07-2025-0053-5-copy.jpg",
+   "caption": "09_07_2025_0053-5",
+   "group": "film"
+  },
+  {
+   "src": "media/photos/film/09-07-2025-0055-5-copy.jpg",
+   "caption": "09_07_2025_0055-5",
+   "group": "film"
+  },
+  {
+   "src": "media/photos/film/09-07-2025-0056-5-copy.jpg",
+   "caption": "09_07_2025_0056-5",
+   "group": "film"
+  },
+  {
+   "src": "media/photos/film/09-07-2025-0059-5-copy.jpg",
+   "caption": "09_07_2025_0059-5",
+   "group": "film"
+  },
+  {
+   "src": "media/photos/film/09-07-2025-0061-5-copy.jpg",
+   "caption": "09_07_2025_0061-5",
+   "group": "film"
+  },
+  {
+   "src": "media/photos/film/09-07-2025-0062-5-copy.jpg",
+   "caption": "09_07_2025_0062-5",
+   "group": "film"
+  },
+  {
+   "src": "media/photos/film/09-07-2025-0065-5-copy.jpg",
+   "caption": "09_07_2025_0065-5",
+   "group": "film"
+  },
+  {
+   "src": "media/photos/film/09-07-2025-0067-5-copy.jpg",
+   "caption": "09_07_2025_0067-5",
+   "group": "film"
+  },
+  {
+   "src": "media/photos/film/09-07-2025-0068-5-copy.jpg",
+   "caption": "09_07_2025_0068-5",
+   "group": "film"
+  },
+  {
+   "src": "media/photos/film/09-07-2025-0074-4-copy.jpg",
+   "caption": "09_07_2025_0074-4",
+   "group": "film"
+  },
+  {
+   "src": "media/photos/film/09-07-2025-0075-3-copy.jpg",
+   "caption": "09_07_2025_0075-3",
+   "group": "film"
+  },
+  {
+   "src": "media/photos/film/09-07-2025-0076-3-copy.jpg",
+   "caption": "09_07_2025_0076-3",
+   "group": "film"
+  },
+  {
+   "src": "media/photos/film/09-07-2025-0078-2-copy.jpg",
+   "caption": "09_07_2025_0078-2",
    "group": "film"
   },
   {
@@ -152,16 +242,6 @@ window.MEDIA = {
    "group": "film"
   },
   {
-   "src": "media/photos/film/001542180004-copy.jpg",
-   "caption": "001542180004",
-   "group": "film"
-  },
-  {
-   "src": "media/photos/film/001542180005-copy.jpg",
-   "caption": "001542180005",
-   "group": "film"
-  },
-  {
    "src": "media/photos/film/001542180007-copy.jpg",
    "caption": "001542180007",
    "group": "film"
@@ -252,11 +332,6 @@ window.MEDIA = {
    "group": "film"
   },
   {
-   "src": "media/photos/film/001555970004-copy.jpg",
-   "caption": "001555970004",
-   "group": "film"
-  },
-  {
    "src": "media/photos/film/001555970006-copy.jpg",
    "caption": "001555970006",
    "group": "film"
@@ -322,11 +397,6 @@ window.MEDIA = {
    "group": "film"
   },
   {
-   "src": "media/photos/film/001555970027-copy.jpg",
-   "caption": "001555970027",
-   "group": "film"
-  },
-  {
    "src": "media/photos/film/001555970030-copy.jpg",
    "caption": "001555970030",
    "group": "film"
@@ -334,11 +404,6 @@ window.MEDIA = {
   {
    "src": "media/photos/film/001555970032-copy.jpg",
    "caption": "001555970032",
-   "group": "film"
-  },
-  {
-   "src": "media/photos/film/001555970033-copy.jpg",
-   "caption": "001555970033",
    "group": "film"
   },
   {
@@ -439,106 +504,6 @@ window.MEDIA = {
   {
    "src": "media/photos/film/001598900037-copy.jpg",
    "caption": "001598900037",
-   "group": "film"
-  },
-  {
-   "src": "media/photos/film/09-07-2025-0003-11-copy.jpg",
-   "caption": "09_07_2025_0003-11",
-   "group": "film"
-  },
-  {
-   "src": "media/photos/film/09-07-2025-0006-11-copy.jpg",
-   "caption": "09_07_2025_0006-11",
-   "group": "film"
-  },
-  {
-   "src": "media/photos/film/09-07-2025-0008-11-copy.jpg",
-   "caption": "09_07_2025_0008-11",
-   "group": "film"
-  },
-  {
-   "src": "media/photos/film/09-07-2025-0025-10-copy.jpg",
-   "caption": "09_07_2025_0025-10",
-   "group": "film"
-  },
-  {
-   "src": "media/photos/film/09-07-2025-0028-10-copy.jpg",
-   "caption": "09_07_2025_0028-10",
-   "group": "film"
-  },
-  {
-   "src": "media/photos/film/09-07-2025-0044-5-copy.jpg",
-   "caption": "09_07_2025_0044-5",
-   "group": "film"
-  },
-  {
-   "src": "media/photos/film/09-07-2025-0046-5-copy.jpg",
-   "caption": "09_07_2025_0046-5",
-   "group": "film"
-  },
-  {
-   "src": "media/photos/film/09-07-2025-0053-5-copy.jpg",
-   "caption": "09_07_2025_0053-5",
-   "group": "film"
-  },
-  {
-   "src": "media/photos/film/09-07-2025-0055-5-copy.jpg",
-   "caption": "09_07_2025_0055-5",
-   "group": "film"
-  },
-  {
-   "src": "media/photos/film/09-07-2025-0056-5-copy.jpg",
-   "caption": "09_07_2025_0056-5",
-   "group": "film"
-  },
-  {
-   "src": "media/photos/film/09-07-2025-0059-5-copy.jpg",
-   "caption": "09_07_2025_0059-5",
-   "group": "film"
-  },
-  {
-   "src": "media/photos/film/09-07-2025-0061-5-copy.jpg",
-   "caption": "09_07_2025_0061-5",
-   "group": "film"
-  },
-  {
-   "src": "media/photos/film/09-07-2025-0062-5-copy.jpg",
-   "caption": "09_07_2025_0062-5",
-   "group": "film"
-  },
-  {
-   "src": "media/photos/film/09-07-2025-0065-5-copy.jpg",
-   "caption": "09_07_2025_0065-5",
-   "group": "film"
-  },
-  {
-   "src": "media/photos/film/09-07-2025-0067-5-copy.jpg",
-   "caption": "09_07_2025_0067-5",
-   "group": "film"
-  },
-  {
-   "src": "media/photos/film/09-07-2025-0068-5-copy.jpg",
-   "caption": "09_07_2025_0068-5",
-   "group": "film"
-  },
-  {
-   "src": "media/photos/film/09-07-2025-0074-4-copy.jpg",
-   "caption": "09_07_2025_0074-4",
-   "group": "film"
-  },
-  {
-   "src": "media/photos/film/09-07-2025-0075-3-copy.jpg",
-   "caption": "09_07_2025_0075-3",
-   "group": "film"
-  },
-  {
-   "src": "media/photos/film/09-07-2025-0076-3-copy.jpg",
-   "caption": "09_07_2025_0076-3",
-   "group": "film"
-  },
-  {
-   "src": "media/photos/film/09-07-2025-0078-2-copy.jpg",
-   "caption": "09_07_2025_0078-2",
    "group": "film"
   },
   {

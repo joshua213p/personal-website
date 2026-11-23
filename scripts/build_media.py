@@ -24,6 +24,7 @@ scripts/hidden-media.txt (one per line) and run the script again.
 
 import json
 import re
+import struct
 import subprocess
 import sys
 import tempfile
@@ -70,6 +71,68 @@ def classify(stem: str) -> str:
     if re.match(r"(IMG_\d+|ScreenRecording_)", s, re.IGNORECASE):
         return "iphone"
     return "camcorder"
+
+
+def _exif_date(tiff: bytes) -> str:
+    """DateTimeOriginal (else DateTime) from an EXIF/TIFF block, as 'YYYY-MM-DD HH:MM:SS'."""
+    if tiff[:2] not in (b"II", b"MM"):
+        return ""
+    e = "<" if tiff[:2] == b"II" else ">"
+    found = {}
+
+    def walk(off, depth):
+        if depth > 2 or off + 2 > len(tiff):
+            return
+        for i in range(struct.unpack(e + "H", tiff[off:off + 2])[0]):
+            p = off + 2 + 12 * i
+            if p + 12 > len(tiff):
+                return
+            tag, typ, cnt = struct.unpack(e + "HHI", tiff[p:p + 8])
+            val = tiff[p + 8:p + 12]
+            if tag == 0x8769:                                    # pointer to the Exif sub-IFD
+                walk(struct.unpack(e + "I", val)[0], depth + 1)
+            elif tag in (0x9003, 0x0132) and typ == 2:           # DateTimeOriginal, DateTime
+                o = struct.unpack(e + "I", val)[0]
+                found[tag] = tiff[o:o + cnt].rstrip(b"\0 ").decode("latin1")
+
+    walk(struct.unpack(e + "I", tiff[4:8])[0], 0)
+    m = re.match(r"(\d{4}):(\d{2}):(\d{2}) (\d{2}:\d{2}:\d{2})", found.get(0x9003) or found.get(0x0132) or "")
+    return f"{m[1]}-{m[2]}-{m[3]} {m[4]}" if m else ""
+
+
+def taken(p: Path) -> str:
+    """When a photo was taken (best guess, used to put photos in order); '' if unknown.
+      - a date in the name: 09_07_2025_0003-11 -> 9 July 2025 (day_month_year, the scan date)
+      - otherwise the date stored in the file: the camera's clock for iPhone and camcorder
+        photos; for lab film scans it's when the roll was scanned, frame by frame
+    """
+    m = re.match(r"(\d{2})_(\d{2})_(\d{4})_", p.stem)
+    if m:
+        return f"{m[3]}-{m[2]}-{m[1]} 00:00:00"
+    with open(p, "rb") as f:
+        b = f.read(1 << 20)                                     # the date sits near the start
+    if b[:8] == b"\x89PNG\r\n\x1a\n":
+        i = 8
+        while i + 8 <= len(b):
+            ln, typ = struct.unpack(">I4s", b[i:i + 8])
+            if typ == b"eXIf":
+                return _exif_date(b[i + 8:i + 8 + ln])
+            if typ == b"IDAT":
+                break
+            i += 12 + ln
+    elif b[:2] == b"\xff\xd8":
+        i = 2
+        while i + 4 <= len(b) and b[i] == 0xFF and b[i + 1] not in (0xD9, 0xDA):
+            ln = struct.unpack(">H", b[i + 2:i + 4])[0]
+            if b[i + 1] == 0xE1 and b[i + 4:i + 10] == b"Exif\0\0":
+                return _exif_date(b[i + 10:i + 2 + ln])
+            i += 2 + ln
+    return ""
+
+
+def natural(s: str):
+    """Sort key that puts 'IMG_9' before 'IMG_10'."""
+    return [int(t) if t.isdigit() else t for t in re.split(r"(\d+)", s.lower())]
 
 
 def fresh(out: Path, src: Path) -> bool:
@@ -197,9 +260,12 @@ def main():
 
     rel = lambda f: f.relative_to(ROOT).as_posix()
     order = lambda e: (GROUPS.index(e["group"]), e["caption"].lower())
+    # photos: film, then camcorder, then iPhone; oldest first inside each (undated ones last, by name)
+    when = {s: taken(s) or "9999" for s, _ in photos}
+    by_time = lambda so: (GROUPS.index(so[1].parent.name), when[so[0]], natural(caption(so[0].stem)))
     manifest = {
-        "photos": sorted(({"src": rel(o), "caption": caption(s.stem), "group": o.parent.name}
-                          for s, o in photos), key=order),
+        "photos": [{"src": rel(o), "caption": caption(s.stem), "group": o.parent.name}
+                   for s, o in sorted(photos, key=by_time)],
         "videos": sorted(({"src": rel(o), "poster": rel(q), "caption": caption(s.stem), "group": o.parent.name}
                           for s, o, q in videos), key=order),
     }
