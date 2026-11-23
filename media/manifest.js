@@ -7,6 +7,11 @@ window.MEDIA = {
    "group": "film"
   },
   {
+   "src": "media/photos/film/001511350004-copy.jpg",
+   "caption": "001511350004",
+   "group": "film"
+  },
+  {
    "src": "media/photos/film/001511350013-copy.jpg",
    "caption": "001511350013",
    "group": "film"
@@ -24,6 +29,11 @@ window.MEDIA = {
   {
    "src": "media/photos/film/001511350032-copy.jpg",
    "caption": "001511350032",
+   "group": "film"
+  },
+  {
+   "src": "media/photos/film/001511350033-copy.jpg",
+   "caption": "001511350033",
    "group": "film"
   },
   {
@@ -329,6 +339,11 @@ window.MEDIA = {
   {
    "src": "media/photos/film/001555970003-copy.jpg",
    "caption": "001555970003",
+   "group": "film"
+  },
+  {
+   "src": "media/photos/film/001555970004-copy.jpg",
+   "caption": "001555970004",
    "group": "film"
   },
   {
