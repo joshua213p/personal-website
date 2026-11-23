@@ -1,7 +1,8 @@
 /* Photos / videos stream.
    Desktop: one row; scrolling down moves the row sideways (and sideways swipes work too).
    Phone (<= 700px): one column you scroll normally.
-   Order is shuffled on every visit. Media loads only when it gets close to the screen. */
+   Files from the same camera stay together; the order is shuffled on every visit.
+   Media loads only when it gets close to the screen. */
 
 (function () {
   var body = document.body;
@@ -26,18 +27,36 @@
     return list;
   }
 
-  // favourites (data-favorites on <body>, captions separated by |) always land
-  // at random spots within the first 5; everything else is fully shuffled
+  // favourites: data-favorites on <body>, captions separated by |
   var favNames = (body.getAttribute("data-favorites") || "")
     .split("|").map(function (s) { return s.trim().toLowerCase(); }).filter(Boolean);
-  var favs = shuffle(data.filter(function (m) { return favNames.indexOf(m.caption.toLowerCase()) !== -1; }));
-  data = shuffle(data.filter(function (m) { return favs.indexOf(m) === -1; }));
+  function isFav(m) { return favNames.indexOf(m.caption.toLowerCase()) !== -1; }
 
-  var firstSpots = [];
-  for (var s = 0; s < Math.max(5, favs.length); s++) firstSpots.push(s);
-  shuffle(firstSpots).slice(0, favs.length)
-    .sort(function (a, b) { return a - b; })
-    .forEach(function (spot, k) { data.splice(Math.min(spot, data.length), 0, favs[k]); });
+  // clusters by camera (film / camcorder / iphone, worked out by scripts/build_media.py).
+  // Each cluster stays together and is shuffled inside; the clusters come in random order,
+  // except a cluster holding a favourite always comes first.
+  var groups = {}, order = [];
+  data.forEach(function (m) {
+    var g = m.group || "all";
+    if (!groups[g]) { groups[g] = []; order.push(g); }
+    groups[g].push(m);
+  });
+  shuffle(order).sort(function (a, b) {                     // stable sort: keeps the random order otherwise
+    return groups[b].some(isFav) - groups[a].some(isFav);
+  });
+
+  data = [];
+  order.forEach(function (g) {
+    var favs = shuffle(groups[g].filter(isFav));
+    var rest = shuffle(groups[g].filter(function (m) { return !isFav(m); }));
+    // favourites land at random spots within the first 5 of their cluster
+    var spots = [];
+    for (var s = 0; s < Math.max(5, favs.length); s++) spots.push(s);
+    shuffle(spots).slice(0, favs.length)
+      .sort(function (a, b) { return a - b; })
+      .forEach(function (spot, k) { rest.splice(Math.min(spot, rest.length), 0, favs[k]); });
+    data = data.concat(rest);
+  });
 
   // ---------- build ----------
   var items = data.map(function (m) {

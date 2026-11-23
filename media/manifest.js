@@ -2,831 +2,1025 @@
 window.MEDIA = {
  "photos": [
   {
-   "src": "media/photos/001511350003-copy.jpg",
-   "caption": "001511350003"
+   "src": "media/photos/film/001511350003-copy.jpg",
+   "caption": "001511350003",
+   "group": "film"
   },
   {
-   "src": "media/photos/001511350004-copy.jpg",
-   "caption": "001511350004"
+   "src": "media/photos/film/001511350004-copy.jpg",
+   "caption": "001511350004",
+   "group": "film"
   },
   {
-   "src": "media/photos/001511350013-copy.jpg",
-   "caption": "001511350013"
+   "src": "media/photos/film/001511350013-copy.jpg",
+   "caption": "001511350013",
+   "group": "film"
   },
   {
-   "src": "media/photos/001511350022-copy.jpg",
-   "caption": "001511350022"
+   "src": "media/photos/film/001511350022-copy.jpg",
+   "caption": "001511350022",
+   "group": "film"
   },
   {
-   "src": "media/photos/001511350030-copy.jpg",
-   "caption": "001511350030"
+   "src": "media/photos/film/001511350030-copy.jpg",
+   "caption": "001511350030",
+   "group": "film"
   },
   {
-   "src": "media/photos/001511350032-copy.jpg",
-   "caption": "001511350032"
+   "src": "media/photos/film/001511350032-copy.jpg",
+   "caption": "001511350032",
+   "group": "film"
   },
   {
-   "src": "media/photos/001511350033-copy.jpg",
-   "caption": "001511350033"
+   "src": "media/photos/film/001511350033-copy.jpg",
+   "caption": "001511350033",
+   "group": "film"
   },
   {
-   "src": "media/photos/001511350034-copy.jpg",
-   "caption": "001511350034"
+   "src": "media/photos/film/001511350034-copy.jpg",
+   "caption": "001511350034",
+   "group": "film"
   },
   {
-   "src": "media/photos/001511350035-copy.jpg",
-   "caption": "001511350035"
+   "src": "media/photos/film/001511350035-copy.jpg",
+   "caption": "001511350035",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542170002-copy.jpg",
-   "caption": "001542170002"
+   "src": "media/photos/film/001542170002-copy.jpg",
+   "caption": "001542170002",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542170003-copy.jpg",
-   "caption": "001542170003"
+   "src": "media/photos/film/001542170003-copy.jpg",
+   "caption": "001542170003",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542170004-copy.jpg",
-   "caption": "001542170004"
+   "src": "media/photos/film/001542170004-copy.jpg",
+   "caption": "001542170004",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542170005-copy.jpg",
-   "caption": "001542170005"
+   "src": "media/photos/film/001542170005-copy.jpg",
+   "caption": "001542170005",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542170007-copy.jpg",
-   "caption": "001542170007"
+   "src": "media/photos/film/001542170007-copy.jpg",
+   "caption": "001542170007",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542170008-copy.jpg",
-   "caption": "001542170008"
+   "src": "media/photos/film/001542170008-copy.jpg",
+   "caption": "001542170008",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542170011-copy.jpg",
-   "caption": "001542170011"
+   "src": "media/photos/film/001542170011-copy.jpg",
+   "caption": "001542170011",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542170019-copy.jpg",
-   "caption": "001542170019"
+   "src": "media/photos/film/001542170019-copy.jpg",
+   "caption": "001542170019",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542170020-copy.jpg",
-   "caption": "001542170020"
+   "src": "media/photos/film/001542170020-copy.jpg",
+   "caption": "001542170020",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542170022-copy.jpg",
-   "caption": "001542170022"
+   "src": "media/photos/film/001542170022-copy.jpg",
+   "caption": "001542170022",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542170023-copy.jpg",
-   "caption": "001542170023"
+   "src": "media/photos/film/001542170023-copy.jpg",
+   "caption": "001542170023",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542170024-copy.jpg",
-   "caption": "001542170024"
+   "src": "media/photos/film/001542170024-copy.jpg",
+   "caption": "001542170024",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542170029-copy.jpg",
-   "caption": "001542170029"
+   "src": "media/photos/film/001542170029-copy.jpg",
+   "caption": "001542170029",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542170030-copy.jpg",
-   "caption": "001542170030"
+   "src": "media/photos/film/001542170030-copy.jpg",
+   "caption": "001542170030",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542170031-copy.jpg",
-   "caption": "001542170031"
+   "src": "media/photos/film/001542170031-copy.jpg",
+   "caption": "001542170031",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542170034-copy.jpg",
-   "caption": "001542170034"
+   "src": "media/photos/film/001542170034-copy.jpg",
+   "caption": "001542170034",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542170035-copy.jpg",
-   "caption": "001542170035"
+   "src": "media/photos/film/001542170035-copy.jpg",
+   "caption": "001542170035",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542170036-copy.jpg",
-   "caption": "001542170036"
+   "src": "media/photos/film/001542170036-copy.jpg",
+   "caption": "001542170036",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542180001-copy.jpg",
-   "caption": "001542180001"
+   "src": "media/photos/film/001542180001-copy.jpg",
+   "caption": "001542180001",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542180002-copy.jpg",
-   "caption": "001542180002"
+   "src": "media/photos/film/001542180002-copy.jpg",
+   "caption": "001542180002",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542180003-copy.jpg",
-   "caption": "001542180003"
+   "src": "media/photos/film/001542180003-copy.jpg",
+   "caption": "001542180003",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542180004-copy.jpg",
-   "caption": "001542180004"
+   "src": "media/photos/film/001542180004-copy.jpg",
+   "caption": "001542180004",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542180005-copy.jpg",
-   "caption": "001542180005"
+   "src": "media/photos/film/001542180005-copy.jpg",
+   "caption": "001542180005",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542180007-copy.jpg",
-   "caption": "001542180007"
+   "src": "media/photos/film/001542180007-copy.jpg",
+   "caption": "001542180007",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542180011-copy.jpg",
-   "caption": "001542180011"
+   "src": "media/photos/film/001542180011-copy.jpg",
+   "caption": "001542180011",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542180015-copy.jpg",
-   "caption": "001542180015"
+   "src": "media/photos/film/001542180015-copy.jpg",
+   "caption": "001542180015",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542180016-copy.jpg",
-   "caption": "001542180016"
+   "src": "media/photos/film/001542180016-copy.jpg",
+   "caption": "001542180016",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542180017-copy.jpg",
-   "caption": "001542180017"
+   "src": "media/photos/film/001542180017-copy.jpg",
+   "caption": "001542180017",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542180018-copy.jpg",
-   "caption": "001542180018"
+   "src": "media/photos/film/001542180018-copy.jpg",
+   "caption": "001542180018",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542180020-copy.jpg",
-   "caption": "001542180020"
+   "src": "media/photos/film/001542180020-copy.jpg",
+   "caption": "001542180020",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542180022-copy.jpg",
-   "caption": "001542180022"
+   "src": "media/photos/film/001542180022-copy.jpg",
+   "caption": "001542180022",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542180023-copy.jpg",
-   "caption": "001542180023"
+   "src": "media/photos/film/001542180023-copy.jpg",
+   "caption": "001542180023",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542180024-copy.jpg",
-   "caption": "001542180024"
+   "src": "media/photos/film/001542180024-copy.jpg",
+   "caption": "001542180024",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542180027-copy.jpg",
-   "caption": "001542180027"
+   "src": "media/photos/film/001542180027-copy.jpg",
+   "caption": "001542180027",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542180029-copy.jpg",
-   "caption": "001542180029"
+   "src": "media/photos/film/001542180029-copy.jpg",
+   "caption": "001542180029",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542180030-copy.jpg",
-   "caption": "001542180030"
+   "src": "media/photos/film/001542180030-copy.jpg",
+   "caption": "001542180030",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542180033-copy.jpg",
-   "caption": "001542180033"
+   "src": "media/photos/film/001542180033-copy.jpg",
+   "caption": "001542180033",
+   "group": "film"
   },
   {
-   "src": "media/photos/001542180036-copy.jpg",
-   "caption": "001542180036"
+   "src": "media/photos/film/001542180036-copy.jpg",
+   "caption": "001542180036",
+   "group": "film"
   },
   {
-   "src": "media/photos/001555970001-copy.jpg",
-   "caption": "001555970001"
+   "src": "media/photos/film/001555970001-copy.jpg",
+   "caption": "001555970001",
+   "group": "film"
   },
   {
-   "src": "media/photos/001555970002-copy.jpg",
-   "caption": "001555970002"
+   "src": "media/photos/film/001555970002-copy.jpg",
+   "caption": "001555970002",
+   "group": "film"
   },
   {
-   "src": "media/photos/001555970003-copy.jpg",
-   "caption": "001555970003"
+   "src": "media/photos/film/001555970003-copy.jpg",
+   "caption": "001555970003",
+   "group": "film"
   },
   {
-   "src": "media/photos/001555970004-copy.jpg",
-   "caption": "001555970004"
+   "src": "media/photos/film/001555970004-copy.jpg",
+   "caption": "001555970004",
+   "group": "film"
   },
   {
-   "src": "media/photos/001555970006-copy.jpg",
-   "caption": "001555970006"
+   "src": "media/photos/film/001555970006-copy.jpg",
+   "caption": "001555970006",
+   "group": "film"
   },
   {
-   "src": "media/photos/001555970007-copy.jpg",
-   "caption": "001555970007"
+   "src": "media/photos/film/001555970007-copy.jpg",
+   "caption": "001555970007",
+   "group": "film"
   },
   {
-   "src": "media/photos/001555970008-copy.jpg",
-   "caption": "001555970008"
+   "src": "media/photos/film/001555970008-copy.jpg",
+   "caption": "001555970008",
+   "group": "film"
   },
   {
-   "src": "media/photos/001555970010-copy.jpg",
-   "caption": "001555970010"
+   "src": "media/photos/film/001555970010-copy.jpg",
+   "caption": "001555970010",
+   "group": "film"
   },
   {
-   "src": "media/photos/001555970011-copy.jpg",
-   "caption": "001555970011"
+   "src": "media/photos/film/001555970011-copy.jpg",
+   "caption": "001555970011",
+   "group": "film"
   },
   {
-   "src": "media/photos/001555970012-copy.jpg",
-   "caption": "001555970012"
+   "src": "media/photos/film/001555970012-copy.jpg",
+   "caption": "001555970012",
+   "group": "film"
   },
   {
-   "src": "media/photos/001555970013-copy.jpg",
-   "caption": "001555970013"
+   "src": "media/photos/film/001555970013-copy.jpg",
+   "caption": "001555970013",
+   "group": "film"
   },
   {
-   "src": "media/photos/001555970014-copy.jpg",
-   "caption": "001555970014"
+   "src": "media/photos/film/001555970014-copy.jpg",
+   "caption": "001555970014",
+   "group": "film"
   },
   {
-   "src": "media/photos/001555970017-copy.jpg",
-   "caption": "001555970017"
+   "src": "media/photos/film/001555970017-copy.jpg",
+   "caption": "001555970017",
+   "group": "film"
   },
   {
-   "src": "media/photos/001555970020-copy.jpg",
-   "caption": "001555970020"
+   "src": "media/photos/film/001555970020-copy.jpg",
+   "caption": "001555970020",
+   "group": "film"
   },
   {
-   "src": "media/photos/001555970024-copy.jpg",
-   "caption": "001555970024"
+   "src": "media/photos/film/001555970024-copy.jpg",
+   "caption": "001555970024",
+   "group": "film"
   },
   {
-   "src": "media/photos/001555970025-copy.jpg",
-   "caption": "001555970025"
+   "src": "media/photos/film/001555970025-copy.jpg",
+   "caption": "001555970025",
+   "group": "film"
   },
   {
-   "src": "media/photos/001555970026-copy.jpg",
-   "caption": "001555970026"
+   "src": "media/photos/film/001555970026-copy.jpg",
+   "caption": "001555970026",
+   "group": "film"
   },
   {
-   "src": "media/photos/001555970027-copy.jpg",
-   "caption": "001555970027"
+   "src": "media/photos/film/001555970027-copy.jpg",
+   "caption": "001555970027",
+   "group": "film"
   },
   {
-   "src": "media/photos/001555970030-copy.jpg",
-   "caption": "001555970030"
+   "src": "media/photos/film/001555970030-copy.jpg",
+   "caption": "001555970030",
+   "group": "film"
   },
   {
-   "src": "media/photos/001555970032-copy.jpg",
-   "caption": "001555970032"
+   "src": "media/photos/film/001555970032-copy.jpg",
+   "caption": "001555970032",
+   "group": "film"
   },
   {
-   "src": "media/photos/001555970033-copy.jpg",
-   "caption": "001555970033"
+   "src": "media/photos/film/001555970033-copy.jpg",
+   "caption": "001555970033",
+   "group": "film"
   },
   {
-   "src": "media/photos/001555970034-copy.jpg",
-   "caption": "001555970034"
+   "src": "media/photos/film/001555970034-copy.jpg",
+   "caption": "001555970034",
+   "group": "film"
   },
   {
-   "src": "media/photos/001555970037-copy.jpg",
-   "caption": "001555970037"
+   "src": "media/photos/film/001555970037-copy.jpg",
+   "caption": "001555970037",
+   "group": "film"
   },
   {
-   "src": "media/photos/001598900005-copy.jpg",
-   "caption": "001598900005"
+   "src": "media/photos/film/001598900005-copy.jpg",
+   "caption": "001598900005",
+   "group": "film"
   },
   {
-   "src": "media/photos/001598900006-copy.jpg",
-   "caption": "001598900006"
+   "src": "media/photos/film/001598900006-copy.jpg",
+   "caption": "001598900006",
+   "group": "film"
   },
   {
-   "src": "media/photos/001598900013-copy.jpg",
-   "caption": "001598900013"
+   "src": "media/photos/film/001598900013-copy.jpg",
+   "caption": "001598900013",
+   "group": "film"
   },
   {
-   "src": "media/photos/001598900015-copy.jpg",
-   "caption": "001598900015"
+   "src": "media/photos/film/001598900015-copy.jpg",
+   "caption": "001598900015",
+   "group": "film"
   },
   {
-   "src": "media/photos/001598900016-copy.jpg",
-   "caption": "001598900016"
+   "src": "media/photos/film/001598900016-copy.jpg",
+   "caption": "001598900016",
+   "group": "film"
   },
   {
-   "src": "media/photos/001598900017-copy.jpg",
-   "caption": "001598900017"
+   "src": "media/photos/film/001598900017-copy.jpg",
+   "caption": "001598900017",
+   "group": "film"
   },
   {
-   "src": "media/photos/001598900018-copy.jpg",
-   "caption": "001598900018"
+   "src": "media/photos/film/001598900018-copy.jpg",
+   "caption": "001598900018",
+   "group": "film"
   },
   {
-   "src": "media/photos/001598900019-copy.jpg",
-   "caption": "001598900019"
+   "src": "media/photos/film/001598900019-copy.jpg",
+   "caption": "001598900019",
+   "group": "film"
   },
   {
-   "src": "media/photos/001598900020-copy.jpg",
-   "caption": "001598900020"
+   "src": "media/photos/film/001598900020-copy.jpg",
+   "caption": "001598900020",
+   "group": "film"
   },
   {
-   "src": "media/photos/001598900021-copy.jpg",
-   "caption": "001598900021"
+   "src": "media/photos/film/001598900021-copy.jpg",
+   "caption": "001598900021",
+   "group": "film"
   },
   {
-   "src": "media/photos/001598900022-copy.jpg",
-   "caption": "001598900022"
+   "src": "media/photos/film/001598900022-copy.jpg",
+   "caption": "001598900022",
+   "group": "film"
   },
   {
-   "src": "media/photos/001598900024-copy.jpg",
-   "caption": "001598900024"
+   "src": "media/photos/film/001598900024-copy.jpg",
+   "caption": "001598900024",
+   "group": "film"
   },
   {
-   "src": "media/photos/001598900025-copy.jpg",
-   "caption": "001598900025"
+   "src": "media/photos/film/001598900025-copy.jpg",
+   "caption": "001598900025",
+   "group": "film"
   },
   {
-   "src": "media/photos/001598900026-copy.jpg",
-   "caption": "001598900026"
+   "src": "media/photos/film/001598900026-copy.jpg",
+   "caption": "001598900026",
+   "group": "film"
   },
   {
-   "src": "media/photos/001598900028-copy.jpg",
-   "caption": "001598900028"
+   "src": "media/photos/film/001598900028-copy.jpg",
+   "caption": "001598900028",
+   "group": "film"
   },
   {
-   "src": "media/photos/001598900029-copy.jpg",
-   "caption": "001598900029"
+   "src": "media/photos/film/001598900029-copy.jpg",
+   "caption": "001598900029",
+   "group": "film"
   },
   {
-   "src": "media/photos/001598900033-copy.jpg",
-   "caption": "001598900033"
+   "src": "media/photos/film/001598900033-copy.jpg",
+   "caption": "001598900033",
+   "group": "film"
   },
   {
-   "src": "media/photos/001598900037-copy.jpg",
-   "caption": "001598900037"
+   "src": "media/photos/film/001598900037-copy.jpg",
+   "caption": "001598900037",
+   "group": "film"
   },
   {
-   "src": "media/photos/09-07-2025-0003-11-copy.jpg",
-   "caption": "09_07_2025_0003-11"
+   "src": "media/photos/film/09-07-2025-0003-11-copy.jpg",
+   "caption": "09_07_2025_0003-11",
+   "group": "film"
   },
   {
-   "src": "media/photos/09-07-2025-0006-11-copy.jpg",
-   "caption": "09_07_2025_0006-11"
+   "src": "media/photos/film/09-07-2025-0006-11-copy.jpg",
+   "caption": "09_07_2025_0006-11",
+   "group": "film"
   },
   {
-   "src": "media/photos/09-07-2025-0008-11-copy.jpg",
-   "caption": "09_07_2025_0008-11"
+   "src": "media/photos/film/09-07-2025-0008-11-copy.jpg",
+   "caption": "09_07_2025_0008-11",
+   "group": "film"
   },
   {
-   "src": "media/photos/09-07-2025-0025-10-copy.jpg",
-   "caption": "09_07_2025_0025-10"
+   "src": "media/photos/film/09-07-2025-0025-10-copy.jpg",
+   "caption": "09_07_2025_0025-10",
+   "group": "film"
   },
   {
-   "src": "media/photos/09-07-2025-0028-10-copy.jpg",
-   "caption": "09_07_2025_0028-10"
+   "src": "media/photos/film/09-07-2025-0028-10-copy.jpg",
+   "caption": "09_07_2025_0028-10",
+   "group": "film"
   },
   {
-   "src": "media/photos/09-07-2025-0044-5-copy.jpg",
-   "caption": "09_07_2025_0044-5"
+   "src": "media/photos/film/09-07-2025-0044-5-copy.jpg",
+   "caption": "09_07_2025_0044-5",
+   "group": "film"
   },
   {
-   "src": "media/photos/09-07-2025-0046-5-copy.jpg",
-   "caption": "09_07_2025_0046-5"
+   "src": "media/photos/film/09-07-2025-0046-5-copy.jpg",
+   "caption": "09_07_2025_0046-5",
+   "group": "film"
   },
   {
-   "src": "media/photos/09-07-2025-0053-5-copy.jpg",
-   "caption": "09_07_2025_0053-5"
+   "src": "media/photos/film/09-07-2025-0053-5-copy.jpg",
+   "caption": "09_07_2025_0053-5",
+   "group": "film"
   },
   {
-   "src": "media/photos/09-07-2025-0055-5-copy.jpg",
-   "caption": "09_07_2025_0055-5"
+   "src": "media/photos/film/09-07-2025-0055-5-copy.jpg",
+   "caption": "09_07_2025_0055-5",
+   "group": "film"
   },
   {
-   "src": "media/photos/09-07-2025-0056-5-copy.jpg",
-   "caption": "09_07_2025_0056-5"
+   "src": "media/photos/film/09-07-2025-0056-5-copy.jpg",
+   "caption": "09_07_2025_0056-5",
+   "group": "film"
   },
   {
-   "src": "media/photos/09-07-2025-0059-5-copy.jpg",
-   "caption": "09_07_2025_0059-5"
+   "src": "media/photos/film/09-07-2025-0059-5-copy.jpg",
+   "caption": "09_07_2025_0059-5",
+   "group": "film"
   },
   {
-   "src": "media/photos/09-07-2025-0061-5-copy.jpg",
-   "caption": "09_07_2025_0061-5"
+   "src": "media/photos/film/09-07-2025-0061-5-copy.jpg",
+   "caption": "09_07_2025_0061-5",
+   "group": "film"
   },
   {
-   "src": "media/photos/09-07-2025-0062-5-copy.jpg",
-   "caption": "09_07_2025_0062-5"
+   "src": "media/photos/film/09-07-2025-0062-5-copy.jpg",
+   "caption": "09_07_2025_0062-5",
+   "group": "film"
   },
   {
-   "src": "media/photos/09-07-2025-0065-5-copy.jpg",
-   "caption": "09_07_2025_0065-5"
+   "src": "media/photos/film/09-07-2025-0065-5-copy.jpg",
+   "caption": "09_07_2025_0065-5",
+   "group": "film"
   },
   {
-   "src": "media/photos/09-07-2025-0067-5-copy.jpg",
-   "caption": "09_07_2025_0067-5"
+   "src": "media/photos/film/09-07-2025-0067-5-copy.jpg",
+   "caption": "09_07_2025_0067-5",
+   "group": "film"
   },
   {
-   "src": "media/photos/09-07-2025-0068-5-copy.jpg",
-   "caption": "09_07_2025_0068-5"
+   "src": "media/photos/film/09-07-2025-0068-5-copy.jpg",
+   "caption": "09_07_2025_0068-5",
+   "group": "film"
   },
   {
-   "src": "media/photos/09-07-2025-0074-4-copy.jpg",
-   "caption": "09_07_2025_0074-4"
+   "src": "media/photos/film/09-07-2025-0074-4-copy.jpg",
+   "caption": "09_07_2025_0074-4",
+   "group": "film"
   },
   {
-   "src": "media/photos/09-07-2025-0075-3-copy.jpg",
-   "caption": "09_07_2025_0075-3"
+   "src": "media/photos/film/09-07-2025-0075-3-copy.jpg",
+   "caption": "09_07_2025_0075-3",
+   "group": "film"
   },
   {
-   "src": "media/photos/09-07-2025-0076-3-copy.jpg",
-   "caption": "09_07_2025_0076-3"
+   "src": "media/photos/film/09-07-2025-0076-3-copy.jpg",
+   "caption": "09_07_2025_0076-3",
+   "group": "film"
   },
   {
-   "src": "media/photos/09-07-2025-0078-2-copy.jpg",
-   "caption": "09_07_2025_0078-2"
+   "src": "media/photos/film/09-07-2025-0078-2-copy.jpg",
+   "caption": "09_07_2025_0078-2",
+   "group": "film"
   },
   {
-   "src": "media/photos/dsc01389.jpg",
-   "caption": "DSC01389"
+   "src": "media/photos/camcorder/dsc01389.jpg",
+   "caption": "DSC01389",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01398.jpg",
-   "caption": "DSC01398"
+   "src": "media/photos/camcorder/dsc01398.jpg",
+   "caption": "DSC01398",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01400.jpg",
-   "caption": "DSC01400"
+   "src": "media/photos/camcorder/dsc01400.jpg",
+   "caption": "DSC01400",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01428.jpg",
-   "caption": "DSC01428"
+   "src": "media/photos/camcorder/dsc01428.jpg",
+   "caption": "DSC01428",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01438.jpg",
-   "caption": "DSC01438"
+   "src": "media/photos/camcorder/dsc01438.jpg",
+   "caption": "DSC01438",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01444.jpg",
-   "caption": "DSC01444"
+   "src": "media/photos/camcorder/dsc01444.jpg",
+   "caption": "DSC01444",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01461.jpg",
-   "caption": "DSC01461"
+   "src": "media/photos/camcorder/dsc01461.jpg",
+   "caption": "DSC01461",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01502.jpg",
-   "caption": "DSC01502"
+   "src": "media/photos/camcorder/dsc01502.jpg",
+   "caption": "DSC01502",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01533.jpg",
-   "caption": "DSC01533"
+   "src": "media/photos/camcorder/dsc01533.jpg",
+   "caption": "DSC01533",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01537.jpg",
-   "caption": "DSC01537"
+   "src": "media/photos/camcorder/dsc01537.jpg",
+   "caption": "DSC01537",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01549.jpg",
-   "caption": "DSC01549"
+   "src": "media/photos/camcorder/dsc01549.jpg",
+   "caption": "DSC01549",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01589.jpg",
-   "caption": "DSC01589"
+   "src": "media/photos/camcorder/dsc01589.jpg",
+   "caption": "DSC01589",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01613.jpg",
-   "caption": "DSC01613"
+   "src": "media/photos/camcorder/dsc01613.jpg",
+   "caption": "DSC01613",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01614.jpg",
-   "caption": "DSC01614"
+   "src": "media/photos/camcorder/dsc01614.jpg",
+   "caption": "DSC01614",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01696.jpg",
-   "caption": "DSC01696"
+   "src": "media/photos/camcorder/dsc01696.jpg",
+   "caption": "DSC01696",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01835.jpg",
-   "caption": "DSC01835"
+   "src": "media/photos/camcorder/dsc01835.jpg",
+   "caption": "DSC01835",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01842.jpg",
-   "caption": "DSC01842"
+   "src": "media/photos/camcorder/dsc01842.jpg",
+   "caption": "DSC01842",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01850.jpg",
-   "caption": "DSC01850"
+   "src": "media/photos/camcorder/dsc01850.jpg",
+   "caption": "DSC01850",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01852.jpg",
-   "caption": "DSC01852"
+   "src": "media/photos/camcorder/dsc01852.jpg",
+   "caption": "DSC01852",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01853.jpg",
-   "caption": "DSC01853"
+   "src": "media/photos/camcorder/dsc01853.jpg",
+   "caption": "DSC01853",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01856.jpg",
-   "caption": "DSC01856"
+   "src": "media/photos/camcorder/dsc01856.jpg",
+   "caption": "DSC01856",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01923.jpg",
-   "caption": "DSC01923"
+   "src": "media/photos/camcorder/dsc01923.jpg",
+   "caption": "DSC01923",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01944.jpg",
-   "caption": "DSC01944"
+   "src": "media/photos/camcorder/dsc01944.jpg",
+   "caption": "DSC01944",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01947.jpg",
-   "caption": "DSC01947"
+   "src": "media/photos/camcorder/dsc01947.jpg",
+   "caption": "DSC01947",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01951.jpg",
-   "caption": "DSC01951"
+   "src": "media/photos/camcorder/dsc01951.jpg",
+   "caption": "DSC01951",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01967.jpg",
-   "caption": "DSC01967"
+   "src": "media/photos/camcorder/dsc01967.jpg",
+   "caption": "DSC01967",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01981.jpg",
-   "caption": "DSC01981"
+   "src": "media/photos/camcorder/dsc01981.jpg",
+   "caption": "DSC01981",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01982.jpg",
-   "caption": "DSC01982"
+   "src": "media/photos/camcorder/dsc01982.jpg",
+   "caption": "DSC01982",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01985.jpg",
-   "caption": "DSC01985"
+   "src": "media/photos/camcorder/dsc01985.jpg",
+   "caption": "DSC01985",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01990.jpg",
-   "caption": "DSC01990"
+   "src": "media/photos/camcorder/dsc01990.jpg",
+   "caption": "DSC01990",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01991.jpg",
-   "caption": "DSC01991"
+   "src": "media/photos/camcorder/dsc01991.jpg",
+   "caption": "DSC01991",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01992.jpg",
-   "caption": "DSC01992"
+   "src": "media/photos/camcorder/dsc01992.jpg",
+   "caption": "DSC01992",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01993.jpg",
-   "caption": "DSC01993"
+   "src": "media/photos/camcorder/dsc01993.jpg",
+   "caption": "DSC01993",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc01999.jpg",
-   "caption": "DSC01999"
+   "src": "media/photos/camcorder/dsc01999.jpg",
+   "caption": "DSC01999",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/dsc02004.jpg",
-   "caption": "DSC02004"
+   "src": "media/photos/camcorder/dsc02004.jpg",
+   "caption": "DSC02004",
+   "group": "camcorder"
   },
   {
-   "src": "media/photos/img-4396.jpg",
-   "caption": "IMG_4396"
+   "src": "media/photos/iphone/img-4396.jpg",
+   "caption": "IMG_4396",
+   "group": "iphone"
   },
   {
-   "src": "media/photos/img-4426.jpg",
-   "caption": "IMG_4426"
+   "src": "media/photos/iphone/img-4426.jpg",
+   "caption": "IMG_4426",
+   "group": "iphone"
   }
  ],
  "videos": [
   {
-   "src": "media/videos/img-0717.mp4",
-   "poster": "media/videos/img-0717.jpg",
-   "caption": "IMG_0717"
+   "src": "media/videos/camcorder/boss-josh-2.mp4",
+   "poster": "media/videos/camcorder/boss-josh-2.jpg",
+   "caption": "boss josh 2",
+   "group": "camcorder"
   },
   {
-   "src": "media/videos/img-0853.mp4",
-   "poster": "media/videos/img-0853.jpg",
-   "caption": "IMG_0853"
+   "src": "media/videos/camcorder/friday-pep-rally-5.mp4",
+   "poster": "media/videos/camcorder/friday-pep-rally-5.jpg",
+   "caption": "friday pep rally 5",
+   "group": "camcorder"
   },
   {
-   "src": "media/videos/img-0854.mp4",
-   "poster": "media/videos/img-0854.jpg",
-   "caption": "IMG_0854"
+   "src": "media/videos/camcorder/friday-pep-rally-6.mp4",
+   "poster": "media/videos/camcorder/friday-pep-rally-6.jpg",
+   "caption": "friday pep rally 6",
+   "group": "camcorder"
   },
   {
-   "src": "media/videos/img-0857.mp4",
-   "poster": "media/videos/img-0857.jpg",
-   "caption": "IMG_0857"
+   "src": "media/videos/camcorder/josh-turtle-1.mp4",
+   "poster": "media/videos/camcorder/josh-turtle-1.jpg",
+   "caption": "josh turtle 1",
+   "group": "camcorder"
   },
   {
-   "src": "media/videos/img-0858.mp4",
-   "poster": "media/videos/img-0858.jpg",
-   "caption": "IMG_0858"
+   "src": "media/videos/camcorder/josh-turtle-3.mp4",
+   "poster": "media/videos/camcorder/josh-turtle-3.jpg",
+   "caption": "josh turtle 3",
+   "group": "camcorder"
   },
   {
-   "src": "media/videos/img-1367.mp4",
-   "poster": "media/videos/img-1367.jpg",
-   "caption": "IMG_1367"
+   "src": "media/videos/camcorder/josh-turtle-4.mp4",
+   "poster": "media/videos/camcorder/josh-turtle-4.jpg",
+   "caption": "josh turtle 4",
+   "group": "camcorder"
   },
   {
-   "src": "media/videos/img-2421.mp4",
-   "poster": "media/videos/img-2421.jpg",
-   "caption": "IMG_2421"
+   "src": "media/videos/camcorder/m2u00404.mp4",
+   "poster": "media/videos/camcorder/m2u00404.jpg",
+   "caption": "M2U00404",
+   "group": "camcorder"
   },
   {
-   "src": "media/videos/img-2422.mp4",
-   "poster": "media/videos/img-2422.jpg",
-   "caption": "IMG_2422"
+   "src": "media/videos/camcorder/m2u00434.mp4",
+   "poster": "media/videos/camcorder/m2u00434.jpg",
+   "caption": "M2U00434",
+   "group": "camcorder"
   },
   {
-   "src": "media/videos/img-2423.mp4",
-   "poster": "media/videos/img-2423.jpg",
-   "caption": "IMG_2423"
+   "src": "media/videos/camcorder/m2u00438.mp4",
+   "poster": "media/videos/camcorder/m2u00438.jpg",
+   "caption": "M2U00438",
+   "group": "camcorder"
   },
   {
-   "src": "media/videos/img-2427.mp4",
-   "poster": "media/videos/img-2427.jpg",
-   "caption": "IMG_2427"
+   "src": "media/videos/camcorder/m2u00463.mp4",
+   "poster": "media/videos/camcorder/m2u00463.jpg",
+   "caption": "M2U00463",
+   "group": "camcorder"
   },
   {
-   "src": "media/videos/img-2430.mp4",
-   "poster": "media/videos/img-2430.jpg",
-   "caption": "IMG_2430"
+   "src": "media/videos/camcorder/m2u00577.mp4",
+   "poster": "media/videos/camcorder/m2u00577.jpg",
+   "caption": "M2U00577",
+   "group": "camcorder"
   },
   {
-   "src": "media/videos/img-2431.mp4",
-   "poster": "media/videos/img-2431.jpg",
-   "caption": "IMG_2431"
+   "src": "media/videos/iphone/img-0717.mp4",
+   "poster": "media/videos/iphone/img-0717.jpg",
+   "caption": "IMG_0717",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-2639.mp4",
-   "poster": "media/videos/img-2639.jpg",
-   "caption": "IMG_2639"
+   "src": "media/videos/iphone/img-0853.mp4",
+   "poster": "media/videos/iphone/img-0853.jpg",
+   "caption": "IMG_0853",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-2765.mp4",
-   "poster": "media/videos/img-2765.jpg",
-   "caption": "IMG_2765"
+   "src": "media/videos/iphone/img-0854.mp4",
+   "poster": "media/videos/iphone/img-0854.jpg",
+   "caption": "IMG_0854",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-3057.mp4",
-   "poster": "media/videos/img-3057.jpg",
-   "caption": "IMG_3057"
+   "src": "media/videos/iphone/img-0857.mp4",
+   "poster": "media/videos/iphone/img-0857.jpg",
+   "caption": "IMG_0857",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-3984.mp4",
-   "poster": "media/videos/img-3984.jpg",
-   "caption": "IMG_3984"
+   "src": "media/videos/iphone/img-0858.mp4",
+   "poster": "media/videos/iphone/img-0858.jpg",
+   "caption": "IMG_0858",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-4698.mp4",
-   "poster": "media/videos/img-4698.jpg",
-   "caption": "IMG_4698"
+   "src": "media/videos/iphone/img-1367.mp4",
+   "poster": "media/videos/iphone/img-1367.jpg",
+   "caption": "IMG_1367",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-4797.mp4",
-   "poster": "media/videos/img-4797.jpg",
-   "caption": "IMG_4797"
+   "src": "media/videos/iphone/img-2421.mp4",
+   "poster": "media/videos/iphone/img-2421.jpg",
+   "caption": "IMG_2421",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-4953.mp4",
-   "poster": "media/videos/img-4953.jpg",
-   "caption": "IMG_4953"
+   "src": "media/videos/iphone/img-2422.mp4",
+   "poster": "media/videos/iphone/img-2422.jpg",
+   "caption": "IMG_2422",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-5480.mp4",
-   "poster": "media/videos/img-5480.jpg",
-   "caption": "IMG_5480"
+   "src": "media/videos/iphone/img-2423.mp4",
+   "poster": "media/videos/iphone/img-2423.jpg",
+   "caption": "IMG_2423",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-5725.mp4",
-   "poster": "media/videos/img-5725.jpg",
-   "caption": "IMG_5725"
+   "src": "media/videos/iphone/img-2427.mp4",
+   "poster": "media/videos/iphone/img-2427.jpg",
+   "caption": "IMG_2427",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-5726.mp4",
-   "poster": "media/videos/img-5726.jpg",
-   "caption": "IMG_5726"
+   "src": "media/videos/iphone/img-2430.mp4",
+   "poster": "media/videos/iphone/img-2430.jpg",
+   "caption": "IMG_2430",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-5763.mp4",
-   "poster": "media/videos/img-5763.jpg",
-   "caption": "IMG_5763"
+   "src": "media/videos/iphone/img-2431.mp4",
+   "poster": "media/videos/iphone/img-2431.jpg",
+   "caption": "IMG_2431",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-5884.mp4",
-   "poster": "media/videos/img-5884.jpg",
-   "caption": "IMG_5884"
+   "src": "media/videos/iphone/img-2639.mp4",
+   "poster": "media/videos/iphone/img-2639.jpg",
+   "caption": "IMG_2639",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-6665.mp4",
-   "poster": "media/videos/img-6665.jpg",
-   "caption": "IMG_6665"
+   "src": "media/videos/iphone/img-2765.mp4",
+   "poster": "media/videos/iphone/img-2765.jpg",
+   "caption": "IMG_2765",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-6666.mp4",
-   "poster": "media/videos/img-6666.jpg",
-   "caption": "IMG_6666"
+   "src": "media/videos/iphone/img-3057.mp4",
+   "poster": "media/videos/iphone/img-3057.jpg",
+   "caption": "IMG_3057",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-6676.mp4",
-   "poster": "media/videos/img-6676.jpg",
-   "caption": "IMG_6676"
+   "src": "media/videos/iphone/img-3984.mp4",
+   "poster": "media/videos/iphone/img-3984.jpg",
+   "caption": "IMG_3984",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-6678.mp4",
-   "poster": "media/videos/img-6678.jpg",
-   "caption": "IMG_6678"
+   "src": "media/videos/iphone/img-4698.mp4",
+   "poster": "media/videos/iphone/img-4698.jpg",
+   "caption": "IMG_4698",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-6680.mp4",
-   "poster": "media/videos/img-6680.jpg",
-   "caption": "IMG_6680"
+   "src": "media/videos/iphone/img-4797.mp4",
+   "poster": "media/videos/iphone/img-4797.jpg",
+   "caption": "IMG_4797",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-6681-2.mp4",
-   "poster": "media/videos/img-6681-2.jpg",
-   "caption": "IMG_6681 2"
+   "src": "media/videos/iphone/img-4953.mp4",
+   "poster": "media/videos/iphone/img-4953.jpg",
+   "caption": "IMG_4953",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-6681.mp4",
-   "poster": "media/videos/img-6681.jpg",
-   "caption": "IMG_6681"
+   "src": "media/videos/iphone/img-5480.mp4",
+   "poster": "media/videos/iphone/img-5480.jpg",
+   "caption": "IMG_5480",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-6682.mp4",
-   "poster": "media/videos/img-6682.jpg",
-   "caption": "IMG_6682"
+   "src": "media/videos/iphone/img-5725.mp4",
+   "poster": "media/videos/iphone/img-5725.jpg",
+   "caption": "IMG_5725",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-7114.mp4",
-   "poster": "media/videos/img-7114.jpg",
-   "caption": "IMG_7114"
+   "src": "media/videos/iphone/img-5726.mp4",
+   "poster": "media/videos/iphone/img-5726.jpg",
+   "caption": "IMG_5726",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-7115.mp4",
-   "poster": "media/videos/img-7115.jpg",
-   "caption": "IMG_7115"
+   "src": "media/videos/iphone/img-5763.mp4",
+   "poster": "media/videos/iphone/img-5763.jpg",
+   "caption": "IMG_5763",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-7465.mp4",
-   "poster": "media/videos/img-7465.jpg",
-   "caption": "IMG_7465"
+   "src": "media/videos/iphone/img-5884.mp4",
+   "poster": "media/videos/iphone/img-5884.jpg",
+   "caption": "IMG_5884",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-8368.mp4",
-   "poster": "media/videos/img-8368.jpg",
-   "caption": "IMG_8368"
+   "src": "media/videos/iphone/img-6665.mp4",
+   "poster": "media/videos/iphone/img-6665.jpg",
+   "caption": "IMG_6665",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/img-8768.mp4",
-   "poster": "media/videos/img-8768.jpg",
-   "caption": "IMG_8768"
+   "src": "media/videos/iphone/img-6666.mp4",
+   "poster": "media/videos/iphone/img-6666.jpg",
+   "caption": "IMG_6666",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/m2u00404.mp4",
-   "poster": "media/videos/m2u00404.jpg",
-   "caption": "M2U00404"
+   "src": "media/videos/iphone/img-6676.mp4",
+   "poster": "media/videos/iphone/img-6676.jpg",
+   "caption": "IMG_6676",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/m2u00434.mp4",
-   "poster": "media/videos/m2u00434.jpg",
-   "caption": "M2U00434"
+   "src": "media/videos/iphone/img-6678.mp4",
+   "poster": "media/videos/iphone/img-6678.jpg",
+   "caption": "IMG_6678",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/m2u00438.mp4",
-   "poster": "media/videos/m2u00438.jpg",
-   "caption": "M2U00438"
+   "src": "media/videos/iphone/img-6680.mp4",
+   "poster": "media/videos/iphone/img-6680.jpg",
+   "caption": "IMG_6680",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/m2u00463.mp4",
-   "poster": "media/videos/m2u00463.jpg",
-   "caption": "M2U00463"
+   "src": "media/videos/iphone/img-6681.mp4",
+   "poster": "media/videos/iphone/img-6681.jpg",
+   "caption": "IMG_6681",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/m2u00577.mp4",
-   "poster": "media/videos/m2u00577.jpg",
-   "caption": "M2U00577"
+   "src": "media/videos/iphone/img-6681-2.mp4",
+   "poster": "media/videos/iphone/img-6681-2.jpg",
+   "caption": "IMG_6681 2",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/screenrecording-06-07-2026-18-50-54-1.mp4",
-   "poster": "media/videos/screenrecording-06-07-2026-18-50-54-1.jpg",
-   "caption": "ScreenRecording_06-07-2026 18-50-54_1"
+   "src": "media/videos/iphone/img-6682.mp4",
+   "poster": "media/videos/iphone/img-6682.jpg",
+   "caption": "IMG_6682",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/boss-josh-2.mp4",
-   "poster": "media/videos/boss-josh-2.jpg",
-   "caption": "boss josh 2"
+   "src": "media/videos/iphone/img-7114.mp4",
+   "poster": "media/videos/iphone/img-7114.jpg",
+   "caption": "IMG_7114",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/friday-pep-rally-5.mp4",
-   "poster": "media/videos/friday-pep-rally-5.jpg",
-   "caption": "friday pep rally 5"
+   "src": "media/videos/iphone/img-7115.mp4",
+   "poster": "media/videos/iphone/img-7115.jpg",
+   "caption": "IMG_7115",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/friday-pep-rally-6.mp4",
-   "poster": "media/videos/friday-pep-rally-6.jpg",
-   "caption": "friday pep rally 6"
+   "src": "media/videos/iphone/img-7465.mp4",
+   "poster": "media/videos/iphone/img-7465.jpg",
+   "caption": "IMG_7465",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/josh-turtle-1.mp4",
-   "poster": "media/videos/josh-turtle-1.jpg",
-   "caption": "josh turtle 1"
+   "src": "media/videos/iphone/img-8368.mp4",
+   "poster": "media/videos/iphone/img-8368.jpg",
+   "caption": "IMG_8368",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/josh-turtle-3.mp4",
-   "poster": "media/videos/josh-turtle-3.jpg",
-   "caption": "josh turtle 3"
+   "src": "media/videos/iphone/img-8768.mp4",
+   "poster": "media/videos/iphone/img-8768.jpg",
+   "caption": "IMG_8768",
+   "group": "iphone"
   },
   {
-   "src": "media/videos/josh-turtle-4.mp4",
-   "poster": "media/videos/josh-turtle-4.jpg",
-   "caption": "josh turtle 4"
+   "src": "media/videos/iphone/screenrecording-06-07-2026-18-50-54-1.mp4",
+   "poster": "media/videos/iphone/screenrecording-06-07-2026-18-50-54-1.jpg",
+   "caption": "ScreenRecording_06-07-2026 18-50-54_1",
+   "group": "iphone"
   }
  ]
 };
