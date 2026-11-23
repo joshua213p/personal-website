@@ -584,6 +584,191 @@ window.MEDIA = {
  ],
  "videos": [
   {
+   "src": "media/videos/img-0717.mp4",
+   "poster": "media/videos/img-0717.jpg",
+   "caption": "IMG_0717"
+  },
+  {
+   "src": "media/videos/img-0853.mp4",
+   "poster": "media/videos/img-0853.jpg",
+   "caption": "IMG_0853"
+  },
+  {
+   "src": "media/videos/img-0854.mp4",
+   "poster": "media/videos/img-0854.jpg",
+   "caption": "IMG_0854"
+  },
+  {
+   "src": "media/videos/img-0857.mp4",
+   "poster": "media/videos/img-0857.jpg",
+   "caption": "IMG_0857"
+  },
+  {
+   "src": "media/videos/img-0858.mp4",
+   "poster": "media/videos/img-0858.jpg",
+   "caption": "IMG_0858"
+  },
+  {
+   "src": "media/videos/img-1367.mp4",
+   "poster": "media/videos/img-1367.jpg",
+   "caption": "IMG_1367"
+  },
+  {
+   "src": "media/videos/img-2421.mp4",
+   "poster": "media/videos/img-2421.jpg",
+   "caption": "IMG_2421"
+  },
+  {
+   "src": "media/videos/img-2422.mp4",
+   "poster": "media/videos/img-2422.jpg",
+   "caption": "IMG_2422"
+  },
+  {
+   "src": "media/videos/img-2423.mp4",
+   "poster": "media/videos/img-2423.jpg",
+   "caption": "IMG_2423"
+  },
+  {
+   "src": "media/videos/img-2427.mp4",
+   "poster": "media/videos/img-2427.jpg",
+   "caption": "IMG_2427"
+  },
+  {
+   "src": "media/videos/img-2430.mp4",
+   "poster": "media/videos/img-2430.jpg",
+   "caption": "IMG_2430"
+  },
+  {
+   "src": "media/videos/img-2431.mp4",
+   "poster": "media/videos/img-2431.jpg",
+   "caption": "IMG_2431"
+  },
+  {
+   "src": "media/videos/img-2639.mp4",
+   "poster": "media/videos/img-2639.jpg",
+   "caption": "IMG_2639"
+  },
+  {
+   "src": "media/videos/img-2765.mp4",
+   "poster": "media/videos/img-2765.jpg",
+   "caption": "IMG_2765"
+  },
+  {
+   "src": "media/videos/img-3057.mp4",
+   "poster": "media/videos/img-3057.jpg",
+   "caption": "IMG_3057"
+  },
+  {
+   "src": "media/videos/img-3984.mp4",
+   "poster": "media/videos/img-3984.jpg",
+   "caption": "IMG_3984"
+  },
+  {
+   "src": "media/videos/img-4698.mp4",
+   "poster": "media/videos/img-4698.jpg",
+   "caption": "IMG_4698"
+  },
+  {
+   "src": "media/videos/img-4797.mp4",
+   "poster": "media/videos/img-4797.jpg",
+   "caption": "IMG_4797"
+  },
+  {
+   "src": "media/videos/img-4953.mp4",
+   "poster": "media/videos/img-4953.jpg",
+   "caption": "IMG_4953"
+  },
+  {
+   "src": "media/videos/img-5480.mp4",
+   "poster": "media/videos/img-5480.jpg",
+   "caption": "IMG_5480"
+  },
+  {
+   "src": "media/videos/img-5725.mp4",
+   "poster": "media/videos/img-5725.jpg",
+   "caption": "IMG_5725"
+  },
+  {
+   "src": "media/videos/img-5726.mp4",
+   "poster": "media/videos/img-5726.jpg",
+   "caption": "IMG_5726"
+  },
+  {
+   "src": "media/videos/img-5763.mp4",
+   "poster": "media/videos/img-5763.jpg",
+   "caption": "IMG_5763"
+  },
+  {
+   "src": "media/videos/img-5884.mp4",
+   "poster": "media/videos/img-5884.jpg",
+   "caption": "IMG_5884"
+  },
+  {
+   "src": "media/videos/img-6665.mp4",
+   "poster": "media/videos/img-6665.jpg",
+   "caption": "IMG_6665"
+  },
+  {
+   "src": "media/videos/img-6666.mp4",
+   "poster": "media/videos/img-6666.jpg",
+   "caption": "IMG_6666"
+  },
+  {
+   "src": "media/videos/img-6676.mp4",
+   "poster": "media/videos/img-6676.jpg",
+   "caption": "IMG_6676"
+  },
+  {
+   "src": "media/videos/img-6678.mp4",
+   "poster": "media/videos/img-6678.jpg",
+   "caption": "IMG_6678"
+  },
+  {
+   "src": "media/videos/img-6680.mp4",
+   "poster": "media/videos/img-6680.jpg",
+   "caption": "IMG_6680"
+  },
+  {
+   "src": "media/videos/img-6681-2.mp4",
+   "poster": "media/videos/img-6681-2.jpg",
+   "caption": "IMG_6681 2"
+  },
+  {
+   "src": "media/videos/img-6681.mp4",
+   "poster": "media/videos/img-6681.jpg",
+   "caption": "IMG_6681"
+  },
+  {
+   "src": "media/videos/img-6682.mp4",
+   "poster": "media/videos/img-6682.jpg",
+   "caption": "IMG_6682"
+  },
+  {
+   "src": "media/videos/img-7114.mp4",
+   "poster": "media/videos/img-7114.jpg",
+   "caption": "IMG_7114"
+  },
+  {
+   "src": "media/videos/img-7115.mp4",
+   "poster": "media/videos/img-7115.jpg",
+   "caption": "IMG_7115"
+  },
+  {
+   "src": "media/videos/img-7465.mp4",
+   "poster": "media/videos/img-7465.jpg",
+   "caption": "IMG_7465"
+  },
+  {
+   "src": "media/videos/img-8368.mp4",
+   "poster": "media/videos/img-8368.jpg",
+   "caption": "IMG_8368"
+  },
+  {
+   "src": "media/videos/img-8768.mp4",
+   "poster": "media/videos/img-8768.jpg",
+   "caption": "IMG_8768"
+  },
+  {
    "src": "media/videos/m2u00404.mp4",
    "poster": "media/videos/m2u00404.jpg",
    "caption": "M2U00404"
@@ -607,6 +792,16 @@ window.MEDIA = {
    "src": "media/videos/m2u00493.mp4",
    "poster": "media/videos/m2u00493.jpg",
    "caption": "M2U00493"
+  },
+  {
+   "src": "media/videos/m2u00577.mp4",
+   "poster": "media/videos/m2u00577.jpg",
+   "caption": "M2U00577"
+  },
+  {
+   "src": "media/videos/screenrecording-06-07-2026-18-50-54-1.mp4",
+   "poster": "media/videos/screenrecording-06-07-2026-18-50-54-1.jpg",
+   "caption": "ScreenRecording_06-07-2026 18-50-54_1"
   },
   {
    "src": "media/videos/boss-josh-2.mp4",

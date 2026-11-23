@@ -18,11 +18,26 @@
     return;
   }
 
-  // shuffle (Fisher–Yates)
-  for (var i = data.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var t = data[i]; data[i] = data[j]; data[j] = t;
+  function shuffle(list) {                                  // Fisher–Yates
+    for (var i = list.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = list[i]; list[i] = list[j]; list[j] = t;
+    }
+    return list;
   }
+
+  // favourites (data-favorites on <body>, captions separated by |) always land
+  // at random spots within the first 5; everything else is fully shuffled
+  var favNames = (body.getAttribute("data-favorites") || "")
+    .split("|").map(function (s) { return s.trim().toLowerCase(); }).filter(Boolean);
+  var favs = shuffle(data.filter(function (m) { return favNames.indexOf(m.caption.toLowerCase()) !== -1; }));
+  data = shuffle(data.filter(function (m) { return favs.indexOf(m) === -1; }));
+
+  var firstSpots = [];
+  for (var s = 0; s < Math.max(5, favs.length); s++) firstSpots.push(s);
+  shuffle(firstSpots).slice(0, favs.length)
+    .sort(function (a, b) { return a - b; })
+    .forEach(function (spot, k) { data.splice(Math.min(spot, data.length), 0, favs[k]); });
 
   // ---------- build ----------
   var items = data.map(function (m) {
